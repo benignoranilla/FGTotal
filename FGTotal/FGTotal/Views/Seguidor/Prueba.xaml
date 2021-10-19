@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewModel="clr-namespace:eCommerce.ViewModel"
+             xmlns:viewModel1="clr-namespace:FGTotal.ViewModel"
+             x:Class="FGTotal.Views.Seguidor.Prueba"
+             BackgroundImageSource="fondo_config">
+
+    <ContentPage.BindingContext>
+        <viewModel1:DmViewModel></viewModel1:DmViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Button BackgroundColor="CornflowerBlue" TextColor="White" Command="{Binding ConsultaListaDmPostCommand}" Text="Post Request" FontAttributes="Bold"></Button>
+            <ListView Margin="10" ItemsSource="{Binding ListaDm}" HorizontalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding descripcionSeguidor}" TextColor="White" FontSize="Medium"></Label>
+                                <Label Text="{Binding descripcionJugador}" TextColor="White" FontSize="Small"></Label>
+                                <Label Text="{Binding mensaje}" TextColor="White" FontSize="Small"></Label>
+                                <Label Text="{Binding descripcionTipoDm}" TextColor="white" FontSize="Small"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
