@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:FGTotal.ViewModel"
+             x:Class="FGTotal.Views.Seguidor.Suscription"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="mainView"
+             BackgroundImageSource="fondo_config"
+             mc:Ignorable="d">
+
+    <ContentPage.BindingContext>
+        <viewmodels:ItemPreviewViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped_4"></ToolbarItem>
+        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_1"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+            <Image Source="FG_Total.png">
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <!--  BoxView  -->
+            <StackLayout>
+
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    WidthRequest="1450"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="StartAndExpand" />
+            </StackLayout>
+
+            <!-- Content -->
+            <ScrollView Margin="0,0,0,0">
+                <Frame
+                Padding="0"
+                BackgroundColor="Transparent"
+                BorderColor="WhiteSmoke"
+                CornerRadius="15"
+                HasShadow="False"
+                HeightRequest="710"
+                Margin="40,10,40,0"
+                HorizontalOptions="CenterAndExpand">
+                    <StackLayout Orientation="Vertical" Margin="0,0,0,40" HorizontalOptions="CenterAndExpand">
+                        <Label
+                                FontAttributes="Bold"
+                                Margin="20,20,40,40"
+                                FontSize="18"
+                                HorizontalOptions="Start"
+                                Text="TIPOS DE SUSCRIPCION:"
+                                TextColor="White"
+                                VerticalTextAlignment="Start">
+                        </Label>
+
+                        <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="WhiteSmoke"
+                                CornerRadius="15"
+                                HasShadow="False"
+                                HeightRequest="200"
+                                Margin="40,-30,20,10"
+                                HorizontalOptions="FillAndExpand">
+
+                            <StackLayout Orientation="Vertical">
+
+                                <Label
+                        
+                                Text="BÁSICA                                        $2.99"
+                                TextColor="Lime"
+                                Margin="10,5,0,0">
+
+                                </Label>
+
+                                <Label
+                        
+                                Text="!Disfruta de todo el contenido de Leao: fotos, videos, histories y lives del mes!."
+                                TextColor="White"
+                                Margin="10,5,10,20"
+                                HorizontalTextAlignment="center">
+
+                                </Label>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame
+                                Padding="0"
+                                BackgroundColor="DimGray"
+                                BorderColor="WhiteSmoke"
+                                CornerRadius="15"
+                                HasShadow="False"
+                                HeightRequest="220"
+                                Margin="40,0,20,0"
+                                HorizontalOptions="FillAndExpand">
+
+                            <StackLayout Orientation="Vertical">
+
+                                <Label
+                        
+                                Text="PREMIUM                                   $5.00"
+                                TextColor="Lime"
+                                Margin="10,5,0,0">
+
+                                </Label>
+
+                                <Label
+                        
+                                Text="!Disfruta de todo el contenido de Leao: fotos, videos, histories y lives del mes, además de 05 mensajes directos y 01 wish al mes!."
+                                TextColor="White"
+                                Margin="10,5,10,20"
+                                HorizontalTextAlignment="center">
+
+                                </Label>
+
+                            </StackLayout>
+                        </Frame>
+
+
+
+                        <Button 
+                                Margin="10,10,10,0"
+                                Text="Por favor, agregue una tarjeta de pago"
+                                BackgroundColor="Red"
+                                TextColor="White"
+                                HorizontalOptions="Center"
+                                HeightRequest="55"
+                                WidthRequest="280"
+                                CornerRadius="25"
+                                FontSize="12">
+                        </Button>
+
+
+                        <Label
+                                FontAttributes="Bold"
+                                Margin="20,10,0,0"
+                                FontSize="18"
+                                HorizontalOptions="Start"
+                                Text="MÉTODOS DE PAGO"
+                                TextColor="White"
+                                VerticalTextAlignment="Start">
+                        </Label>
+
+                        <Button 
+                                Margin="0,0,0,60"
+                                Text="MONEDERO (AGREGAR FONDOS)     $5.00"
+                                BackgroundColor="Transparent"
+                                BorderColor="White"
+                                TextColor="White"
+                                HorizontalOptions="Center"
+                                HeightRequest="35"
+                                WidthRequest="280"
+                                CornerRadius="25"
+                                FontSize="12">
+                        </Button>
+
+                        <Button 
+                                Margin="10,-60,10,40"
+                                Text="TARJETA (AGREGAR  NUEVA TARJETA $5.00"
+                                BackgroundColor="DimGray"   
+                                TextColor="White"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                HeightRequest="55"
+                                WidthRequest="280"
+                                CornerRadius="25"
+                                FontSize="12">
+                        </Button>
+
+                        <CheckBox>
+
+
+                        </CheckBox>
+
+                        <Button 
+                                Margin="0,-55,0,20"
+                                Text="Suscribir"
+                                BackgroundColor="Lime"
+                                TextColor="White"
+                                HorizontalOptions="Center"
+                                CornerRadius="25"
+                                HeightRequest="40"
+                                WidthRequest="170">
+                        </Button>
+
+
+
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+            <!--  Footer  -->
+            <StackLayout
+                Margin="0,0,0,10"
+                HeightRequest="60"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+                <!--  Franja  -->
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand" />
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HasShadow="True"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout
+                        Margin="0,0,0,0"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+
+                        <!--  Opción 1  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="HOME"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 2  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="FGPLAY_LOGO"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 3  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="search"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 4  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="PERFIL"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

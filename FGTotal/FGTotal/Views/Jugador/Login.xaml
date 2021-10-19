@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FGTotal.Views.Jugador.Login"
+             xmlns:local="clr-namespace:CustomRendererDemo"
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundImageSource="fondo_login.png">
+
+    <Grid Padding="20" RowSpacing="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image
+            Grid.Row="0"
+            Margin="0,50,0,0"
+            HorizontalOptions="Center"
+            Aspect="Fill"
+            HeightRequest="130"
+            WidthRequest="250"
+            Source="logo_blur.png"/>
+
+        <local:RoundedEntry
+            ClassId="DNI"
+            x:Name="DNI"
+            Grid.Row="1"
+            Placeholder="E-MAIL O NOMBRE DE USUARIO"
+            FontSize="Small"
+            HorizontalOptions="Center"
+            WidthRequest="300"
+            HeightRequest="50"
+            Margin="0,0,0,-30"
+            PlaceholderColor="Gray">
+        </local:RoundedEntry>
+
+        <local:RoundedEntry
+            ClassId="Password"
+            x:Name="Password"
+            Grid.Row="2"
+            Margin="0,30,0,0"
+            IsPassword="True"
+            FontSize="Small"
+            HorizontalOptions="Center"
+            WidthRequest="300"
+            HeightRequest="50"
+            Placeholder="CONTRASEÑA"
+            PlaceholderColor="Gray">
+        </local:RoundedEntry>
+
+        <Image
+            Grid.Row="3"
+            BackgroundColor="Transparent"
+            Margin="0,20,0,-20"
+            Source="sesion.png"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            HeightRequest="50"
+            TranslationY="-20">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <BoxView Grid.Row="4"
+                 Margin="0"
+                 BackgroundColor="SkyBlue"
+                 HeightRequest="1"
+                 WidthRequest="150"
+                 HorizontalOptions="Start"
+                 VerticalOptions="Center"/>
+
+        <Label Grid.Row="4" 
+               Text="O"
+               TextColor="White"
+               HorizontalOptions="Center"/>
+
+        <BoxView Grid.Row="4"
+                 Margin="0"
+                 BackgroundColor="SkyBlue"
+                 HeightRequest="1"
+                 WidthRequest="150"
+                 HorizontalOptions="End"
+                 VerticalOptions="Center"/>
+
+        <ImageButton
+            Grid.Row="5"
+            BackgroundColor="Transparent"
+            Margin="0,0,0,-20"
+            CornerRadius="38"
+            Source="inicio_f.png"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            HeightRequest="50"
+            TranslationY="-20"/>
+
+        <ImageButton
+            Grid.Row="6"
+            BackgroundColor="Transparent"
+            Margin="0,0,0,-20"
+            CornerRadius="38"
+            Source="inicio_g.png"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            HeightRequest="50"
+            TranslationY="-20"/>
+
+        <ImageButton
+            Grid.Row="7"
+            BackgroundColor="Transparent"
+            Margin="0,0,0,0"
+            CornerRadius="38"
+            Source="inicio_t.png"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            HeightRequest="50"
+            TranslationY="-20"/>
+
+        <Label
+            Grid.Row="8"
+            HorizontalOptions="Center"
+            TextColor="White"
+            FontSize="18"
+            Margin="0,-30,0,-10"
+            VerticalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="¿No tienes cuenta de FG TOTAL?" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Button
+            Grid.Row="9"
+            Margin="0,-20,0,0"
+            BackgroundColor="Transparent"
+            HorizontalOptions="Center"
+            TextColor="Lime"
+            TextTransform="None"
+            FontSize="18"
+            Text="Registarse en FG TOTAL"
+            VerticalOptions="Center"
+            Clicked="TapGestureRecognizer_Tapped_6">
+        </Button>
+    </Grid>
+</ContentPage>

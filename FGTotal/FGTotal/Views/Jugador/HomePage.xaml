@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:FGTotal.ViewModel" 
+             xmlns:FGTotal="clr-namespace:FGTotal.Style"
+             x:Class="FGTotal.Views.Jugador.HomePage"
+             x:Name="mainView"
+             NavigationPage.HasBackButton="False"
+             BackgroundColor="#001B4C">  
+
+    <ContentPage.BindingContext>
+        <viewmodels:ItemPreviewViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped_5"></ToolbarItem>
+        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_4"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+            <Image Source="FG_Total.png">
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="White" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <BoxView
+                        BackgroundColor="#F7F7F7"
+                        HeightRequest="1"
+                        WidthRequest="1920"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand" />
+            </StackLayout>
+            <StackLayout Margin="15,0,5,0">
+                <!--  Categories  -->
+                <StackLayout>
+                    <StackLayout Margin="0,0,0,0">
+                        <StackLayout
+                                    Margin="0,20,0,0"
+                                    HeightRequest="90"
+                                    Orientation="Horizontal">
+
+                            <CollectionView ItemsSource="{Binding categories}">
+
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal" />
+                                </CollectionView.ItemsLayout>
+
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout>
+
+                                            <Frame
+                                                Margin="0,0,0,0"
+                                                Padding="0"
+                                                CornerRadius="30"
+                                                HasShadow="True"
+                                                HeightRequest="60"
+                                                IsClippedToBounds="False"
+                                                WidthRequest="60">
+                                                <Image
+                                                    Margin="-8"
+                                                    Aspect="AspectFit"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    Source="{Binding image}"
+                                                    VerticalOptions="CenterAndExpand" />
+                                            </Frame>
+
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:Reference mainView}, Path=BindingContext.CatTapCommand}" CommandParameter="{Binding .}" />
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </StackLayout>
+                    </StackLayout>
+
+                </StackLayout>
+
+                <ScrollView VerticalScrollBarVisibility="Never">
+
+                    <StackLayout>
+
+                        <!-- Top Search Bar -->
+                        <StackLayout Orientation="Horizontal">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="#000D2C"
+                                CornerRadius="45"
+                                HasShadow="False"
+                                HeightRequest="40"
+                                Margin="0,0,0,-10"
+                                HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image
+                                        Margin="20,10,0,10"
+                                        Aspect="AspectFit"
+                                        HeightRequest="38"
+                                        Source="search"
+                                        WidthRequest="18"/>
+                                    <FGTotal:CustomEntry HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <!--  Best Seeling  -->
+                        <StackLayout>
+
+                            <StackLayout HeightRequest="180" HorizontalOptions="Fill" Margin="0,0,0,0">
+                                <CollectionView ItemsSource="{Binding itemPreview}" HorizontalOptions="Fill">
+
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal"/>
+                                    </CollectionView.ItemsLayout>
+
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Margin="0">
+                                                <StackLayout>
+                                                    <Frame
+                                                        BackgroundColor="Transparent"
+                                                        CornerRadius="5"
+                                                        Margin="-10,0,0,0"
+                                                        IsClippedToBounds="True">
+                                                        <ImageButton
+                                                            Aspect="Fill"
+                                                            HeightRequest="160"
+                                                            Source="{Binding ImageUrl}"
+                                                            WidthRequest="320"/>
+                                                    </Frame>
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference mainView}, Path=BindingContext.ItemTapCommand}" CommandParameter="{Binding .}" />
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+
+
+                                        </DataTemplate>
+
+                                    </CollectionView.ItemTemplate>
+
+
+                                </CollectionView>
+                            </StackLayout>
+
+                            <StackLayout HeightRequest="180" Margin="0,0,0,0">
+                                <CollectionView ItemsSource="{Binding itemPreview}">
+
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                                    </CollectionView.ItemsLayout>
+
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <StackLayout>
+                                                    <Frame
+                                                        BackgroundColor="Transparent"
+                                                        CornerRadius="5"
+                                                        Margin="-10,0,0,0"
+                                                        HasShadow="False"
+                                                        HorizontalOptions="Center"
+                                                        IsClippedToBounds="True">
+                                                        <Image
+                                                            Aspect="Fill"
+                                                            HeightRequest="160"
+                                                            Source="{Binding ImageUrl}"
+                                                            WidthRequest="320" />
+                                                    </Frame>
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference mainView}, Path=BindingContext.ItemTapCommand}" CommandParameter="{Binding .}" />
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+
+
+                                        </DataTemplate>
+
+                                    </CollectionView.ItemTemplate>
+
+
+                                </CollectionView>
+                            </StackLayout>
+
+                            <StackLayout HeightRequest="180">
+                                <CollectionView ItemsSource="{Binding itemPreview}">
+
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                                    </CollectionView.ItemsLayout>
+
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Margin="0" HorizontalOptions="FillAndExpand">
+                                                <StackLayout>
+                                                    <Frame
+                                                        BackgroundColor="Transparent"
+                                                        CornerRadius="5"
+                                                        HasShadow="False"
+                                                        Margin="-10,0,0,0"
+                                                        HorizontalOptions="Center"
+                                                        IsClippedToBounds="True">
+                                                        <Image
+                                                            Aspect="Fill"
+                                                            HeightRequest="160"
+                                                            Source="{Binding ImageUrl}"
+                                                            WidthRequest="320">
+                                                            <Image.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                                            </Image.GestureRecognizers>
+                                                        </Image>
+                                                    </Frame>
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference mainView}, Path=BindingContext.ItemTapCommand}" CommandParameter="{Binding .}" />
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+
+
+                                        </DataTemplate>
+
+                                    </CollectionView.ItemTemplate>
+
+
+                                </CollectionView>
+                            </StackLayout>
+
+                            <StackLayout HeightRequest="180">
+                                <CollectionView ItemsSource="{Binding itemPreview}">
+
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                                    </CollectionView.ItemsLayout>
+
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Margin="0" HorizontalOptions="FillAndExpand">
+                                                <StackLayout>
+                                                    <Frame
+                                                        BackgroundColor="Transparent"
+                                                        CornerRadius="5"
+                                                        HasShadow="False"
+                                                        Margin="-10,0,0,0"
+                                                        HorizontalOptions="Center"
+                                                        IsClippedToBounds="True">
+                                                        <Image
+                                                            Aspect="Fill"
+                                                            HeightRequest="160"
+                                                            Source="{Binding ImageUrl}"
+                                                            WidthRequest="320" />
+                                                    </Frame>
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference mainView}, Path=BindingContext.ItemTapCommand}" CommandParameter="{Binding .}" />
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+
+
+                                        </DataTemplate>
+
+                                    </CollectionView.ItemTemplate>
+
+
+                                </CollectionView>
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <!--  Footer  -->
+            <StackLayout
+                Margin="0,-5,0,10"
+                HeightRequest="80"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+                <!--  Franja  -->
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand" />
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HasShadow="True"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout
+                        Margin="0,0,0,0"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+
+                        <!--  Opción 1  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="HOME"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 2  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="FGPLAY_LOGO"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 3  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="search"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 4  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="PERFIL"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

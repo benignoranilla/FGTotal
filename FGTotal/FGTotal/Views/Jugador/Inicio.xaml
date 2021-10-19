@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FGTotal.Views.Jugador.Inicio"
+             NavigationPage.HasNavigationBar="False" >
+
+    <Grid Padding="20" RowSpacing="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label
+            Grid.Row="0"
+            HorizontalOptions="Center"
+            TextColor="White"
+            Margin="0,100,0,0"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="HINCHA, " FontSize="70" FontFamily="GOTHICB"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            TextColor="White"
+            Margin="0,-20,0,0"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span FontFamily="GOTHICB" FontSize="14" Text="DESCUBRE EL LADO MÁS HUMANO DE TUS JUGADORES FAVORITOS, DISFRUTA DE CONTENIDO EXCLUSIVO Y MUCHAS SORPRESAS PARA TI." />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Image
+            Grid.Row="2"
+            Margin="0,-10,0,0"
+            BackgroundColor="Transparent"
+            HorizontalOptions="Center"
+            Source="BUTTONINICIIO"
+            VerticalOptions="Center">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Image
+            Grid.Row="8"
+            Margin="0,-20,0,0"
+            BackgroundColor="Transparent"
+            HorizontalOptions="Center"
+            Source="bottonjugadoracceso"
+            VerticalOptions="End">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+    </Grid>
+</ContentPage>

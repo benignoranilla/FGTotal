@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FGTotal.Views.Seguidor.Config"
+             BackgroundImageSource="fondo_config">
+    
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+            <Image Source="FG_Total.png">
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView  HorizontalOptions="CenterAndExpand" Margin="0,0,0,0">
+
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Margin="0,25,0,0"
+                        HorizontalOptions="Start"
+                        WidthRequest="250"
+                        HeightRequest="50"
+                        Text="   CONFIGURACIÓN"
+                        TextColor="#001B4C"
+                        FontFamily="GOTHICB"
+                        FontSize="Large"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        BackgroundColor="Lime">
+                    </Label>
+
+                    <Label
+                        Grid.Row="1"
+                        Margin="20,25,0,0"
+                        HorizontalOptions="StartAndExpand"
+                        Text="@DAZA_08"
+                        TextColor="Lime"
+                        FontFamily="GOTHICB"
+                        FontSize="Large"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        BackgroundColor="Transparent">
+
+                    </Label>
+
+                    <Button
+                       Grid.Row="2"
+                       BackgroundColor="Transparent"
+                       Text="Perfil"
+                       TextColor="White"
+                       FontSize="Body"
+                       ImageSource="perfil"
+                       FontFamily="GOTHIC"
+                       Clicked="TapGestureRecognizer_Tapped_4"
+                       HorizontalOptions="Start">
+                    </Button>
+
+                    <Button
+                       Grid.Row="3"
+                       BackgroundColor="Transparent"
+                       Text="Cuenta"
+                       TextColor="White"
+                       FontSize="Body"
+                       ImageSource="perfil"
+                       FontFamily="GOTHIC"
+                       HorizontalOptions="Start">
+                    </Button>
+
+                    <Button
+                       Grid.Row="4"
+                       BackgroundColor="Transparent"
+                       Text="Cuenta y seguridad"
+                       TextColor="White"
+                       FontSize="Body"
+                       ImageSource="perfil"
+                       FontFamily="GOTHIC"
+                       HorizontalOptions="Start">
+                    </Button>
+
+                    <Button
+                       Grid.Row="5"
+                       BackgroundColor="Transparent"
+                       Text="Notificaciones"
+                       TextColor="White"
+                       FontSize="Body"
+                       ImageSource="perfil"
+                       FontFamily="GOTHIC"
+                       HorizontalOptions="Start">
+                    </Button>
+
+                    <Button
+                       Grid.Row="6"
+                       BackgroundColor="Transparent"
+                       Text="Novedades"
+                       TextColor="White"
+                       FontSize="Body"
+                       ImageSource="perfil"
+                       FontFamily="GOTHIC"
+                       HorizontalOptions="Start">
+                    </Button>
+
+                    <Button
+                       Grid.Row="7"
+                       BackgroundColor="Transparent"
+                       Text="Pagos"
+                       TextColor="White"
+                       FontSize="Body"
+                       ImageSource="perfil"
+                       FontFamily="GOTHIC"
+                       HorizontalOptions="Start">
+                    </Button>
+
+
+                    <Button
+                       Grid.Row="8"
+                       BackgroundColor="Transparent"
+                       Text="SOPORTE"
+                       TextColor="Lime"
+                       CornerRadius="50"
+                       BorderColor="White"
+                       FontSize="Body"
+                       FontFamily="GOTHIC"
+                       HorizontalOptions="Center">
+                    </Button>
+
+                    <Label
+                        Grid.Row="10"
+                        Text="¿Tuviste algún problema con tu experiencia en FGTotal?"
+                        TextColor="White"
+                        FontSize="Micro"
+                        HorizontalTextAlignment="Center"
+                        Margin="10,0,10,0"
+                        HorizontalOptions="Center">
+
+                    </Label>
+                    <Label
+                        Grid.Row="11"
+                        FontSize="Micro"
+                        HorizontalTextAlignment="Center"
+                        Margin="10,-40,10,0"
+                        HorizontalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="¡Estamos para ayudarte!" 
+                                      TextColor="White"/>
+                                <Span Text="Ingresa aquí"
+                                      TextColor="Lime"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                </Grid>
+            </ScrollView>
+            <!--  Footer  -->
+            <StackLayout
+                Margin="0,0,0,10"
+                HeightRequest="60"
+                BackgroundColor="#001B4C"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+                <!--  Franja  -->
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand" />
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HasShadow="True"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout
+                        Margin="0,0,0,0"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+
+                        <!--  Opción 1  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="HOME"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 2  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="FGPLAY_LOGO"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 3  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="search"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 4  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="PERFIL"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

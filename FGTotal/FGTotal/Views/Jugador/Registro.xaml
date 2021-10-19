@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FGTotal.Views.Jugador.Registro"
+             xmlns:local="clr-namespace:CustomRendererDemo"
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundImageSource="fondo_login.png">
+
+    <ScrollView VerticalScrollBarVisibility="Never">
+        <Grid Padding="20" RowSpacing="20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Image
+                Grid.Row="1"
+                Margin="0,0,0,0"
+                HorizontalOptions="Center"
+                Aspect="Fill"
+                HeightRequest="130"
+                WidthRequest="250"
+                Source="logo_blur.png"/>
+
+            <local:RoundedEntry
+            x:Name="RegistroDni"
+            Grid.Row="3"
+            Placeholder="Nombre de usuario"
+            FontSize="Small"
+            HorizontalOptions="Center"
+            WidthRequest="300"
+            HeightRequest="50"
+            Margin="0,0,0,-30"
+            PlaceholderColor="Gray">
+            </local:RoundedEntry>
+
+            <local:RoundedEntry
+            x:Name="RegistroCorreo"
+            Grid.Row="4"
+            Margin="0,30,0,0"
+            Keyboard="Email"
+            FontSize="Small"
+            HorizontalOptions="Center"
+            WidthRequest="300"
+            HeightRequest="50"
+            Placeholder="E-MAIL"
+            PlaceholderColor="Gray">
+            </local:RoundedEntry>
+            <local:RoundedEntry
+            x:Name="RegistroPassword"
+            Grid.Row="5"
+            Margin="0,0,0,0"
+            IsPassword="True"
+            FontSize="Small"
+            HorizontalOptions="Center"
+            WidthRequest="300"
+            HeightRequest="50"
+            Placeholder="CONTRASEÑA"
+            PlaceholderColor="Gray">
+            </local:RoundedEntry>
+            <local:RoundedEntry
+            x:Name="RegistroPassword1"
+            Grid.Row="6"
+            Margin="0,0,0,0"
+            IsPassword="True"
+            FontSize="Small"
+            HorizontalOptions="Center"
+            WidthRequest="300"
+            HeightRequest="50"
+            Placeholder="CONTRASEÑA"
+            PlaceholderColor="Gray">
+            </local:RoundedEntry>
+            <Label Grid.Row="7" 
+               Text="Al registrarse, acepta nuestros"
+               Margin="0,0,0,0"
+               TextColor="White"
+               HorizontalOptions="Center"/>
+            <Label Grid.Row="8" 
+               Text="Términos de Servicio y Política de Privacidad"
+               Margin="0,-20,0,0"
+               TextColor="#2281B7"
+               HorizontalOptions="Center"/>
+
+            <Image
+                Grid.Row="9"
+                BackgroundColor="Transparent"
+                Margin="0,20,0,-20"
+                Source="BOTON2"
+                HorizontalOptions="Center"
+                WidthRequest="250"
+                HeightRequest="50"
+                TranslationY="-20">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_TappedRegistro"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <BoxView Grid.Row="10"
+                 Margin="0"
+                 BackgroundColor="SkyBlue"
+                 HeightRequest="1"
+                 WidthRequest="150"
+                 HorizontalOptions="Start"
+                 VerticalOptions="Center"/>
+
+            <Label Grid.Row="10" 
+               Text="O"
+               TextColor="White"
+               HorizontalOptions="Center"/>
+
+            <BoxView Grid.Row="10"
+                 Margin="0"
+                 BackgroundColor="SkyBlue"
+                 HeightRequest="1"
+                 WidthRequest="150"
+                 HorizontalOptions="End"
+                 VerticalOptions="Center"/>
+
+            <ImageButton
+            Grid.Row="11"
+            BackgroundColor="Transparent"
+            Margin="0,0,0,-20"
+            CornerRadius="38"
+            Source="inicio_f.png"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            HeightRequest="50"
+            TranslationY="-20"/>
+
+            <ImageButton
+            Grid.Row="12"
+            BackgroundColor="Transparent"
+            Margin="0,0,0,-20"
+            CornerRadius="38"
+            Source="inicio_g.png"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            HeightRequest="50"
+            TranslationY="-20"/>
+
+            <ImageButton
+            Grid.Row="13"
+            BackgroundColor="Transparent"
+            Margin="0,0,0,0"
+            CornerRadius="38"
+            Source="inicio_t.png"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            HeightRequest="50"
+            TranslationY="-20"/>
+
+            <Label
+                Grid.Row="14"
+                HorizontalOptions="Center"
+                TextColor="White"
+                FontSize="18"
+                Text="¿Ya tienes una cuenta?"
+                Margin="0,-80,0,0"
+                VerticalOptions="Center">
+            </Label>
+            <Label
+                Grid.Row="14"
+                HorizontalOptions="Center"
+                TextColor="Lime"
+                FontSize="18"
+                Text="Inicias Sesión"
+                Margin="0,0,0,0"
+                VerticalOptions="Center">
+            </Label>
+
+            <Image
+                Grid.Row="15"
+                BackgroundColor="Transparent"
+                Margin="0,0,0,0"
+                Source="BOTON1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="250"
+                HeightRequest="50">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FGTotal.Views.Seguidor.Novedades"
+             BackgroundImageSource="fondo_config">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+            <Image Source="FG_Total.png">
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView  HorizontalOptions="CenterAndExpand" Margin="0,0,0,0">
+
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Margin="0,25,0,0"
+                        HorizontalOptions="Start"
+                        WidthRequest="250"
+                        HeightRequest="50"
+                        Text="   NOVEDADES"
+                        TextColor="#001B4C"
+                        FontFamily="GOTHICB"
+                        FontSize="Large"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        BackgroundColor="Lime">
+                    </Label>
+
+                    <Label
+                        Grid.Row="1"
+                        Margin="20,25,0,0"
+                        HorizontalOptions="StartAndExpand"
+                        Text="¡NUEVA ACTUALIZACIÓN!"
+                        TextColor="Lime"
+                        FontFamily="GOTHICB"
+                        FontSize="Large"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        BackgroundColor="Transparent">
+
+                    </Label>
+
+                    <Label
+                        Grid.Row="2"
+                        Margin="20,0,10,0"
+                        HorizontalOptions="StartAndExpand"
+                        Text="07/11/21 - Versión 3.01 - Hemos agregado nuevas características a la aplicación..."
+                        TextColor="White"
+                        FontFamily="GOTHICB"
+                        FontSize="Body"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        BackgroundColor="Transparent">
+
+                    </Label>
+
+                    <Label
+                        Grid.Row="3"
+                        Margin="20,25,0,0"
+                        HorizontalOptions="StartAndExpand"
+                        Text="ACTUALIZAMOS NUESTRAS POLÍTICAS"
+                        TextColor="Lime"
+                        FontFamily="GOTHICB"
+                        FontSize="Large"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        BackgroundColor="Transparent">
+
+                    </Label>
+
+                    <Label
+                        Grid.Row="4"
+                        Margin="20,0,10,0"
+                        HorizontalOptions="StartAndExpand"
+                        Text="08/12/21 - Las normas y políticas de privacidad han sido renovadas debido a... Leer más"
+                        TextColor="White"
+                        FontFamily="GOTHICB"
+                        FontSize="Body"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        BackgroundColor="Transparent">
+
+                    </Label>
+
+
+                </Grid>
+            </ScrollView>
+            <!--  Footer  -->
+            <StackLayout
+                Margin="0,0,0,10"
+                HeightRequest="60"
+                BackgroundColor="#001B4C"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+                <!--  Franja  -->
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand" />
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HasShadow="True"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout
+                        Margin="0,0,0,0"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+
+                        <!--  Opción 1  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="HOME"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 2  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="FGPLAY_LOGO"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 3  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="search"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 4  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="PERFIL"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

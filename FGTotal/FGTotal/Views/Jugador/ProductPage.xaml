@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:FGTotal.ViewModel"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Class="FGTotal.Views.Jugador.ProductPage"
+             BackgroundColor="#001B4C"
+             mc:Ignorable="d">   
+
+    <ContentPage.BindingContext>
+        <viewmodels:ProductViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+
+            <!--  Body  -->
+            <StackLayout IsClippedToBounds="True">
+                <Image
+                    x:Name="imageMain"
+                    Aspect="AspectFill"
+                    HeightRequest="650"
+                    Source="videofondofoto" />
+            </StackLayout>
+
+            <!--  Footer  -->
+            <!--<StackLayout
+                x:Name="footer"
+                Margin="0,55,0,0"
+                BackgroundColor="#001B4C"
+                HeightRequest="150"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand" />
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HasShadow="True"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                    <StackLayout
+                        Margin="0,0,0,10"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+                        <StackLayout>
+                            <Label
+                                Margin="30,0,35,0"
+                                FontSize="12"
+                                HorizontalOptions="Center"
+                                Text="PRICE"
+                                TextColor="#929292"
+                                VerticalOptions="CenterAndExpand"
+                                VerticalTextAlignment="Center">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                            <Label
+                                Margin="30,0,35,0"
+                                FontSize="18"
+                                HorizontalOptions="Center"
+                                Text="$1500"
+                                TextColor="#00C569"
+                                VerticalOptions="CenterAndExpand"
+                                VerticalTextAlignment="Center">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                        </StackLayout>
+
+
+                        <Frame
+                            Margin="0,0,30,0"
+                            Padding="0"
+                            BackgroundColor="#00C569"
+                            CornerRadius="5"
+                            HasShadow="False"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="CenterAndExpand">
+                            <Label
+                                Margin="54,15,54,15"
+                                FontSize="14"
+                                HorizontalOptions="Center"
+                                Text="ADD"
+                                TextColor="White"
+                                VerticalTextAlignment="Center">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>-->
+
+            <StackLayout
+                Margin="0,-5,0,10"
+                HeightRequest="80"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+                <!--  Franja  -->
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand" />
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HasShadow="True"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout
+                        Margin="0,0,0,0"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+
+                        <!--  Opción 1  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="HOME"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 2  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="FGPLAY_LOGO"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 3  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="search"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 4  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="PERFIL"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+
+            <!--  header  -->
+
+            <StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" HeightRequest="60" BackgroundColor="#001B4C">
+
+                    <StackLayout>
+                        <Image
+                            Margin="13,0,0,0"
+                            Aspect="AspectFit"
+                            HeightRequest="40"
+                            Source="FG_Total"
+                            WidthRequest="40" />
+                    </StackLayout>
+                </StackLayout>
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    WidthRequest="1450"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="StartAndExpand" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

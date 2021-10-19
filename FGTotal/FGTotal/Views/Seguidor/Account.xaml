@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FGTotal.Views.Seguidor.Account"
+             xmlns:ViewModel="clr-namespace:FGTotal.ViewModel" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:PanCake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             BackgroundColor="#001B4C"
+             mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <ViewModel:ProfileViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped"></ToolbarItem>
+        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_1"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+            <Image Source="FG_Total.png">
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <BoxView
+                        BackgroundColor="#F7F7F7"
+                        HeightRequest="1"
+                        WidthRequest="1920"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand" />
+            </StackLayout>
+            <ScrollView VerticalScrollBarVisibility="Never" 
+                BackgroundColor="#001B4C">
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!--Header Image-->
+                    <PanCake:PancakeView Grid.Row="0"  CornerRadius="0,0,0,0" IsClippedToBounds="true" HorizontalOptions="FillAndExpand" HeightRequest="{OnPlatform iOS='220', Android='200'}" Margin="0,0,0,0">
+                        <Image Source="portada_perfiljugador.png" Aspect="AspectFill"/>
+                    </PanCake:PancakeView>
+
+                    <ff:CachedImage Grid.Row="0"  Source="foto_perfiljugador.png"  HeightRequest="40" WidthRequest="40" TranslationY="90" BackgroundColor="Transparent" Margin="0,0,0,0">
+                        <ff:CachedImage.Transformations>
+                            <ffTrans:CircleTransformation />
+                        </ff:CachedImage.Transformations>
+                    </ff:CachedImage>
+
+                    <Button Grid.Row="1"
+                        BackgroundColor="Lime"
+                        Text="Agregar a Historia"
+                        TextColor="#001B4C"
+                        HorizontalOptions="Center"
+                        FontFamily="GOTHIC"
+                        Margin="0,80,0,10"
+                        WidthRequest="280"
+                        HeightRequest="35"
+                        CornerRadius="30">
+                    </Button>
+                    <Frame 
+                        CornerRadius="95"
+                        Grid.Row="2"
+                        Padding="20,0,20,0" 
+                        BorderColor="White"
+                        BackgroundColor="Transparent"
+                        WidthRequest="240"
+                        HeightRequest="35"
+                        HorizontalOptions="Center">
+                        <Button Grid.Row="2"
+                            BackgroundColor="Transparent"
+                            Text="Editar perfil"
+                            TextColor="White"
+                            FontFamily="GOTHIC"
+                            Clicked="TapGestureRecognizer_Tapped_4"
+                            Margin="0,0,0,0"
+                            WidthRequest="280"
+                            HorizontalOptions="Center"
+                            CornerRadius="30">
+                        </Button>
+                    </Frame>
+                    <!-- Botones para iOS-->
+                    <StackLayout Grid.Row="3" Style="{StaticResource StIOSBottons}">
+                        <Button Text="Agregar Historia" Style="{StaticResource StIOSAddHistoryBtn}" />
+                        <Button Style="{StaticResource StIOSSettingBtn}"/>
+                        <Button Text="..." Style="{StaticResource StIOSMoreBtn}"/>
+                    </StackLayout>
+
+                    <!-- Botones para Android-->
+                    <Grid Grid.Row="3" Padding="0,10" IsVisible="{OnPlatform iOS=False, Android=True}"  HorizontalOptions="CenterAndExpand" ColumnSpacing="30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Button Grid.Row="0" Grid.Column="0" WidthRequest="50" CornerRadius ="30" BackgroundColor="#ebedf0" Text="+" TextColor="White" FontSize="Medium" />
+
+                        <Button Grid.Row="0" Grid.Column="1" CornerRadius ="30" ImageSource="EditContactIcon" BackgroundColor="#ebedf0" TextColor="White"/>
+
+                        <Button Grid.Row="0" Grid.Column="2" CornerRadius ="30" ImageSource="MoreIcon" BackgroundColor="#ebedf0" TextColor="White" />
+
+                        <Button Grid.Row="0" Grid.Column="3" CornerRadius ="30" Text="..." BackgroundColor="#ebedf0" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
+                    </Grid>
+
+                    <!--Add comment-->
+                    <Grid Grid.Row="5" Padding="20,15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" Style="{StaticResource StLine}" HorizontalOptions="FillAndExpand" Margin="-50,0,0,0"/>
+
+                        <ff:CachedImage Grid.Row="1" Grid.Column="0" Source="foto_perfiljugador.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="StartAndExpand">
+                            <ff:CachedImage.Transformations>
+                                <ffTrans:CircleTransformation />
+                            </ff:CachedImage.Transformations>
+                        </ff:CachedImage>
+
+                        <Entry 
+                            Grid.Row="1"
+                            Grid.Column="1" 
+                            Grid.ColumnSpan="6"
+                            x:Name="TextoDescripcion"
+                            HorizontalOptions="FillAndExpand" 
+                            VerticalOptions="CenterAndExpand" 
+                            Placeholder="¿Que estas pensando?" 
+                            PlaceholderColor="White" 
+                            Margin="10,0,0,0" 
+                            TextColor="White" />
+
+                        <BoxView 
+                            Grid.Row="2" 
+                            Grid.Column="0" 
+                            Grid.ColumnSpan="7" 
+                            HorizontalOptions="FillAndExpand" 
+                            Style="{StaticResource StLine}" 
+                            Margin="-50,0,0,0"/>
+
+
+                        <Image Grid.Row="3" Grid.Column="0" Source="StatusIcon" WidthRequest="25" />
+                        <Label Grid.Row="3" Grid.Column="1" Text="En vivo" TextColor="White"/>
+
+                        <Image Grid.Row="3" Grid.Column="2" Source="PhotoIcon" WidthRequest="25" />
+                        <Label Grid.Row="3" Grid.Column="3" Text="Foto" TextColor="White"/>
+
+                        <Image Grid.Row="3" Grid.Column="4" Source="EventIcon" WidthRequest="25" />
+                        <Label Grid.Row="3" Grid.Column="5" Text="Video" TextColor="White"/>
+
+                        <Button 
+                            Grid.Row="4" 
+                            Grid.ColumnSpan="7" 
+                            Grid.Column="0" 
+                            HorizontalOptions="Center" 
+                            WidthRequest="300" 
+                            Margin="0,20,0,30" 
+                            ImageSource="CommentIcon" 
+                            Text="Publicar"
+                            x:Name="btn_Publicar"
+                            BackgroundColor="#ebedf0" 
+                            TextColor="Black" />
+
+                    </Grid>
+
+                    <!-- Comments-->
+                    <StackLayout Grid.Row="8" BindableLayout.ItemsSource="{Binding principalComents}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Grid RowSpacing="0" ColumnSpacing="0" Padding="20,10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Orientation="Horizontal">
+
+                                            <ImageButton
+                                                Source="post2"
+                                                Aspect="Fill"
+                                                HeightRequest="160"
+                                                WidthRequest="320"></ImageButton>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+                </Grid>
+            </ScrollView>
+            <StackLayout>
+                <!--  Footer  -->
+                <StackLayout
+                    Margin="0,-5,0,10"
+                    HeightRequest="80"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="EndAndExpand">
+                    <!--  Franja  -->
+                    <BoxView
+                        Margin="0"
+                        BackgroundColor="#F7F7F7"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand" />
+                    <Frame
+                        Padding="0"
+                        BackgroundColor="Transparent"
+                        HasShadow="True"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Margin="0,0,0,0"
+                            HorizontalOptions="FillAndExpand"
+                            Orientation="Horizontal"
+                            VerticalOptions="CenterAndExpand">
+
+                            <!--  Opción 1  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
+                                    Padding="0"
+                                    BackgroundColor="Transparent"
+                                    HasShadow="False"
+                                    HeightRequest="50"
+                                    WidthRequest="50">
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="40"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="HOME"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="40" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                            </StackLayout>
+
+                            <!--  Opción 2  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
+                                    Padding="0"
+                                    BackgroundColor="Transparent"
+                                    HasShadow="False"
+                                    HeightRequest="50"
+                                    WidthRequest="50">
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="30"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="FGPLAY_LOGO"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="30" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                            </StackLayout>
+
+                            <!--  Opción 3  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
+                                    Padding="0"
+                                    BackgroundColor="Transparent"
+                                    HasShadow="False"
+                                    HeightRequest="50"
+                                    WidthRequest="50">
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="30"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="search"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="30" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                            </StackLayout>
+
+                            <!--  Opción 4  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
+                                    Padding="0"
+                                    BackgroundColor="Transparent"
+                                    HasShadow="False"
+                                    HeightRequest="50"
+                                    WidthRequest="50">
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="40"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="PERFIL"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="40" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
