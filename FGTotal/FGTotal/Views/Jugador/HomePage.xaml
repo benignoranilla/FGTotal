@@ -5,6 +5,7 @@
              xmlns:FGTotal="clr-namespace:FGTotal.Style"
              x:Class="FGTotal.Views.Jugador.HomePage"
              x:Name="mainView"
+             NavigationPage.HasNavigationBar="True"
              NavigationPage.HasBackButton="False"
              BackgroundColor="#001B4C">  
 
@@ -108,7 +109,7 @@
                             <Frame
                                 Padding="0"
                                 BackgroundColor="#000D2C"
-                                CornerRadius="45"
+                                CornerRadius="15"
                                 HasShadow="False"
                                 HeightRequest="40"
                                 Margin="0,0,0,-10"
@@ -117,7 +118,7 @@
                                     <Image
                                         Margin="20,10,0,10"
                                         Aspect="AspectFit"
-                                        HeightRequest="38"
+                                        HeightRequest="48"
                                         Source="search"
                                         WidthRequest="18"/>
                                     <FGTotal:CustomEntry HorizontalOptions="FillAndExpand" />
