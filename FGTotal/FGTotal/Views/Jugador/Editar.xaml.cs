@@ -33,7 +33,7 @@ namespace FGTotal.Views.Jugador
 
         private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Account());
+            await Navigation.PushModalAsync(new Verificacion());
         }
 
         protected override bool OnBackButtonPressed()

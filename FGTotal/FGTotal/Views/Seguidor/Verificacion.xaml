@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FGTotal.Views.Seguidor.Verificacion"
+             xmlns:local="clr-namespace:CustomRendererDemo"
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundImageSource="fondo_config">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame
+                                Padding="0"
+                                BackgroundColor="White"
+                                BorderColor="WhiteSmoke"
+                                CornerRadius="15"
+                                HasShadow="False"
+                                HeightRequest="70"
+                                WidthRequest="500"
+                                Margin="40,40,40,-10"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand">
+                                
+                <Label Text="Servicio en Verficación"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                   TextColor="Black"
+                   FontSize="Large"
+                   FontAttributes="Bold"/>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
