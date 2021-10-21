@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FGTotal.Views.Seguidor.SendMensaje"
+             xmlns:local="clr-namespace:CustomRendererDemo"
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="True"
              BackgroundImageSource="fondo_config">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped"></ToolbarItem>
@@ -18,174 +21,197 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <!--  Logo  -->
-            <StackLayout>
-
-                <BoxView
-                    Margin="0"
-                    BackgroundColor="#F7F7F7"
-                    HeightRequest="1"
-                    WidthRequest="1450"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="StartAndExpand" />
-            </StackLayout>
-
-            <!-- Top Search Bar -->
-
             <!-- Content -->
             <ScrollView  HorizontalOptions="CenterAndExpand" Margin="0,0,0,0">
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-                <Grid RowSpacing="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="0" Margin="10,30,0,0">
 
-                    <StackLayout Grid.Row="0" Margin="10,30,0,15">
-
-                        <StackLayout Grid.Row="0" Orientation="Horizontal">
-                            <StackLayout Grid.Row="0" Margin="10" VerticalOptions="Start">
-                                <Label
+                            <StackLayout Grid.Row="0" Orientation="Horizontal">
+                                <StackLayout Grid.Row="0" Margin="10" VerticalOptions="Start">
+                                    <Label
                                     Text="Nombre Jugador 1"
                                     TextColor="White"
                                     FontSize="20"
                                     FontFamily="GOTHIC">
 
-                                </Label>
-                                <Label
+                                    </Label>
+                                    <Label
                                     Text="Text 1"
                                     TextColor="White"
                                     FontSize="16"
                                     FontFamily="GOTHIC">
 
-                                </Label>
+                                    </Label>
+                                </StackLayout>
                             </StackLayout>
                         </StackLayout>
-                    </StackLayout>
-                </Grid>
+                    </Grid>
+                </StackLayout>
             </ScrollView>
 
             <!--  Footer  -->
             <StackLayout
-                Margin="0,-5,0,10"
-                HeightRequest="80"
-                BackgroundColor="#001B4C"
+                Margin="0,0,0,0"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="EndAndExpand">
-                <!--  Franja  -->
-                <BoxView
-                    Margin="0"
-                    BackgroundColor="#F7F7F7"
-                    HeightRequest="1"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="StartAndExpand" />
-                <Frame
-                    Padding="0"
-                    BackgroundColor="Transparent"
-                    HasShadow="True"
-                    HorizontalOptions="FillAndExpand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout 
+                        Grid.Row="0"
+                        VerticalOptions="End">
+                        <local:RoundedEntry
+                        ClassId="DNI"
+                        x:Name="DNI"
+                        Placeholder="Mensaje..."
+                        FontSize="Small"
+                        HorizontalOptions="Start"
+                        VerticalOptions="End"
+                        WidthRequest="300"
+                        HeightRequest="50"
+                        Margin="20,0,0,0"
+                        PlaceholderColor="Gray">
+                        </local:RoundedEntry>
+                    </StackLayout>
                     <StackLayout
-                        Margin="0,0,0,0"
-                        HorizontalOptions="FillAndExpand"
-                        Orientation="Horizontal"
-                        VerticalOptions="CenterAndExpand">
+                        Grid.Row="0">
+                        <ImageButton
+                            HorizontalOptions="End"
+                            WidthRequest="50"
+                            Margin="0,0,10,0"
+                            BackgroundColor="Transparent"
+                            Source="play2">
 
-                        <!--  Opción 1  -->
-                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
-                            <Frame
+                        </ImageButton>
+                    </StackLayout>
+                    <!--  Franja  -->
+                    <BoxView
+                        Margin="0"
+                        Grid.Row="1"
+                        BackgroundColor="#F7F7F7"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand"/>
+                    <Frame
+                        Padding="0"
+                        Grid.Row="2"
+                        BackgroundColor="#001B4C"
+                        HasShadow="True"
+                        VerticalOptions="EndAndExpand"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Margin="0,0,0,0"
+                            HorizontalOptions="FillAndExpand"
+                            Orientation="Horizontal"
+                            HeightRequest="50"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="#001B4C">
+
+                            <!--  Opción 1  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
                                 Padding="0"
                                 BackgroundColor="Transparent"
                                 HasShadow="False"
                                 HeightRequest="50"
                                 WidthRequest="50">
-                                <Image
+                                    <Image
                                     Aspect="AspectFit"
                                     HeightRequest="40"
                                     HorizontalOptions="CenterAndExpand"
                                     Source="HOME"
                                     VerticalOptions="CenterAndExpand"
                                     WidthRequest="40" />
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </Frame.GestureRecognizers>
-                            </Frame>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
 
-                        </StackLayout>
+                            </StackLayout>
 
-                        <!--  Opción 2  -->
-                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
-                            <Frame
+                            <!--  Opción 2  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
                                 Padding="0"
                                 BackgroundColor="Transparent"
                                 HasShadow="False"
                                 HeightRequest="50"
                                 WidthRequest="50">
-                                <Image
+                                    <Image
                                     Aspect="AspectFit"
                                     HeightRequest="30"
                                     HorizontalOptions="CenterAndExpand"
                                     Source="FGPLAY_LOGO"
                                     VerticalOptions="CenterAndExpand"
                                     WidthRequest="30" />
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
-                                </Frame.GestureRecognizers>
-                            </Frame>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
 
-                        </StackLayout>
+                            </StackLayout>
 
-                        <!--  Opción 3  -->
-                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
-                            <Frame
+                            <!--  Opción 3  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
                                 Padding="0"
                                 BackgroundColor="Transparent"
                                 HasShadow="False"
                                 HeightRequest="50"
                                 WidthRequest="50">
-                                <Image
+                                    <Image
                                     Aspect="AspectFit"
                                     HeightRequest="30"
                                     HorizontalOptions="CenterAndExpand"
                                     Source="search"
                                     VerticalOptions="CenterAndExpand"
                                     WidthRequest="30" />
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
-                                </Frame.GestureRecognizers>
-                            </Frame>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
 
-                        </StackLayout>
+                            </StackLayout>
 
-                        <!--  Opción 4  -->
-                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
-                            <Frame
+                            <!--  Opción 4  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
                                 Padding="0"
                                 BackgroundColor="Transparent"
                                 HasShadow="False"
                                 HeightRequest="50"
                                 WidthRequest="50">
-                                <Image
+                                    <Image
                                     Aspect="AspectFit"
                                     HeightRequest="40"
                                     HorizontalOptions="CenterAndExpand"
                                     Source="PERFIL"
                                     VerticalOptions="CenterAndExpand"
                                     WidthRequest="40" />
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
-                                </Frame.GestureRecognizers>
-                            </Frame>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                            </StackLayout>
 
                         </StackLayout>
-
-                    </StackLayout>
-                </Frame>
-
+                    </Frame>
+                </Grid>
             </StackLayout>
 
 
