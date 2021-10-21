@@ -3,20 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FGTotal.Views.Seguidor.SendMensaje"
              xmlns:local="clr-namespace:CustomRendererDemo"
-             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasNavigationBar="True"
              NavigationPage.HasBackButton="True"
              BackgroundImageSource="fondo_config">
-    <ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped"></ToolbarItem>
         <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_1"></ToolbarItem>
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>-->
 
-    <NavigationPage.TitleView>
-        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
-            <Image Source="FG_Total.png">
-            </Image>
-        </StackLayout>
-    </NavigationPage.TitleView>
 
     <ContentPage.Content>
         <StackLayout>
@@ -74,29 +68,32 @@
                     <StackLayout 
                         Grid.Row="0"
                         VerticalOptions="End">
-                        <local:RoundedEntry
-                        ClassId="DNI"
-                        x:Name="DNI"
-                        Placeholder="Mensaje..."
-                        FontSize="Small"
-                        HorizontalOptions="Start"
-                        VerticalOptions="End"
-                        WidthRequest="300"
-                        HeightRequest="50"
-                        Margin="20,0,0,0"
-                        PlaceholderColor="Gray">
-                        </local:RoundedEntry>
+                        <Entry
+                            ClassId="DNI"
+                            x:Name="DNI"
+                            Placeholder="Escriba un mensaje..."
+                            FontSize="Small"
+                            BackgroundColor="Transparent"
+                            HorizontalOptions="Start"
+                            VerticalOptions="End"
+                            WidthRequest="240"
+                            HeightRequest="50"
+                            Margin="20,0,0,0"
+                            PlaceholderColor="Gray">
+                        </Entry>
                     </StackLayout>
                     <StackLayout
                         Grid.Row="0">
-                        <ImageButton
+                        <Button
                             HorizontalOptions="End"
-                            WidthRequest="50"
-                            Margin="0,0,10,0"
-                            BackgroundColor="Transparent"
-                            Source="play2">
+                            WidthRequest="100"
+                            Margin="0,0,0,0"
+                            CornerRadius="50"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            Text="Enviar DM">
 
-                        </ImageButton>
+                        </Button>
                     </StackLayout>
                     <!--  Franja  -->
                     <BoxView
