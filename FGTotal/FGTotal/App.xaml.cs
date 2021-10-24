@@ -10,7 +10,7 @@ namespace FGTotal
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.Inicio());
+            MainPage = new NavigationPage(new Views.Seguidor.SendMensaje());
         }
 
         protected override void OnStart()

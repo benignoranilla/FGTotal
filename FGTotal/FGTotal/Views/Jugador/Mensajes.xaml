@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FGTotal.Views.Jugador.Mensajes"
+             NavigationPage.HasNavigationBar="True"
              BackgroundImageSource="fondo_config">
 
     <ContentPage.ToolbarItems>
@@ -18,20 +19,6 @@
 
     <ContentPage.Content>
         <StackLayout>
-
-            <!--  Logo  -->
-            <StackLayout>
-
-                <BoxView
-                    Margin="0"
-                    BackgroundColor="#F7F7F7"
-                    HeightRequest="1"
-                    WidthRequest="1450"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="StartAndExpand" />
-            </StackLayout>
-
-            <!-- Top Search Bar -->
 
             <!-- Content -->
             <ScrollView  HorizontalOptions="CenterAndExpand" Margin="0,0,0,0">
@@ -111,7 +98,7 @@
 
             <!--  Footer  -->
             <StackLayout
-                Margin="0,-5,0,10"
+                Margin="0,0,0,00"
                 HeightRequest="80"
                 BackgroundColor="#001B4C"
                 HorizontalOptions="FillAndExpand"
