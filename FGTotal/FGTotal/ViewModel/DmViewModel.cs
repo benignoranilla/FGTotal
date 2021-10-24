@@ -9,6 +9,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using FGTotal.Services;
 using FGTotal.Model;
+using Xamarin.Essentials;
 
 namespace FGTotal.ViewModel
 {
@@ -46,7 +47,7 @@ namespace FGTotal.ViewModel
 
         public async Task ConsultaListaDmPost()
         {
-            var paramsPost = new { idSeguidor = 4, idJugador = 6 };
+            var paramsPost = new { idSeguidor = Preferences.Get("id", string.Empty), idJugador = 11 };
             ListaDm = await webApi.executeRequestPost<ObservableCollection<DmModel>>(paramsPost);
         }
 

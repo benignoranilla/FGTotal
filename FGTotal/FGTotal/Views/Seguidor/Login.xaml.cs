@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using FGTotal.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace FGTotal.Views.Seguidor
 {
@@ -31,6 +32,11 @@ namespace FGTotal.Views.Seguidor
             if (Response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 await Navigation.PushAsync(new HomePage());
+                var jsonlogin = await Response.Content.ReadAsStringAsync();
+                var resultado = JsonConvert.DeserializeObject<WsModel>(jsonlogin);
+
+                var idLoginUsuario = $"{resultado.id}";
+                Preferences.Set("id", idLoginUsuario);
             }
             else
             {
