@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FGTotal.Views.Seguidor
+namespace FGTotal.Views.Jugador
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Mensajes : ContentPage
