@@ -23,9 +23,9 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>FGTotal</string>
+	<string>PhoenixApp</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.FGTotal</string>
+	<string>com.phoenixapplication</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -60,5 +60,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIMainStoryboardFile</key>
+	<string>LaunchScreen</string>
 </dict>
 </plist>

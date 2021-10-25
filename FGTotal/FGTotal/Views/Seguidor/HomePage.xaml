@@ -5,8 +5,8 @@
              xmlns:FGTotal="clr-namespace:FGTotal.Style"
              x:Class="FGTotal.Views.Seguidor.HomePage"
              x:Name="mainView"
-             NavigationPage.HasBackButton="False"
-             BackgroundColor="#001B4C">  
+             NavigationPage.HasNavigationBar="True"
+             BackgroundColor="#001B4C">
 
     <ContentPage.BindingContext>
         <viewmodels:ItemPreviewViewModel />
@@ -100,197 +100,151 @@
                 </StackLayout>
 
                 <ScrollView VerticalScrollBarVisibility="Never">
-
-                    <StackLayout>
-
-                        <!-- Top Search Bar -->
-                        <StackLayout Orientation="Horizontal">
-                            <Frame
-                                Padding="0"
-                                BackgroundColor="#000D2C"
-                                CornerRadius="45"
-                                HasShadow="False"
-                                HeightRequest="40"
-                                Margin="0,0,0,-10"
-                                HorizontalOptions="FillAndExpand">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image
-                                        Margin="20,10,0,10"
-                                        Aspect="AspectFit"
-                                        HeightRequest="38"
-                                        Source="search"
-                                        WidthRequest="18"/>
-                                    <FGTotal:CustomEntry HorizontalOptions="FillAndExpand" />
-                                </StackLayout>
-                            </Frame>
-                        </StackLayout>
-
-                        <!--  Best Seeling  -->
-                        <StackLayout>
-
-                            <StackLayout HeightRequest="180" HorizontalOptions="Fill" Margin="0,0,0,0">
-                                <CollectionView ItemsSource="{Binding itemPreview}" HorizontalOptions="Fill">
-
-                                    <CollectionView.ItemsLayout>
-                                        <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal"/>
-                                    </CollectionView.ItemsLayout>
-
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackLayout Margin="0">
-                                                <StackLayout>
-                                                    <Frame
-                                                        BackgroundColor="Transparent"
-                                                        CornerRadius="5"
-                                                        Margin="-10,0,0,0"
-                                                        IsClippedToBounds="True">
-                                                        <ImageButton
-                                                            Aspect="Fill"
-                                                            HeightRequest="160"
-                                                            Source="{Binding ImageUrl}"
-                                                            WidthRequest="320"/>
-                                                    </Frame>
-                                                </StackLayout>
-                                                <StackLayout.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference mainView}, Path=BindingContext.ItemTapCommand}" CommandParameter="{Binding .}" />
-                                                </StackLayout.GestureRecognizers>
-                                            </StackLayout>
-
-
-                                        </DataTemplate>
-
-                                    </CollectionView.ItemTemplate>
-
-
-                                </CollectionView>
+                    <RelativeLayout>
+                        <!--Buscador-->
+                        <Frame
+                           x:Name="Search"
+                           Padding="0"
+                           BackgroundColor="#000D2C"
+                           CornerRadius="{OnPlatform iOS='20', Android='45'}"
+                           HasShadow="False"
+                           HeightRequest="40"
+                           Margin="0,0,0,0"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X}"
+                           RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=370}">
+                            <StackLayout Orientation="Horizontal">
+                                <Image
+                                    Margin="20,10,0,10"
+                                    Aspect="AspectFit"
+                                    HeightRequest="38"
+                                    Source="search"
+                                    WidthRequest="18"/>
+                                <FGTotal:CustomEntry HorizontalOptions="FillAndExpand" />
                             </StackLayout>
+                        </Frame>
 
-                            <StackLayout HeightRequest="180" Margin="0,0,0,0">
-                                <CollectionView ItemsSource="{Binding itemPreview}">
+                        <!--Primer Post-->
+                        <ImageButton Source="Friend6"
+                                 x:Name="VBOx"
+                                 Opacity="0.4"
+                                 HeightRequest="150"
+                                 BackgroundColor="Black"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=60, ElementName=Search}"
+                                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=370}"
+                                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=205}"/>
+                        <Frame
+                            x:Name="Coment"
+                            Padding="0"
+                            BackgroundColor="Lime"
+                            HasShadow="False"
+                            HeightRequest="40"
+                            Margin="0,0,0,0"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=170, ElementName=VBOx}"
+                            RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=370}">
+                        </Frame>
+                        <Image
+                            x:Name="ImageUser"
+                            Source="user1"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant=10, Property=X}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=10, ElementName=VBOx}"/>
+                        <Label
+                            x:Name="TextNameUser"
+                            Text="User 1"
+                            TextColor="White"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=20, ElementName=ImageUser}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=10, ElementName=VBOx}"/>
+                        <Label
+                            x:Name="TextStatusUser"
+                            Text="Publicó nuevo estado"
+                            TextColor="Lime"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=20, ElementName=ImageUser}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=TextNameUser}"/>
+                        <Button
+                           x:Name="LikePost"
+                           BackgroundColor="Transparent"
+                           ImageSource="Asset2"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant={OnPlatform iOS='10', Android='0'}, Property=X}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=165, ElementName=VBOx}"/>
+                        <Button
+                           x:Name="ComentPost"
+                           BackgroundColor="Transparent"
+                           ImageSource="Asset3"
+                           HeightRequest="50"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='60', Android='50'}, ElementName=LikePost}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=165, ElementName=VBOx}"/>
+                        <Button
+                           x:Name="SendPost"
+                           BackgroundColor="Transparent"
+                           ImageSource="Asset4"
+                           HeightRequest="50"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=ComentPost}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=165, ElementName=VBOx}"/>
+                        
+                        <!--Segundo Post-->
+                        <ImageButton Source="Friend6"
+                                     x:Name="VBOx2"
+                                     Opacity="0.4"
+                                     BackgroundColor="Black"
+                                     HeightRequest="150"
+                                     RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=290, ElementName=Coment}"
+                                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=370}"
+                                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=205}"/>
+                        <Frame
+                           x:Name="Coment2"
+                           Padding="0"
+                           BackgroundColor="Lime"
+                           HasShadow="False"
+                           Margin="0,0,0,0"
+                           HeightRequest="40"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=165, ElementName=VBOx2}"
+                           RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=370}">
+                        </Frame>
+                        <Image
+                            x:Name="ImageUser2"
+                            Source="user1"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant=10, Property=X}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=10, ElementName=VBOx2}"/>
+                        <Label
+                            x:Name="TextNameUser2"
+                            Text="User 1"
+                            TextColor="White"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=20, ElementName=ImageUser2}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=10, ElementName=VBOx2}"/>
+                        <Label
+                            x:Name="TextStatusUser2"
+                            Text="Publicó nuevo estado"
+                            TextColor="Lime"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=20, ElementName=ImageUser2}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=TextNameUser2}"/>
+                        <Button
+                           x:Name="LikePost2"
+                           BackgroundColor="Transparent"
+                           ImageSource="Asset2"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant={OnPlatform iOS='10', Android='0'}, Property=X}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=VBOx2}"/>
+                        <Button
+                           x:Name="ComentPost2"
+                           BackgroundColor="Transparent"
+                           ImageSource="Asset3"
+                           HeightRequest="50"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='60', Android='50'}, ElementName=LikePost2}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=VBOx2}"/>
+                        <Button
+                           x:Name="SendPost2"
+                           BackgroundColor="Transparent"
+                           ImageSource="Asset4"
+                           HeightRequest="50"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=ComentPost2}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=VBOx2}"/>
 
-                                    <CollectionView.ItemsLayout>
-                                        <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
-                                    </CollectionView.ItemsLayout>
-
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackLayout HorizontalOptions="FillAndExpand">
-                                                <StackLayout>
-                                                    <Frame
-                                                        BackgroundColor="Transparent"
-                                                        CornerRadius="5"
-                                                        Margin="-10,0,0,0"
-                                                        HasShadow="False"
-                                                        HorizontalOptions="Center"
-                                                        IsClippedToBounds="True">
-                                                        <Image
-                                                            Aspect="Fill"
-                                                            HeightRequest="160"
-                                                            Source="{Binding ImageUrl}"
-                                                            WidthRequest="320" />
-                                                    </Frame>
-                                                </StackLayout>
-                                                <StackLayout.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference mainView}, Path=BindingContext.ItemTapCommand}" CommandParameter="{Binding .}" />
-                                                </StackLayout.GestureRecognizers>
-                                            </StackLayout>
-
-
-                                        </DataTemplate>
-
-                                    </CollectionView.ItemTemplate>
-
-
-                                </CollectionView>
-                            </StackLayout>
-
-                            <StackLayout HeightRequest="180">
-                                <CollectionView ItemsSource="{Binding itemPreview}">
-
-                                    <CollectionView.ItemsLayout>
-                                        <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
-                                    </CollectionView.ItemsLayout>
-
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackLayout Margin="0" HorizontalOptions="FillAndExpand">
-                                                <StackLayout>
-                                                    <Frame
-                                                        BackgroundColor="Transparent"
-                                                        CornerRadius="5"
-                                                        HasShadow="False"
-                                                        Margin="-10,0,0,0"
-                                                        HorizontalOptions="Center"
-                                                        IsClippedToBounds="True">
-                                                        <Image
-                                                            Aspect="Fill"
-                                                            HeightRequest="160"
-                                                            Source="{Binding ImageUrl}"
-                                                            WidthRequest="320">
-                                                            <Image.GestureRecognizers>
-                                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
-                                                            </Image.GestureRecognizers>
-                                                        </Image>
-                                                    </Frame>
-                                                </StackLayout>
-                                                <StackLayout.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference mainView}, Path=BindingContext.ItemTapCommand}" CommandParameter="{Binding .}" />
-                                                </StackLayout.GestureRecognizers>
-                                            </StackLayout>
-
-
-                                        </DataTemplate>
-
-                                    </CollectionView.ItemTemplate>
-
-
-                                </CollectionView>
-                            </StackLayout>
-
-                            <StackLayout HeightRequest="180">
-                                <CollectionView ItemsSource="{Binding itemPreview}">
-
-                                    <CollectionView.ItemsLayout>
-                                        <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
-                                    </CollectionView.ItemsLayout>
-
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackLayout Margin="0" HorizontalOptions="FillAndExpand">
-                                                <StackLayout>
-                                                    <Frame
-                                                        BackgroundColor="Transparent"
-                                                        CornerRadius="5"
-                                                        HasShadow="False"
-                                                        Margin="-10,0,0,0"
-                                                        HorizontalOptions="Center"
-                                                        IsClippedToBounds="True">
-                                                        <Image
-                                                            Aspect="Fill"
-                                                            HeightRequest="160"
-                                                            Source="{Binding ImageUrl}"
-                                                            WidthRequest="320" />
-                                                    </Frame>
-                                                </StackLayout>
-                                                <StackLayout.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference mainView}, Path=BindingContext.ItemTapCommand}" CommandParameter="{Binding .}" />
-                                                </StackLayout.GestureRecognizers>
-                                            </StackLayout>
-
-
-                                        </DataTemplate>
-
-                                    </CollectionView.ItemTemplate>
-
-
-                                </CollectionView>
-                            </StackLayout>
-
-                        </StackLayout>
+                    </RelativeLayout>
 
 
 
-                    </StackLayout>
                 </ScrollView>
             </StackLayout>
             <!--  Footer  -->

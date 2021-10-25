@@ -146,7 +146,7 @@ namespace FGTotal.ViewModel
         {
             source.Add(new ItemsPreview
             {
-                ImageUrl = "post2",
+                ImageUrl = "web",
                 Name = "BeoPlay Speaker",
                 brand = "Bang and Olufsen",
                 price = "$755"
