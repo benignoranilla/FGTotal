@@ -23,17 +23,17 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>FGTotal</string>
+	<string>PhoenixApp</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.FGTotal</string>
+	<string>com.phoenixapplication</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>2.0</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>FGTotal</string>
 	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcons.appiconset</string>
+	<string>Assets.xcassets/AppIcons1.appiconset</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -60,5 +60,9 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIMainStoryboardFile</key>
+	<string>LaunchScreen</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.2</string>
 </dict>
 </plist>

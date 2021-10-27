@@ -2,11 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FGTotal.Views.Seguidor.Account"
-             xmlns:ViewModel="clr-namespace:FGTotal.ViewModel" 
+             xmlns:ViewModel="clr-namespace:FGTotal.ViewModel"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-             xmlns:PanCake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="True"
              BackgroundColor="#001B4C"
              mc:Ignorable="d">
     <ContentPage.BindingContext>
@@ -34,208 +32,163 @@
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="StartAndExpand" />
             </StackLayout>
-            <ScrollView VerticalScrollBarVisibility="Never" 
+            <ScrollView 
+                VerticalScrollBarVisibility="Never" 
                 BackgroundColor="#001B4C">
-                <Grid RowSpacing="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <!--Header Image-->
-                    <PanCake:PancakeView Grid.Row="0"  CornerRadius="0,0,0,0" IsClippedToBounds="true" HorizontalOptions="FillAndExpand" HeightRequest="{OnPlatform iOS='220', Android='200'}" Margin="0,0,0,0">
-                        <Image Source="portada_perfiljugador.png" Aspect="AspectFill"/>
-                    </PanCake:PancakeView>
-
-                    <ff:CachedImage Grid.Row="0"  Source="foto_perfiljugador.png"  HeightRequest="40" WidthRequest="40" TranslationY="90" BackgroundColor="Transparent" Margin="0,0,0,0">
-                        <ff:CachedImage.Transformations>
-                            <ffTrans:CircleTransformation />
-                        </ff:CachedImage.Transformations>
-                    </ff:CachedImage>
-
-                    <Button Grid.Row="1"
-                        BackgroundColor="Lime"
-                        Text="Agregar a Historia"
-                        TextColor="#001B4C"
-                        HorizontalOptions="Center"
+                <RelativeLayout>
+                    <Image
+                       x:Name="ImagePortada"
+                       Margin="0"
+                       Source="portada_perfiljugador.png"/>
+                    <Image
+                        x:Name="ImageUser"
+                        Source="user1"
+                        HeightRequest="110" 
+                        WidthRequest="110"
+                        Margin="20,0,0,0"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=140, ElementName=ImagePortada}"/>
+                    <Label
+                        x:Name="SNumero"
+                        Text="95"
+                        TextColor="White"
+                        FontSize="Title"
+                        FontAttributes="Bold"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=30, ElementName=ImageUser}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=190, ElementName=ImagePortada}"/>
+                    <Label
+                        x:Name="LabelNumber"
+                        Text="Seguidos"
+                        TextColor="Lime"
                         FontFamily="GOTHIC"
-                        Margin="0,80,0,10"
-                        WidthRequest="280"
-                        HeightRequest="35"
-                        CornerRadius="30">
-                    </Button>
-                    <Frame 
-                        CornerRadius="95"
-                        Grid.Row="2"
-                        Padding="20,0,20,0" 
-                        BorderColor="White"
+                        FontSize="Small"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='40', Android='30'}, ElementName=SNumero}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=200, ElementName=ImagePortada}"/>
+                    <BoxView
+                        x:Name="BoxV"
+                        BackgroundColor="#F7F7F7"
+                        HeightRequest="1"
+                        WidthRequest="1920"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=130, ElementName=ImageUser}"/>
+                    <Button
+                        x:Name="Config"
+                        ImageSource="Asset6"
                         BackgroundColor="Transparent"
-                        WidthRequest="240"
-                        HeightRequest="35"
-                        HorizontalOptions="Center">
-                        <Button Grid.Row="2"
-                            BackgroundColor="Transparent"
-                            Text="Editar perfil"
-                            TextColor="White"
-                            FontFamily="GOTHIC"
-                            Clicked="TapGestureRecognizer_Tapped_4"
-                            Margin="0,0,0,0"
-                            WidthRequest="280"
-                            HorizontalOptions="Center"
-                            CornerRadius="30">
-                        </Button>
-                    </Frame>
-                    <!-- Botones para iOS-->
-                    <StackLayout Grid.Row="3" Style="{StaticResource StIOSBottons}">
-                        <Button Text="Agregar Historia" Style="{StaticResource StIOSAddHistoryBtn}" />
-                        <Button Style="{StaticResource StIOSSettingBtn}"/>
-                        <Button Text="..." Style="{StaticResource StIOSMoreBtn}"/>
-                    </StackLayout>
-
-                    <!-- Botones para Android-->
-                    <Grid Grid.Row="3" Padding="0,10" IsVisible="{OnPlatform iOS=False, Android=True}"  HorizontalOptions="CenterAndExpand" ColumnSpacing="30">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="50"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Button Grid.Row="0" Grid.Column="0" WidthRequest="50" CornerRadius ="30" BackgroundColor="#ebedf0" Text="+" TextColor="White" FontSize="Medium" />
-
-                        <Button Grid.Row="0" Grid.Column="1" CornerRadius ="30" ImageSource="EditContactIcon" BackgroundColor="#ebedf0" TextColor="White"/>
-
-                        <Button Grid.Row="0" Grid.Column="2" CornerRadius ="30" ImageSource="MoreIcon" BackgroundColor="#ebedf0" TextColor="White" />
-
-                        <Button Grid.Row="0" Grid.Column="3" CornerRadius ="30" Text="..." BackgroundColor="#ebedf0" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
-                    </Grid>
-
-                    <!--Add comment-->
-                    <Grid Grid.Row="5" Padding="20,15">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
-                        <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" Style="{StaticResource StLine}" HorizontalOptions="FillAndExpand" Margin="-50,0,0,0"/>
-
-                        <ff:CachedImage Grid.Row="1" Grid.Column="0" Source="foto_perfiljugador.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="StartAndExpand">
-                            <ff:CachedImage.Transformations>
-                                <ffTrans:CircleTransformation />
-                            </ff:CachedImage.Transformations>
-                        </ff:CachedImage>
-
-                        <Entry 
-                            Grid.Row="1"
-                            Grid.Column="1" 
-                            Grid.ColumnSpan="6"
-                            x:Name="TextoDescripcion"
-                            HorizontalOptions="FillAndExpand" 
-                            VerticalOptions="CenterAndExpand" 
-                            Placeholder="¿Que estas pensando?" 
-                            PlaceholderColor="White" 
-                            Margin="10,0,0,0" 
-                            TextColor="White" />
-
-                        <BoxView 
-                            Grid.Row="2" 
-                            Grid.Column="0" 
-                            Grid.ColumnSpan="7" 
-                            HorizontalOptions="FillAndExpand" 
-                            Style="{StaticResource StLine}" 
-                            Margin="-50,0,0,0"/>
-
-
-                        <Image Grid.Row="3" Grid.Column="0" Source="StatusIcon" WidthRequest="25" />
-                        <Label Grid.Row="3" Grid.Column="1" Text="En vivo" TextColor="White"/>
-
-                        <Image Grid.Row="3" Grid.Column="2" Source="PhotoIcon" WidthRequest="25" />
-                        <Label Grid.Row="3" Grid.Column="3" Text="Foto" TextColor="White"/>
-
-                        <Image Grid.Row="3" Grid.Column="4" Source="EventIcon" WidthRequest="25" />
-                        <Label Grid.Row="3" Grid.Column="5" Text="Video" TextColor="White"/>
-
-                        <Button 
-                            Grid.Row="4" 
-                            Grid.ColumnSpan="7" 
-                            Grid.Column="0" 
-                            HorizontalOptions="Center" 
-                            WidthRequest="300" 
-                            Margin="0,20,0,30" 
-                            ImageSource="CommentIcon" 
-                            Text="Publicar"
-                            x:Name="btn_Publicar"
-                            BackgroundColor="#ebedf0" 
-                            TextColor="Black" />
-
-                    </Grid>
-
-                    <!-- Comments-->
-                    <StackLayout Grid.Row="8" BindableLayout.ItemsSource="{Binding principalComents}">
-                        <BindableLayout.ItemTemplate>
-                            <DataTemplate>
-                                <StackLayout>
-                                    <Grid RowSpacing="0" ColumnSpacing="0" Padding="20,10">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-
-                                        <StackLayout Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Orientation="Horizontal">
-
-                                            <ImageButton
-                                                Source="post2"
-                                                Aspect="Fill"
-                                                HeightRequest="160"
-                                                WidthRequest="320"></ImageButton>
-                                        </StackLayout>
-                                    </Grid>
-                                </StackLayout>
-                            </DataTemplate>
-                        </BindableLayout.ItemTemplate>
-                    </StackLayout>
-
-                </Grid>
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=270, ElementName=ImageUser}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=185, ElementName=ImagePortada}"/>
+                    <Button
+                        x:Name="Share"
+                        ImageSource="Asset5"
+                        BackgroundColor="Transparent"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=Config}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=185, ElementName=ImagePortada}"/>
+                    <Label
+                        Text="Aquí va la descripción del usuario"
+                        TextColor="White"
+                        FontAttributes="Italic"
+                        FontFamily="GOTHIC"
+                        HorizontalTextAlignment="Center"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=30, ElementName=ImageUser}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=LabelNumber}"/>
+                    <Label
+                        x:Name="Top11"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontFamily="GOTHIC"
+                        Margin="20,0,0,0"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=BoxV}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span 
+                                    Text="LOS "
+                                    TextColor="White"
+                                    FontSize="Large"
+                                    FontAttributes="Bold"/>
+                                <Span 
+                                    Text="11"
+                                    FontSize="Large"
+                                    FontAttributes="Bold"
+                                    ForegroundColor="Lime"/>
+                                <Span 
+                                    Text=" DEL DÍA"
+                                    TextColor="White"
+                                    FontSize="Large"
+                                    FontAttributes="Bold"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <ImageButton
+                       x:Name="Btn11"
+                       Source="User1"
+                       BackgroundColor="Transparent"
+                       Margin="10,0,0,0"
+                       WidthRequest="150"
+                       HeightRequest="150"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='60', Android='30'}}"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=Top11}"/>
+                    <Label
+                       x:Name="Lbl11"
+                       Text="Servicio en validación"
+                       TextColor="White"
+                       FontSize="Large"
+                       Margin="20,0,0,0"
+                       BackgroundColor="Transparent"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant={OnPlatform iOS='60', Android='30'}}"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=Top11}"/>
+                    <BoxView
+                        x:Name="BoxV2"
+                        BackgroundColor="#F7F7F7"
+                        HeightRequest="1"
+                        WidthRequest="1920"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=Btn11}"/>
+                    <Image
+                        x:Name="VideosSeccion"
+                        Source="banner_video_home"
+                        Opacity="0.4"
+                        BackgroundColor="Black"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=2, ElementName=BoxV2}"/>
+                    <Label
+                       x:Name="Lbl12"
+                       Text="Servicio en validación"
+                       TextColor="White"
+                       FontSize="Large"
+                       Margin="20,0,0,0"
+                       BackgroundColor="Transparent"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant={OnPlatform iOS='60', Android='30'}}"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=BoxV2}"/>
+                    <BoxView
+                        x:Name="BoxV3"
+                        BackgroundColor="#F7F7F7"
+                        HeightRequest="1"
+                        WidthRequest="1920"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=170, ElementName=VideosSeccion}"/>
+                    <Image
+                        x:Name="lives_bar_letter"
+                        Source="lives_bar_letter"
+                        Margin="30,0,0,0"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BoxV3}"/>
+                    <Image
+                        x:Name="lives_bar_icon"
+                        Source="lives_bar_icon"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=60, ElementName=lives_bar_letter}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BoxV3}"/>
+                    <Image
+                        x:Name="lives_bar_letter2"
+                        Source="lives_bar_letter"
+                        Margin="0,0,30,0"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=180, ElementName=lives_bar_icon}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BoxV3}"/>
+                </RelativeLayout>
+                
             </ScrollView>
-            <StackLayout>
-                <!--  Footer  -->
+        <!--  Footer  -->
                 <StackLayout
-                    Margin="0,-5,0,10"
+                    Margin="0,5,0,10"
                     HeightRequest="80"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="EndAndExpand">
@@ -349,7 +302,6 @@
                     </Frame>
 
                 </StackLayout>
-            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

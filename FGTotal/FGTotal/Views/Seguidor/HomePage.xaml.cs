@@ -33,17 +33,17 @@ namespace FGTotal.Views.Seguidor
 
         private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Verificacion());
+            await Navigation.PushModalAsync(new Account());
         }
 
         private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Mensajes());
+            await Navigation.PushModalAsync(new Verificacion());
         }
 
         private async void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Mensajes());
+            await Navigation.PushModalAsync(new Verificacion());
         }
 
 

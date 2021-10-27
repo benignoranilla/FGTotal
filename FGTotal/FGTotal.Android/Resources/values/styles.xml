@@ -2,7 +2,7 @@
 <resources>
 
 	<style name="Theme.Splash" parent="android:Theme">
-		<item name="android:windowBackground">@drawable/loading</item>
+		<item name="android:windowBackground">@drawable/pantallas_carga_final</item>
 		<item name="android:windowNoTitle">true</item>
 	</style>
 	<style name="MainTheme" parent="MainTheme.Base">

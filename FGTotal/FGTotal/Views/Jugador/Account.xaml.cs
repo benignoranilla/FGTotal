@@ -58,7 +58,7 @@ namespace FGTotal.Views.Jugador
             PostModel log = new PostModel
             {
                 titulo = "Publicación 14",
-                descripcion = TextoDescripcion.Text,
+                //descripcion = TextoDescripcion.Text,
                 idUsuario = 7,
                 idTipoPublicacion = "N"
 

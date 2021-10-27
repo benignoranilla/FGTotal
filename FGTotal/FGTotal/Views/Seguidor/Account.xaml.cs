@@ -35,7 +35,7 @@ namespace FGTotal.Views.Seguidor
 
         private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Verificacion());
+            await Navigation.PushModalAsync(new Account());
         }
 
         private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
@@ -43,10 +43,6 @@ namespace FGTotal.Views.Seguidor
             await Navigation.PushModalAsync(new Editar());
         }
 
-        private async void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
-        {
-
-        }
 
         protected override bool OnBackButtonPressed()
         {
@@ -58,7 +54,7 @@ namespace FGTotal.Views.Seguidor
             PostModel log = new PostModel
             {
                 titulo = "Publicación 14",
-                descripcion = TextoDescripcion.Text,
+                //descripcion = TextoDescripcion.Text,
                 idUsuario = 7,
                 idTipoPublicacion = "N"
 
