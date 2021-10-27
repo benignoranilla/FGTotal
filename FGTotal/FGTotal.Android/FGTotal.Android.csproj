@@ -303,7 +303,8 @@
     <AndroidResource Include="Resources\drawable\icon3.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\iconmessage.svg" />
+    <AndroidResource Include="Resources\drawable\Asset1.png" />
+    <Content Include="Resources\drawable\iconmessage.svg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Image1.png" />

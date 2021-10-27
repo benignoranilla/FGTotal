@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace FGTotal.Views.Jugador
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePage : ContentPage
+    public partial class Perfil : ContentPage
     {
-        public HomePage()
+        public Perfil()
         {
             InitializeComponent();
         }
@@ -33,7 +33,7 @@ namespace FGTotal.Views.Jugador
 
         private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Perfil());
+            await Navigation.PushModalAsync(new Verificacion());
         }
 
         private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)

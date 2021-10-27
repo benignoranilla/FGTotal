@@ -73,7 +73,7 @@ namespace FGTotal.ViewModel
 
             source2.Add(new Category
             {
-                image = "headphone",
+                image = "devices",
                 title = "Gadgets",
                 link = "5693 Products"
             });

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewmodels="clr-namespace:FGTotal.ViewModel" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:viewmodels="clr-namespace:FGTotal.ViewModel"
              xmlns:FGTotal="clr-namespace:FGTotal.Style"
              x:Class="FGTotal.Views.Jugador.HomePage"
              x:Name="mainView"
@@ -15,7 +16,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped_5"></ToolbarItem>
-        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_4"></ToolbarItem>
+        <ToolbarItem IconImageSource="iconmessage.svg"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_4"></ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <NavigationPage.TitleView>
@@ -75,9 +76,8 @@
                                                 Margin="0,0,0,0"
                                                 Padding="0"
                                                 CornerRadius="30"
-                                                HasShadow="True"
+                                                BackgroundColor="LimeGreen"
                                                 HeightRequest="60"
-                                                IsClippedToBounds="False"
                                                 WidthRequest="60">
                                                 <Image
                                                     Margin="-8"
@@ -125,7 +125,7 @@
                         </Frame>
 
                         <!--Primer Post-->
-                        <ImageButton Source="Friend6"
+                        <ImageButton Source="Friend6.jpg"
                                  x:Name="VBOx"
                                  Opacity="0.4"
                                  HeightRequest="150"
@@ -184,7 +184,7 @@
                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=165, ElementName=VBOx}"/>
 
                         <!--Segundo Post-->
-                        <ImageButton Source="Friend6"
+                        <ImageButton Source="Friend6.jpg"
                                      x:Name="VBOx2"
                                      Opacity="0.4"
                                      BackgroundColor="Black"
@@ -242,6 +242,11 @@
                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=ComentPost2}"
                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=VBOx2}"/>
 
+                        <ffSvg:SvgCachedImage
+                            WidthRequest=".75"
+                            HeightRequest=".50"
+                            Aspect="AspectFill"
+                            Source="resource://FGTotal.SVG.entrevistas_foto.svg" />
                     </RelativeLayout>
 
 
@@ -346,10 +351,12 @@
                                 HasShadow="False"
                                 HeightRequest="50"
                                 WidthRequest="50">
+  
                                 <Image
                                     Aspect="AspectFit"
                                     HeightRequest="40"
                                     HorizontalOptions="CenterAndExpand"
+                                    
                                     Source="PERFIL"
                                     VerticalOptions="CenterAndExpand"
                                     WidthRequest="40" />

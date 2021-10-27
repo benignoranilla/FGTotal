@@ -44,27 +44,12 @@
                     <Image
                         x:Name="ImageUser"
                         Source="user1"
+                        HorizontalOptions="Center"
                         HeightRequest="110" 
                         WidthRequest="110"
-                        Margin="20,0,0,0"
+                        Margin="0,0,0,0"
                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=140, ElementName=ImagePortada}"/>
-                    <Label
-                        x:Name="SNumero"
-                        Text="95"
-                        TextColor="White"
-                        FontSize="Title"
-                        FontAttributes="Bold"
-                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=30, ElementName=ImageUser}"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=190, ElementName=ImagePortada}"/>
-                    <Label
-                        x:Name="LabelNumber"
-                        Text="Seguidos"
-                        TextColor="Lime"
-                        FontFamily="GOTHIC"
-                        FontSize="Small"
-                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='40', Android='30'}, ElementName=SNumero}"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=200, ElementName=ImagePortada}"/>
-                    <BoxView
+                    <!--<BoxView
                         x:Name="BoxV"
                         BackgroundColor="#F7F7F7"
                         HeightRequest="1"
@@ -183,7 +168,7 @@
                         Source="lives_bar_letter"
                         Margin="0,0,30,0"
                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=180, ElementName=lives_bar_icon}"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BoxV3}"/>
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BoxV3}"/>-->
                 </RelativeLayout>
 
             </ScrollView>
@@ -193,7 +178,8 @@
                     Margin="0,-5,0,10"
                     HeightRequest="80"
                     HorizontalOptions="FillAndExpand"
-                    VerticalOptions="EndAndExpand">
+                    VerticalOptions="EndAndExpand"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-80}">
                     <!--  Franja  -->
                     <BoxView
                         Margin="0"
