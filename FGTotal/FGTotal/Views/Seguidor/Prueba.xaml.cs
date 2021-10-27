@@ -21,10 +21,10 @@ namespace FGTotal.Views.Seguidor
         {
             InitializeComponent();
 
-            // BindingContext = dvm = new DmViewModel();
+             BindingContext = new DmViewModel();
         }
 
-        private DmViewModel dvm;
+        //private DmViewModel dvm;
 
         //private async Task<T> executeRequestPost<T>(objectParams)
         //{

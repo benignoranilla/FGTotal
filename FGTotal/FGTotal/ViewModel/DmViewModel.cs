@@ -18,7 +18,8 @@ namespace FGTotal.ViewModel
     {
         public DmViewModel()
         {
-            ConsultaListaDmPost();
+            //ConsultaListaDmPost();
+            ObtenerBandejaMensajes();
         }
         WebApiClientService webApi = new WebApiClientService();
 
@@ -29,26 +30,29 @@ namespace FGTotal.ViewModel
             get { return listaDm; }
             set { listaDm = value; OnPropertyChanged(); }
         }
-
-        //private string idSeguidor,idJugador;
-        //
-        //public string ID
-        //{
-        //    get { return idSeguidor; idJugador; }
-        //    set { idSeguidor = value; idJugador = value; OnPropertyChanged(); }
-        //}
-
-        //public ICommand ConsultaListaDmPostCommand { get; set; }
-        //
-        //public DmViewModel()
-        //{
-        //    ConsultaListaDmPostCommand = new Command(async () => await ConsultaListaDmPost());
-        //}
-
         public async Task ConsultaListaDmPost()
         {
-            var paramsPost = new { idSeguidor = Preferences.Get("id", string.Empty), idJugador = 11 };
+
+            var paramsPost = new { idSeguidor = int.Parse(Preferences.Get("id", string.Empty)), idJugador = 11 };
             ListaDm = await webApi.executeRequestPost<ObservableCollection<DmModel>>(paramsPost);
+        }
+
+        public async Task ObtenerBandejaMensajes()
+        {
+            try
+            {
+
+                ListaDm = await webApi.ObtenerBandejaMensajeJugadorGet<ObservableCollection<DmModel>>();
+
+                var _list = ListaDm;
+                
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+            
         }
 
     }

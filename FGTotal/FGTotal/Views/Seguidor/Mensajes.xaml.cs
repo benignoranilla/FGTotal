@@ -41,9 +41,16 @@ namespace FGTotal.Views.Seguidor
             await Navigation.PushModalAsync(new Editar());
         }
 
+        private async void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new SendMensaje());
+        }
+
         protected override bool OnBackButtonPressed()
         {
             return false;
         }
+
+        
     }
 }

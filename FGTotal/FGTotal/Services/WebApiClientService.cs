@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace FGTotal.Services
 {
@@ -34,5 +35,41 @@ namespace FGTotal.Services
             }
 
         }
+
+        public async Task<T> ObtenerBandejaMensajeJugadorGet<T>()
+        {
+            try
+            {
+                string id = Preferences.Get("id", string.Empty);
+                string requestUri = "DM/ObtenerBandejaMensajeJugador/"+id;
+
+                var client = new HttpClient();
+                client.BaseAddress = urlBase;
+                //string jsonData = JsonConvert.SerializeObject(objectParams);
+
+                //StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await client.GetAsync(requestUri).ConfigureAwait(false);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    var _json = JsonConvert.DeserializeObject<T>(json);
+                    return _json;
+                }
+                else
+                {
+                    return default(T);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            
+
+        }
+
+
     }
 }

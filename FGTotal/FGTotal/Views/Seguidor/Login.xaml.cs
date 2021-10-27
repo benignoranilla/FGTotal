@@ -35,8 +35,15 @@ namespace FGTotal.Views.Seguidor
                 var jsonlogin = await Response.Content.ReadAsStringAsync();
                 var resultado = JsonConvert.DeserializeObject<WsModel>(jsonlogin);
 
-                var idLoginUsuario = $"{resultado.id}";
+                var idLoginUsuario = $"{resultado.ID}";
                 Preferences.Set("id", idLoginUsuario);
+
+                var usuario = $"{resultado.usuario}";
+                Preferences.Set("usuario", usuario);
+
+                var tipoUsuario = $"{resultado.tipousuario}";
+                Preferences.Set("tipoUsuario", tipoUsuario);
+
             }
             else
             {

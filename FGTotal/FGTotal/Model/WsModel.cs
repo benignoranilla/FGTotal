@@ -8,8 +8,16 @@ namespace FGTotal.Model
     {
 
         //Login
+       
+        private int id;
 
-        public string id { get; set; }
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        //public string id { get; set; }
         public string usuario { get; set; }
 
         public string contrasena { get; set; }
