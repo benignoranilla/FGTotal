@@ -30,7 +30,7 @@ namespace FGTotal.ViewModel
         public async Task ConsultaDetalleDmPost()
         {
             IsBusy = true;
-            HttpResponseMessage response = await HttpClientService.Instance.GetAsync("/DM/ObtenerDetalleMensaje/S");
+            HttpResponseMessage response = await HttpClientService.Instance.GetAsync("/DM/ObtenerDetalleMensaje/J");
             if (response.IsSuccessStatusCode)
             {
                 string rawMessage = await response.Content.ReadAsStringAsync();
@@ -39,7 +39,7 @@ namespace FGTotal.ViewModel
 
             IsBusy = false;
 
-            var paramsPost = new { idSeguidor = int.Parse(Preferences.Get("id", string.Empty)), IdJugador = 16 };
+            var paramsPost = new { idSeguidor = int.Parse(Preferences.Get("id", string.Empty)), IdJugador = int.Parse(Preferences.Get("idJugador",string.Empty)) };
             DetalleDm = await webApi.executeRequestPost<ObservableCollection<DmModel>>(paramsPost);
         }
     }

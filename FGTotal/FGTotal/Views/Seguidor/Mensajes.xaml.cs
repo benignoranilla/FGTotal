@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,6 +16,7 @@ namespace FGTotal.Views.Seguidor
     {
         public Mensajes()
         {
+            
             InitializeComponent();
             
         }
@@ -48,16 +49,20 @@ namespace FGTotal.Views.Seguidor
         {
             await Navigation.PushModalAsync(new Novedades());
         }
+        //private async void TapGestureRecognizer_Tapped_6(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushModalAsync(new Novedades());
+        //}
 
-        private async void TapGestureRecognizer_Tapped_6(object sender, EventArgs e)
+        private async void MensajeSeleccionado (object sender, ItemTappedEventArgs e)
         {
+            var id = e.Item as DmModel;
+            var idJugador = $"{id.idSeguidor}";
+            Preferences.Get("idJugador", string.Empty);
+
             await Navigation.PushModalAsync(new SendMensaje());
 
-           //DmModel log = new DmModel
-           //{
-           //    idJugador = 
-           //};
-            
+          
         }
 
         //protected override bool OnBackButtonPressed()

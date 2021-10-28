@@ -37,7 +37,7 @@
                     <StackLayout Grid.Row="0" Margin="10,30,0,5">
 
                         <StackLayout Orientation="Horizontal">
-                            <ListView Margin="20" ItemsSource="{Binding ListaDm}" HorizontalOptions="FillAndExpand">
+                            <ListView Margin="20" ItemsSource="{Binding ListaDm}" HorizontalOptions="FillAndExpand" ItemTapped="MensajeSeleccionado">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
@@ -75,9 +75,7 @@
                                                         IsVisible="true"
                                                         >
                                                         <Label ClassId="idOtroUsuario" x:Name="idOtroUsuario" Grid.Row="0" Text="{Binding idJugador}" TextColor="Transparent" FontSize="Medium"></Label>
-                                                        <Frame.GestureRecognizers>
-                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_6" />
-                                                        </Frame.GestureRecognizers>
+                                                        
                                                     </Frame>
                                                 </Grid>
                                             </StackLayout>
