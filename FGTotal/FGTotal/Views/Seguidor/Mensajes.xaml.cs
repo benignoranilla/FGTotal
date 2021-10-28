@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FGTotal.Model;
+using FGTotal.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,7 @@ namespace FGTotal.Views.Seguidor
         public Mensajes()
         {
             InitializeComponent();
+            
         }
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
@@ -33,24 +36,35 @@ namespace FGTotal.Views.Seguidor
 
         private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Verificacion());
+            await Navigation.PushModalAsync(new Account());
         }
 
         private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Editar());
+            await Navigation.PushModalAsync(new Mensajes());
         }
 
         private async void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new SendMensaje());
+            await Navigation.PushModalAsync(new Novedades());
         }
 
-        protected override bool OnBackButtonPressed()
+        private async void TapGestureRecognizer_Tapped_6(object sender, EventArgs e)
         {
-            return false;
+            await Navigation.PushModalAsync(new SendMensaje());
+
+           //DmModel log = new DmModel
+           //{
+           //    idJugador = 
+           //};
+            
         }
 
-        
+        //protected override bool OnBackButtonPressed()
+        //{
+        //    return false;
+        //}
+
+
     }
 }

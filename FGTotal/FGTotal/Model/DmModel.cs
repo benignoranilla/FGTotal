@@ -19,5 +19,7 @@ namespace FGTotal.Model
         public string idEstadoDmJu { get; set; }
         public string usuario { get; set; }
 
+        public string mensaje { get; set; }
+
     }
 }

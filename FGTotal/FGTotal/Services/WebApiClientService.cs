@@ -35,11 +35,9 @@ namespace FGTotal.Services
             }
 
         }
-
         public async Task<T> ObtenerBandejaMensajeJugadorGet<T>()
         {
-            try
-            {
+            
                 string id = Preferences.Get("id", string.Empty);
                 string requestUri = "DM/ObtenerBandejaMensajeJugador/"+id;
 
@@ -61,13 +59,6 @@ namespace FGTotal.Services
                 {
                     return default(T);
                 }
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-            
-
         }
 
 

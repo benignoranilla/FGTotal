@@ -30,28 +30,19 @@ namespace FGTotal.ViewModel
             get { return listaDm; }
             set { listaDm = value; OnPropertyChanged(); }
         }
-        public async Task ConsultaListaDmPost()
-        {
-
-            var paramsPost = new { idSeguidor = int.Parse(Preferences.Get("id", string.Empty)), idJugador = 11 };
-            ListaDm = await webApi.executeRequestPost<ObservableCollection<DmModel>>(paramsPost);
-        }
+       //public async Task ConsultaListaDmPost()
+       //{
+       //
+       //    var paramsPost = new { idSeguidor = int.Parse(Preferences.Get("id", string.Empty)), idJugador = 11 };
+       //    ListaDm = await webApi.executeRequestPost<ObservableCollection<DmModel>>(paramsPost);
+       //}
 
         public async Task ObtenerBandejaMensajes()
         {
-            try
-            {
-
+            
                 ListaDm = await webApi.ObtenerBandejaMensajeJugadorGet<ObservableCollection<DmModel>>();
 
                 var _list = ListaDm;
-                
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
             
         }
 

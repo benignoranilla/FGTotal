@@ -39,7 +39,7 @@ namespace FGTotal.ViewModel
 
             IsBusy = false;
 
-            var paramsPost = new { idSeguidor = int.Parse(Preferences.Get("id", string.Empty)), idJugador = 11 };
+            var paramsPost = new { idSeguidor = int.Parse(Preferences.Get("id", string.Empty)), IdJugador = 16 };
             DetalleDm = await webApi.executeRequestPost<ObservableCollection<DmModel>>(paramsPost);
         }
     }
