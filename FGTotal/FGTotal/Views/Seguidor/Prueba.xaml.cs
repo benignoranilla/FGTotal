@@ -20,29 +20,33 @@ namespace FGTotal.Views.Seguidor
         public Prueba()
         {
             InitializeComponent();
-
-             BindingContext = new DmViewModel();
+        }
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new FGPlay());
+        }
+        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new FGPlay());
         }
 
-        //private DmViewModel dvm;
+        private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Search());
+        }
 
-        //private async Task<T> executeRequestPost<T>(objectParams)
-        //{
-        //    WsModel log = new WsModel
-        //    {
-        //        idSeguidor = 4,
-        //        idJugador = 6
-        //    };
-        //    Uri RequestUri = new Uri("http://projectwebapiloadbalancer-1962764078.us-east-2.elb.amazonaws.com/api/DM/ObtenerDetalleMensaje/J");
-        //
-        //    var Client = new HttpClient();
-        //    var json = JsonConvert.SerializeObject(log);
-        //    var ContentJson = new StringContent(json, Encoding.UTF8, "application/json");
-        //    var Response = await Client.PostAsync(RequestUri, ContentJson);
-        //    if (Response.StatusCode == System.Net.HttpStatusCode.OK)
-        //    {
-        //        return dvm;
-        //    }
-        //}
+        private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Account());
+        }
+
+        private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Registro());
+        }
+        private async void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Registro());
+        }
     }
 }

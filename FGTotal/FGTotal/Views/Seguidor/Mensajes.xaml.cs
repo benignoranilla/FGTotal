@@ -16,9 +16,7 @@ namespace FGTotal.Views.Seguidor
     {
         public Mensajes()
         {
-            
             InitializeComponent();
-            
         }
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
@@ -57,8 +55,8 @@ namespace FGTotal.Views.Seguidor
         private async void MensajeSeleccionado (object sender, ItemTappedEventArgs e)
         {
             var id = e.Item as DmModel;
-            var idJugador = $"{id.idSeguidor}";
-            Preferences.Get("idJugador", string.Empty);
+            var idJugador = $"{id.idJugador}";
+            Preferences.Set("idJugador", idJugador);
 
             await Navigation.PushModalAsync(new SendMensaje());
 

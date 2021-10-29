@@ -32,11 +32,12 @@ namespace FGTotal.Views.Seguidor
             if (Response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 await Navigation.PushAsync(new HomePage());
+
                 var jsonlogin = await Response.Content.ReadAsStringAsync();
                 var resultado = JsonConvert.DeserializeObject<WsModel>(jsonlogin);
 
                 var idLoginUsuario = $"{resultado.ID}";
-                Preferences.Set("id", idLoginUsuario);
+                Preferences.Set("idSeguidor", idLoginUsuario);
 
                 var usuario = $"{resultado.usuario}";
                 Preferences.Set("usuario", usuario);

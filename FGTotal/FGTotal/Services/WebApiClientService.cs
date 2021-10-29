@@ -14,7 +14,7 @@ namespace FGTotal.Services
 
         public async Task<T> executeRequestPost<T>(object objectParams)
         {
-            string requestUri = "DM/ObtenerDetalleMensaje/J";
+            string requestUri = "DM/ObtenerDetalleMensaje/S";
 
             var client = new HttpClient();
             client.BaseAddress = urlBase;
@@ -39,7 +39,7 @@ namespace FGTotal.Services
         {
             
                 string id = Preferences.Get("id", string.Empty);
-                string requestUri = "DM/ObtenerBandejaMensajeJugador/"+id;
+                string requestUri = "DM/ObtenerBandejaMensajeSeguidor/"+id;
 
                 var client = new HttpClient();
                 client.BaseAddress = urlBase;

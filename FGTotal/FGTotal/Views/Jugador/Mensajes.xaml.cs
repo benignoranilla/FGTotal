@@ -1,9 +1,10 @@
-﻿using System;
+﻿using FGTotal.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -33,17 +34,24 @@ namespace FGTotal.Views.Jugador
 
         private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Verificacion());
+            await Navigation.PushModalAsync(new Perfil());
         }
 
         private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Editar());
+            await Navigation.PushModalAsync(new Mensajes());
         }
-
-        protected override bool OnBackButtonPressed()
+        private async void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
         {
-            return false;
+            await Navigation.PushModalAsync(new Novedades());
+        }
+        private async void MensajeSeleccionado(object sender, ItemTappedEventArgs e)
+        {
+            var id = e.Item as DmModel;
+            var idSeguidor = $"{id.idSeguidor}";
+            Preferences.Set("idSeguidor", idSeguidor);
+
+            await Navigation.PushModalAsync(new SendMensaje());
         }
     }
 }

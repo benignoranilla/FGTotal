@@ -86,8 +86,8 @@
                         Grid.Row="0"
                         VerticalOptions="End">
                         <Entry
-                            ClassId="DNI"
-                            x:Name="DNI"
+                            ClassId="Mensaje"
+                            x:Name="Mensaje"
                             Placeholder="Escriba un mensaje..."
                             FontSize="Small"
                             BackgroundColor="Transparent"

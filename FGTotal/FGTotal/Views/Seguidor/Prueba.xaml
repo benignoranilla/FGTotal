@@ -1,31 +1,202 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewModel="clr-namespace:FGTotal.ViewModel"
+             xmlns:viewModel="clr-namespace:FGTotal.ViewModel" 
+             xmlns:local="clr-namespace:CustomRendererDemo"
              x:Class="FGTotal.Views.Seguidor.Prueba"
              BackgroundImageSource="fondo_config">
 
     <ContentPage.BindingContext>
-        <viewModel:DmViewModel></viewModel:DmViewModel>
+        <viewModel:DetalleMensajeViewModel></viewModel:DetalleMensajeViewModel>
     </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped_5"></ToolbarItem>
+        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_4"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+            <Image Source="FG_Total.png">
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
 
     <ContentPage.Content>
         <StackLayout>
-            <!-- <Button BackgroundColor="CornflowerBlue" TextColor="White" Command="{Binding ConsultaListaDmPostCommand}" Text="Post Request" FontAttributes="Bold"></Button> -->
-            <ListView Margin="10" ItemsSource="{Binding ListaDm}" HorizontalOptions="FillAndExpand">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding descripcionSeguidor}" TextColor="White" FontSize="Medium"></Label>
-                                <Label Text="{Binding descripcionJugador}" TextColor="White" FontSize="Small"></Label>
-                                <Label Text="{Binding mensaje}" TextColor="White" FontSize="Small"></Label>
-                                <Label Text="{Binding descripcionTipoDm}" TextColor="white" FontSize="Small"></Label>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+
+            <!-- Content -->
+            <ScrollView HorizontalOptions="CenterAndExpand" Margin="0,0,0,0">
+
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0" Margin="10,30,0,5">
+
+                        <StackLayout Orientation="Horizontal">
+                            <ListView Margin="20" ItemsSource="{Binding DetalleDm}" HorizontalOptions="FillAndExpand">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Grid RowSpacing="0" Margin="0,0,0,0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+                                                    <Frame
+                                                        Grid.Row="0"
+                                                        Padding="0"
+                                                        BackgroundColor="Transparent"
+                                                        HasShadow="False"
+                                                        HeightRequest="50"
+                                                        WidthRequest="50">
+                                                        <Label Grid.Row="0" Text="{Binding descripcionSeguidor}" TextColor="White" FontSize="Medium"></Label>
+                                                    </Frame>
+                                                    <Frame 
+                                                        Grid.Row="1"
+                                                        Padding="0"
+                                                        BackgroundColor="Transparent"
+                                                        HasShadow="False"
+                                                        HeightRequest="50"
+                                                        WidthRequest="50">
+                                                        <Label Grid.Row="1" Text="{Binding mensaje}" TextColor="White" FontSize="Small"></Label>
+                                                    </Frame>
+                                                </Grid>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+
+
+
+            <!--  Footer  -->
+            <StackLayout
+                Margin="0,0,0,00"
+                HeightRequest="80"
+                BackgroundColor="#001B4C"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+                <!--  Franja  -->
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand" />
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HasShadow="True"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout
+                        Margin="0,0,0,0"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+
+                        <!--  Opción 1  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="HOME"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 2  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="FGPLAY_LOGO"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 3  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="search"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="30" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <!--  Opción 4  -->
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="PERFIL"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="40" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

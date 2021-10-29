@@ -36,7 +36,7 @@
                     <StackLayout Grid.Row="0" Margin="10,30,0,5">
 
                         <StackLayout Orientation="Horizontal">
-                            <ListView Margin="20" ItemsSource="{Binding ListaDm}" HorizontalOptions="FillAndExpand">
+                            <ListView Margin="20" ItemsSource="{Binding ListaDm}" HorizontalOptions="FillAndExpand" ItemTapped="MensajeSeleccionado">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
@@ -53,10 +53,7 @@
                                                         HasShadow="False"
                                                         HeightRequest="50"
                                                         WidthRequest="50">
-                                                        <Label Grid.Row="0" Text="{Binding descripcionSeguidor}" TextColor="White" FontSize="Medium"></Label>
-                                                        <Frame.GestureRecognizers>
-                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                                        </Frame.GestureRecognizers>
+                                                        <Label Grid.Row="0" Text="{Binding usuario}" TextColor="White" FontSize="Medium"></Label>
                                                     </Frame>
                                                     <Frame 
                                                         Grid.Row="1"
@@ -65,10 +62,19 @@
                                                         HasShadow="False"
                                                         HeightRequest="50"
                                                         WidthRequest="50">
-                                                        <Label Grid.Row="1" Text="{Binding mensaje}" TextColor="White" FontSize="Small"></Label>
-                                                        <Frame.GestureRecognizers>
-                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                                        </Frame.GestureRecognizers>
+                                                        <Label Grid.Row="1" Text="{Binding ultimoMensaje}" TextColor="White" FontSize="Small"></Label>
+                                                    </Frame>
+                                                    <Frame
+                                                        Grid.Row="0"
+                                                        Padding="0"
+                                                        BackgroundColor="Transparent"
+                                                        HasShadow="False"
+                                                        HeightRequest="50"
+                                                        WidthRequest="70"
+                                                        IsVisible="true"
+                                                        >
+                                                        <Label ClassId="idOtroUsuario" x:Name="idOtroUsuario" Grid.Row="0" Text="{Binding idSeguidor}" TextColor="Transparent" FontSize="Medium"></Label>
+
                                                     </Frame>
                                                 </Grid>
                                             </StackLayout>
