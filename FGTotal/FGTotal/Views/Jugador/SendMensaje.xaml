@@ -21,7 +21,7 @@
 
             <!-- Content -->
             <ScrollView  HorizontalOptions="CenterAndExpand" Margin="0,0,0,0">
-                <StackLayout>
+                <RelativeLayout>
                     <Grid RowSpacing="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
@@ -67,8 +67,36 @@
                                 </ListView>
                             </StackLayout>
                         </StackLayout>
+                        <StackLayout 
+                            Grid.Row="3"
+                            VerticalOptions="End">
+                            <local:RoundedEntry
+                                Grid.Row="0"
+                                ClassId="Mensaje"
+                                x:Name="Mensaje"
+                                Placeholder="Mensaje..."
+                                FontSize="Small"
+                                HorizontalOptions="Start"
+                                VerticalOptions="End"
+                                WidthRequest="300"
+                                HeightRequest="50"
+                                Margin="20,0,0,0"
+                                PlaceholderColor="Gray">
+                            </local:RoundedEntry>
+                            <ImageButton
+                                    Grid.Row="0"
+                                    HorizontalOptions="End"
+                                    WidthRequest="50"
+                                    Margin="0,0,10,0"
+                                    BackgroundColor="Transparent"
+                                    Source="play2"
+                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=10, ElementName=Mensaje}"
+                                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=10, ElementName=Mensaje}">
+
+                            </ImageButton>
+                        </StackLayout>
                     </Grid>
-                </StackLayout>
+                </RelativeLayout>
             </ScrollView>
 
             <!--  Footer  -->
@@ -82,33 +110,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <StackLayout 
-                        Grid.Row="0"
-                        VerticalOptions="End">
-                        <local:RoundedEntry
-                        ClassId="Mensaje"
-                        x:Name="Mensaje"
-                        Placeholder="Mensaje..."
-                        FontSize="Small"
-                        HorizontalOptions="Start"
-                        VerticalOptions="End"
-                        WidthRequest="300"
-                        HeightRequest="50"
-                        Margin="20,0,0,0"
-                        PlaceholderColor="Gray">
-                        </local:RoundedEntry>
-                    </StackLayout>
-                    <StackLayout
-                        Grid.Row="0">
-                        <ImageButton
-                            HorizontalOptions="End"
-                            WidthRequest="50"
-                            Margin="0,0,10,0"
-                            BackgroundColor="Transparent"
-                            Source="play2">
-
-                        </ImageButton>
-                    </StackLayout>
+                   
                     <!--  Franja  -->
                     <BoxView
                         Margin="0"
