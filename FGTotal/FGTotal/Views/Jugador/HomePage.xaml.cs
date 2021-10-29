@@ -18,32 +18,32 @@ namespace FGTotal.Views.Jugador
         }
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new HomePage());
+            await Navigation.PushAsync(new HomePage());
         }
 
         private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new FGPlay());
+            await Navigation.PushAsync(new FGPlay());
         }
 
         private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Search());
+            await Navigation.PushAsync(new Search());
         }
 
         private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Perfil());
+            await Navigation.PushAsync(new Perfil());
         }
 
         private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Mensajes());
+            await Navigation.PushAsync(new Mensajes());
         }
 
         private async void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Mensajes());
+            await Navigation.PushAsync(new Mensajes());
         }
 
 

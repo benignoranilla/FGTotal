@@ -28,11 +28,11 @@
 
                     <Label
                         Grid.Row="0"
-                        Margin="0,25,0,0"
+                        Margin="20,25,0,0"
                         HorizontalOptions="Start"
                         WidthRequest="250"
                         HeightRequest="50"
-                        Text="   CONFIGURACIÓN"
+                        Text="CONFIGURACIÓN"
                         TextColor="#001B4C"
                         FontFamily="GOTHICB"
                         FontSize="Large"
@@ -45,7 +45,7 @@
                         Grid.Row="1"
                         Margin="20,25,0,0"
                         HorizontalOptions="StartAndExpand"
-                        Text="@DAZA_08"
+                        Text="@DAZA_0"
                         TextColor="Lime"
                         FontFamily="GOTHICB"
                         FontSize="Large"

@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FGTotal.Views.Seguidor.EditarPerfil"
+             xmlns:ViewModel="clr-namespace:FGTotal.ViewModel"
+             xmlns:local="clr-namespace:CustomRendererDemo"
+             NavigationPage.HasNavigationBar="True"
+             BackgroundImageSource="fondo_config">
+    <ContentPage.BindingContext>
+        <ViewModel:ProfileViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped"></ToolbarItem>
+        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_1"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+            <Image Source="FG_Total.png">
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+            <StackLayout>
+                <StackLayout>
+                    <BoxView
+                        BackgroundColor="#F7F7F7"
+                        HeightRequest="1"
+                        WidthRequest="1920"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand" />
+                </StackLayout>
+                <ScrollView 
+                VerticalScrollBarVisibility="Never">
+                    <RelativeLayout>
+                        <Image
+                       x:Name="ImagePortada"
+                       Margin="0"
+                       Source="portada_perfiljugador.png"/>
+                        <Image
+                        x:Name="ImageUser"
+                        Source="user1"
+                        HeightRequest="110" 
+                        WidthRequest="110"
+                        Margin="20,0,0,0"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=140, ElementName=ImagePortada}"/>
+                        <Label
+                        x:Name="SNumero"
+                        Text="95"
+                        TextColor="White"
+                        FontSize="Title"
+                        FontAttributes="Bold"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=30, ElementName=ImageUser}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=190, ElementName=ImagePortada}"/>
+                        <Label
+                        x:Name="LabelNumber"
+                        Text="Seguidos"
+                        TextColor="Lime"
+                        FontFamily="GOTHIC"
+                        FontSize="Small"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='40', Android='30'}, ElementName=SNumero}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=200, ElementName=ImagePortada}"/>
+                        <BoxView
+                        x:Name="BoxV"
+                        BackgroundColor="#F7F7F7"
+                        HeightRequest="1"
+                        WidthRequest="1920"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=130, ElementName=ImageUser}"/>
+                        <Button
+                        x:Name="Config"
+                        ImageSource="Asset6"
+                        BackgroundColor="Transparent"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=270, ElementName=ImageUser}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=185, ElementName=ImagePortada}"/>
+                        <Button
+                        x:Name="Share"
+                        ImageSource="Asset5"
+                        BackgroundColor="Transparent"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=Config}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=185, ElementName=ImagePortada}"/>
+                        <Label
+                        Text="Aquí va la descripción del usuario"
+                        TextColor="White"
+                        FontAttributes="Italic"
+                        FontFamily="GOTHIC"
+                        HorizontalTextAlignment="Center"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=30, ElementName=ImageUser}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=LabelNumber}"/>
+                    <Label
+                        x:Name="Top11"
+                        TextColor="White"
+                        Text="NOMBRE DEL USUARIO"
+                        FontAttributes="Bold"
+                        FontFamily="GOTHIC"
+                        Margin="20,0,0,0"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=BoxV}">
+                    </Label>
+                    <local:RoundedEntry
+                        ClassId="NICK"
+                        x:Name="NICK"
+                        Grid.Row="1"
+                        Placeholder="@daza_08"
+                        HorizontalTextAlignment="Center"
+                        FontSize="Small"
+                        HorizontalOptions="StartAndExpand"
+                        HeightRequest="50"
+                        WidthRequest="350"
+                        Margin="20,0,0,0"
+                        PlaceholderColor="Lime"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=0, ElementName=Top11}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=Top11}">
+                    </local:RoundedEntry>
+                    <Label
+                        x:Name="NAME"
+                        TextColor="White"
+                        Text="NOMBRE PARA MOSTRAR"
+                        FontAttributes="Bold"
+                        FontFamily="GOTHIC"
+                        Margin="20,0,0,0"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=75, ElementName=NICK}">
+                    </Label>
+                    <local:RoundedEntry
+                        ClassId="NICK"
+                        x:Name="NAMEVIEW"
+                        Grid.Row="1"
+                        Placeholder="Carlos Daza"
+                        PlaceholderColor="Lime"
+                        HorizontalTextAlignment="Center"
+                        FontSize="Small"
+                        HorizontalOptions="StartAndExpand"
+                        HeightRequest="50"
+                        WidthRequest="350"
+                        Margin="20,0,0,0"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=0, ElementName=NAME}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=NAME}">
+                    </local:RoundedEntry>
+                </RelativeLayout>
+
+                </ScrollView>
+                <!--  Footer  -->
+                <StackLayout
+                    Margin="0,5,0,10"
+                    HeightRequest="80"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="EndAndExpand">
+                    <!--  Franja  -->
+                    <BoxView
+                        Margin="0"
+                        BackgroundColor="#F7F7F7"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand" />
+                    <Frame
+                        Padding="0"
+                        BackgroundColor="Transparent"
+                        HasShadow="True"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Margin="0,0,0,0"
+                            HorizontalOptions="FillAndExpand"
+                            Orientation="Horizontal"
+                            VerticalOptions="CenterAndExpand">
+
+                            <!--  Opción 1  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
+                                    Padding="0"
+                                    BackgroundColor="Transparent"
+                                    HasShadow="False"
+                                    HeightRequest="50"
+                                    WidthRequest="50">
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="40"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="HOME"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="40" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                            </StackLayout>
+
+                            <!--  Opción 2  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
+                                    Padding="0"
+                                    BackgroundColor="Transparent"
+                                    HasShadow="False"
+                                    HeightRequest="50"
+                                    WidthRequest="50">
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="30"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="FGPLAY_LOGO"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="30" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                            </StackLayout>
+
+                            <!--  Opción 3  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
+                                    Padding="0"
+                                    BackgroundColor="Transparent"
+                                    HasShadow="False"
+                                    HeightRequest="50"
+                                    WidthRequest="50">
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="30"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="search"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="30" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                            </StackLayout>
+
+                            <!--  Opción 4  -->
+                            <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                                <Frame
+                                    Padding="0"
+                                    BackgroundColor="Transparent"
+                                    HasShadow="False"
+                                    HeightRequest="50"
+                                    WidthRequest="50">
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="40"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="PERFIL"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="40" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+            </StackLayout>
+        </ContentPage.Content>
+</ContentPage>

@@ -10,8 +10,8 @@
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped"></ToolbarItem>
-        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_1"></ToolbarItem>
+        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped_5"></ToolbarItem>
+        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_4"></ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <NavigationPage.TitleView>
@@ -54,9 +54,6 @@
                                                         HeightRequest="50"
                                                         WidthRequest="50">
                                                         <Label Grid.Row="0" Text="{Binding usuario}" TextColor="White" FontSize="Medium"></Label>
-                                                        <Frame.GestureRecognizers>
-                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5" />
-                                                        </Frame.GestureRecognizers>
                                                     </Frame>
                                                     <Frame 
                                                         Grid.Row="1"
@@ -66,6 +63,19 @@
                                                         HeightRequest="50"
                                                         WidthRequest="50">
                                                         <Label Grid.Row="1" Text="{Binding ultimoMensaje}" TextColor="White" FontSize="Small"></Label>
+                                                    </Frame>
+                                                    <Frame
+                                                        Grid.Row="0"
+                                                        Padding="0"
+                                                        BackgroundColor="Transparent"
+                                                        HasShadow="False"
+                                                        HeightRequest="50"
+                                                        WidthRequest="70"
+                                                        IsVisible="True">
+                                                        <Label x:Name="idJugador" Grid.Row="0" Text="{Binding idJugador}" TextColor="White" FontSize="Medium"></Label>
+                                                        <Frame.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_6" />
+                                                        </Frame.GestureRecognizers>
                                                     </Frame>
                                                 </Grid>
                                             </StackLayout>
@@ -77,6 +87,7 @@
                     </StackLayout>
                 </Grid>
             </ScrollView>
+
 
 
             <!--  Footer  -->

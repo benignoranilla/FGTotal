@@ -286,9 +286,6 @@
                                     Source="HOME"
                                     VerticalOptions="CenterAndExpand"
                                     WidthRequest="40" />
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </Frame.GestureRecognizers>
                             </Frame>
 
                         </StackLayout>

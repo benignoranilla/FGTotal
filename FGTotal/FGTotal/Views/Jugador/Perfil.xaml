@@ -9,6 +9,7 @@
              BackgroundColor="#001B4C">
 
     <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="add.png" Priority="0" Order="Primary"></ToolbarItem>
         <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped_5"></ToolbarItem>
         <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_4"></ToolbarItem>
     </ContentPage.ToolbarItems>
