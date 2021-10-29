@@ -37,7 +37,7 @@ namespace FGTotal.Views.Seguidor
                 var resultado = JsonConvert.DeserializeObject<WsModel>(jsonlogin);
 
                 var idLoginUsuario = $"{resultado.ID}";
-                Preferences.Set("idSeguidor", idLoginUsuario);
+                Preferences.Set("idUsuarioLogin", idLoginUsuario);
 
                 var usuario = $"{resultado.usuario}";
                 Preferences.Set("usuario", usuario);

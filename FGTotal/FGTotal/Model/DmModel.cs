@@ -18,8 +18,8 @@ namespace FGTotal.Model
         public string descripcionEstadoDmSe { get; set; }
         public string idEstadoDmJu { get; set; }
         public string usuario { get; set; }
-
         public string mensaje { get; set; }
+        public string nombreEmisor { get; set; }
 
     }
 }

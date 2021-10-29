@@ -48,7 +48,7 @@
                                                         HasShadow="False"
                                                         HeightRequest="50"
                                                         WidthRequest="50">
-                                                            <Label Grid.Row="0" Text="{Binding descripcionSeguidor}" TextColor="White" FontSize="Medium"></Label>
+                                                            <Label Grid.Row="0" Text="{Binding nombreEmisor}" TextColor="White" FontSize="Medium"></Label>
                                                         </Frame>
                                                         <Frame 
                                                         Grid.Row="1"
@@ -109,7 +109,9 @@
                             BackgroundColor="Green"
                             TextColor="White"
                             Text="Enviar DM">
-
+                            <Button.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"/>
+                            </Button.GestureRecognizers>
                         </Button>
                     </StackLayout>
                     <!--  Franja  -->
