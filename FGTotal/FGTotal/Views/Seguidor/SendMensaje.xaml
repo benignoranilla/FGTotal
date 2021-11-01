@@ -21,54 +21,37 @@
 
             <!-- Content -->
             <ScrollView  HorizontalOptions="CenterAndExpand" Margin="0,0,0,0">
-                <StackLayout>
-                    <Grid RowSpacing="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
+                <AbsoluteLayout Padding="10"  VerticalOptions="CenterAndExpand">
+                    <Label  
+                            Text="{Binding nombreEmisor}"
+                            TextColor="White"
+                            AbsoluteLayout.LayoutBounds="0,40,1,40" 
+                            AbsoluteLayout.LayoutFlags="XProportional,WidthProportional" 
+                            HorizontalOptions="FillAndExpand"/>
+                    <Label  
+                            Text="{Binding mensaje}"
+                            TextColor="White"
+                            AbsoluteLayout.LayoutBounds="0,85,1,40" 
+                            AbsoluteLayout.LayoutFlags="XProportional,WidthProportional" 
+                            HorizontalOptions="FillAndExpand"/>
+                    <Entry 
+                            x:Name="Mensaje"
+                            AbsoluteLayout.LayoutBounds="0,500,250,40" 
+                            Placeholder="NickName"
+                            TextColor="White"
+                            PlaceholderColor="White"
+                            HorizontalOptions="FillAndExpand"/>
 
-                        <StackLayout Grid.Row="0" Margin="10,30,0,5">
-
-                            <StackLayout Orientation="Horizontal">
-                                <ListView Margin="20" ItemsSource="{Binding DetalleDm}" HorizontalOptions="FillAndExpand">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <ViewCell>
-                                                <StackLayout>
-                                                    <Grid RowSpacing="0" Margin="0,0,0,0">
-                                                        <Grid.RowDefinitions>
-                                                            <RowDefinition Height="*" />
-                                                            <RowDefinition Height="*" />
-                                                        </Grid.RowDefinitions>
-                                                        <Frame
-                                                        Grid.Row="0"
-                                                        Padding="0"
-                                                        BackgroundColor="Transparent"
-                                                        HasShadow="False"
-                                                        HeightRequest="50"
-                                                        WidthRequest="50">
-                                                            <Label Grid.Row="0" Text="{Binding nombreEmisor}" TextColor="White" FontSize="Medium"></Label>
-                                                        </Frame>
-                                                        <Frame 
-                                                        Grid.Row="1"
-                                                        Padding="0"
-                                                        BackgroundColor="Transparent"
-                                                        HasShadow="False"
-                                                        HeightRequest="50"
-                                                        WidthRequest="50">
-                                                            <Label Grid.Row="1" Text="{Binding mensaje}" TextColor="White" FontSize="Small"></Label>
-                                                        </Frame>
-                                                    </Grid>
-                                                </StackLayout>
-                                            </ViewCell>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-                            </StackLayout>
-                        </StackLayout>
-                    </Grid>
-                </StackLayout>
+                    <Button  
+                        AbsoluteLayout.LayoutBounds="1,550,90,40" 
+                        HorizontalOptions="FillAndExpand" 
+                        Text="Register" 
+                        TextColor="White" BackgroundColor="Black">
+                        <Button.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"/>
+                        </Button.GestureRecognizers>
+                    </Button>
+                </AbsoluteLayout>
             </ScrollView>
 
             <!--  Footer  -->
