@@ -12,8 +12,8 @@
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped"></ToolbarItem>
-        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_1"></ToolbarItem>
+        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped_5"></ToolbarItem>
+        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_4"></ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <NavigationPage.TitleView>
@@ -127,15 +127,6 @@
                        HeightRequest="150"
                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='60', Android='30'}}"
                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=Top11}"/>
-                    <Label
-                       x:Name="Lbl11"
-                       Text="Servicio en validación"
-                       TextColor="White"
-                       FontSize="Large"
-                       Margin="20,0,0,0"
-                       BackgroundColor="Transparent"
-                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant={OnPlatform iOS='60', Android='30'}}"
-                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=Top11}"/>
                     <BoxView
                         x:Name="BoxV2"
                         BackgroundColor="#F7F7F7"
@@ -150,15 +141,6 @@
                         Opacity="0.4"
                         BackgroundColor="Black"
                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=2, ElementName=BoxV2}"/>
-                    <Label
-                       x:Name="Lbl12"
-                       Text="Servicio en validación"
-                       TextColor="White"
-                       FontSize="Large"
-                       Margin="20,0,0,0"
-                       BackgroundColor="Transparent"
-                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant={OnPlatform iOS='60', Android='30'}}"
-                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=BoxV2}"/>
                     <BoxView
                         x:Name="BoxV3"
                         BackgroundColor="#F7F7F7"

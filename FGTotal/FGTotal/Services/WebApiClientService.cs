@@ -43,10 +43,8 @@ namespace FGTotal.Services
                 string requestUri = "DM/ObtenerBandejaMensaje/"+id;
 
                 var client = new HttpClient();
-                client.BaseAddress = urlBase;
-                //string jsonData = JsonConvert.SerializeObject(objectParams);
 
-                //StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                client.BaseAddress = urlBase;
 
                 HttpResponseMessage response = await client.GetAsync(requestUri).ConfigureAwait(false);
 
@@ -60,6 +58,29 @@ namespace FGTotal.Services
                 {
                     return default(T);
                 }
+        }
+        public async Task<T> ObtenerPerfilUsuarioGet<T>()
+        {
+
+            string id = Preferences.Get("idUsuarioLogin", string.Empty);
+            string requestUri = "Usuarios/ObtenerSeguidorPerfil/" + id;
+
+            var client = new HttpClient();
+
+            client.BaseAddress = urlBase;
+
+            HttpResponseMessage response = await client.GetAsync(requestUri).ConfigureAwait(false);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var _json = JsonConvert.DeserializeObject<T>(json);
+                return _json;
+            }
+            else
+            {
+                return default(T);
+            }
         }
 
 

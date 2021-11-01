@@ -40,15 +40,13 @@ namespace FGTotal.Views.Seguidor
 
         private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Editar());
+            await Navigation.PushModalAsync(new Verificacion());
         }
 
-
-        protected override bool OnBackButtonPressed()
+        private async void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
         {
-            return false;
+            await Navigation.PushModalAsync(new Mensajes());
         }
-
         private async void btn_Publicar_Clicked(object sender, EventArgs e)
         {
             PostModel log = new PostModel

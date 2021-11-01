@@ -88,7 +88,7 @@
                         <local:RoundedEntry
                         ClassId="Mensaje"
                         x:Name="Mensaje"
-                        Placeholder="Mensaje..."
+                        Placeholder="Escriba un mensaje..."
                         FontSize="Small"
                         HorizontalOptions="Start"
                         VerticalOptions="End"
@@ -100,14 +100,18 @@
                     </StackLayout>
                     <StackLayout
                         Grid.Row="0">
-                        <ImageButton
+                        <Button
                             HorizontalOptions="End"
-                            WidthRequest="50"
-                            Margin="0,0,10,0"
-                            BackgroundColor="Transparent"
-                            Source="play2">
-
-                        </ImageButton>
+                            WidthRequest="100"
+                            Margin="0,0,0,0"
+                            CornerRadius="50"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            Text="Enviar DM">
+                            <Button.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"/>
+                            </Button.GestureRecognizers>
+                        </Button>
                     </StackLayout>
                     <!--  Franja  -->
                     <BoxView
