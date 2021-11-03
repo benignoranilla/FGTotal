@@ -5,8 +5,7 @@
              xmlns:ViewModel="clr-namespace:FGTotal.ViewModel"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              NavigationPage.HasNavigationBar="True"
-             BackgroundColor="#001B4C"
-             mc:Ignorable="d">
+             BackgroundColor="#001B4C">
     <ContentPage.BindingContext>
         <ViewModel:ProfileViewModel/>
     </ContentPage.BindingContext>
@@ -36,135 +35,147 @@
                 VerticalScrollBarVisibility="Never" 
                 BackgroundColor="#001B4C">
                 <RelativeLayout>
-                    <Image
-                       x:Name="ImagePortada"
-                       Margin="0"
-                       Source="portada_perfiljugador.png"/>
-                    <Image
-                        x:Name="ImageUser"
-                        Source="user1"
-                        HeightRequest="110" 
-                        WidthRequest="110"
-                        Margin="20,0,0,0"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=140, ElementName=ImagePortada}"/>
-                    <Label
-                        x:Name="SNumero"
-                        Text="95"
-                        TextColor="White"
-                        FontSize="Title"
-                        FontAttributes="Bold"
-                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=30, ElementName=ImageUser}"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=190, ElementName=ImagePortada}"/>
-                    <Label
-                        x:Name="LabelNumber"
-                        Text="Seguidos"
-                        TextColor="Lime"
-                        FontFamily="GOTHIC"
-                        FontSize="Small"
-                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='40', Android='30'}, ElementName=SNumero}"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=200, ElementName=ImagePortada}"/>
-                    <BoxView
-                        x:Name="BoxV"
-                        BackgroundColor="#F7F7F7"
-                        HeightRequest="1"
-                        WidthRequest="1920"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="StartAndExpand"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=130, ElementName=ImageUser}"/>
-                    <Button
-                        x:Name="Config"
-                        ImageSource="Asset6"
-                        BackgroundColor="Transparent"
-                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=270, ElementName=ImageUser}"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=185, ElementName=ImagePortada}"/>
-                    <Button
-                        x:Name="Share"
-                        ImageSource="Asset5"
-                        BackgroundColor="Transparent"
-                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=Config}"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=185, ElementName=ImagePortada}"/>
-                    <Label
-                        Text="Aquí va la descripción del usuario"
-                        TextColor="White"
-                        FontAttributes="Italic"
-                        FontFamily="GOTHIC"
-                        HorizontalTextAlignment="Center"
-                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=30, ElementName=ImageUser}"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=LabelNumber}"/>
-                    <Label
-                        x:Name="Top11"
-                        TextColor="White"
-                        FontAttributes="Bold"
-                        FontFamily="GOTHIC"
-                        Margin="20,0,0,0"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=BoxV}">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span 
-                                    Text="LOS "
-                                    TextColor="White"
-                                    FontSize="Large"
-                                    FontAttributes="Bold"/>
-                                <Span 
-                                    Text="11"
-                                    FontSize="Large"
-                                    FontAttributes="Bold"
-                                    ForegroundColor="Lime"/>
-                                <Span 
-                                    Text=" DEL DÍA"
-                                    TextColor="White"
-                                    FontSize="Large"
-                                    FontAttributes="Bold"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <ImageButton
-                       x:Name="Btn11"
-                       Source="User1"
-                       BackgroundColor="Transparent"
-                       Margin="10,0,0,0"
-                       WidthRequest="150"
-                       HeightRequest="150"
-                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='60', Android='30'}}"
-                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=Top11}"/>
-                    <BoxView
-                        x:Name="BoxV2"
-                        BackgroundColor="#F7F7F7"
-                        HeightRequest="1"
-                        WidthRequest="1920"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="StartAndExpand"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=Btn11}"/>
-                    <Image
-                        x:Name="VideosSeccion"
-                        Source="banner_video_home"
-                        Opacity="0.4"
-                        BackgroundColor="Black"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=2, ElementName=BoxV2}"/>
-                    <BoxView
-                        x:Name="BoxV3"
-                        BackgroundColor="#F7F7F7"
-                        HeightRequest="1"
-                        WidthRequest="1920"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="StartAndExpand"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=170, ElementName=VideosSeccion}"/>
-                    <Image
-                        x:Name="lives_bar_letter"
-                        Source="lives_bar_letter"
-                        Margin="30,0,0,0"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BoxV3}"/>
-                    <Image
-                        x:Name="lives_bar_icon"
-                        Source="lives_bar_icon"
-                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=60, ElementName=lives_bar_letter}"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BoxV3}"/>
-                    <Image
-                        x:Name="lives_bar_letter2"
-                        Source="lives_bar_letter"
-                        Margin="0,0,30,0"
-                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=180, ElementName=lives_bar_icon}"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BoxV3}"/>
+                    <ListView Margin="20" ItemsSource="{Binding PerfilUsuario}" HorizontalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Image
+                                             x:Name="ImagePortada"
+                                             Margin="0"
+                                             Source="portada_perfiljugador.png"/>
+                                        <Image
+                                              x:Name="ImageUser"
+                                              Source="user1"
+                                              HeightRequest="110" 
+                                              WidthRequest="110"
+                                              Margin="20,0,0,0"
+                                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=140, ElementName=ImagePortada}"/>
+                                        <Label
+                                              Grid.Row="1"
+                                              x:Name="SNumero"
+                                              Text="{Binding cantidadSeguidos}"
+                                              TextColor="White"
+                                              FontSize="Title"
+                                              FontAttributes="Bold"
+                                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=30, ElementName=ImageUser}"
+                                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=190, ElementName=ImagePortada}"/>
+                                        <Label
+                                              x:Name="LabelNumber"
+                                              Text="Seguidos"
+                                              TextColor="Lime"
+                                              FontFamily="GOTHIC"
+                                              FontSize="Small"
+                                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='40', Android='30'}, ElementName=SNumero}"
+                                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=200, ElementName=ImagePortada}"/>
+                                        <BoxView
+                                              x:Name="BoxV"
+                                              BackgroundColor="#F7F7F7"
+                                              HeightRequest="1"
+                                              WidthRequest="1920"
+                                              HorizontalOptions="FillAndExpand"
+                                              VerticalOptions="StartAndExpand"
+                                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=130, ElementName=ImageUser}"/>
+                                        <Button
+                                              x:Name="Config"
+                                              ImageSource="Asset6"
+                                              BackgroundColor="Transparent"
+                                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=270, ElementName=ImageUser}"
+                                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=185, ElementName=ImagePortada}"/>
+                                        <Button
+                                              x:Name="Share"
+                                              ImageSource="Asset5"
+                                              BackgroundColor="Transparent"
+                                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=Config}"
+                                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=185, ElementName=ImagePortada}"/>
+                                        <Label
+                                              Grid.Row="2"
+                                              Text="{Binding descripcionPerfil}"
+                                              TextColor="White"
+                                              FontAttributes="Italic"
+                                              FontFamily="GOTHIC"
+                                              HorizontalTextAlignment="Center"
+                                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=30, ElementName=ImageUser}"
+                                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=LabelNumber}"/>
+                                        <Label
+                                              x:Name="Top11"
+                                              TextColor="White"
+                                              FontAttributes="Bold"
+                                              FontFamily="GOTHIC"
+                                              Margin="20,0,0,0"
+                                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=BoxV}">
+                                        <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span 
+                                                        Text="LOS "
+                                                        TextColor="White"
+                                                        FontSize="Large"
+                                                        FontAttributes="Bold"/>
+                                                                        <Span 
+                                                        Text="11"
+                                                        FontSize="Large"
+                                                        FontAttributes="Bold"
+                                                        ForegroundColor="Lime"/>
+                                                                        <Span 
+                                                        Text=" DEL DÍA"
+                                                        TextColor="White"
+                                                        FontSize="Large"
+                                                        FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <ImageButton
+                                            x:Name="Btn11"
+                                            Source="User1"
+                                            BackgroundColor="Transparent"
+                                            Margin="10,0,0,0"
+                                            WidthRequest="150"
+                                            HeightRequest="150"
+                                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='60', Android='30'}}"
+                                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=Top11}"/>
+                                        <BoxView
+                                             x:Name="BoxV2"
+                                             BackgroundColor="#F7F7F7"
+                                             HeightRequest="1"
+                                             WidthRequest="1920"
+                                             HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="StartAndExpand"
+                                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=Btn11}"/>
+                                        <Image
+                                             x:Name="VideosSeccion"
+                                             Source="banner_video_home"
+                                             Opacity="0.4"
+                                             BackgroundColor="Black"
+                                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=2, ElementName=BoxV2}"/>
+                                        <BoxView
+                                             x:Name="BoxV3"
+                                             BackgroundColor="#F7F7F7"
+                                             HeightRequest="1"
+                                             WidthRequest="1920"
+                                             HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="StartAndExpand"
+                                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=170, ElementName=VideosSeccion}"/>
+                                        <Image
+                                             x:Name="lives_bar_letter"
+                                             Source="lives_bar_letter"
+                                             Margin="30,0,0,0"
+                                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BoxV3}"/>
+                                        <Image
+                                             x:Name="lives_bar_icon"
+                                             Source="lives_bar_icon"
+                                             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=60, ElementName=lives_bar_letter}"
+                                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BoxV3}"/>
+                                        <Image
+                                             x:Name="lives_bar_letter2"
+                                             Source="lives_bar_letter"
+                                             Margin="0,0,30,0"
+                                             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=180, ElementName=lives_bar_icon}"
+                                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BoxV3}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </RelativeLayout>
                 
             </ScrollView>
