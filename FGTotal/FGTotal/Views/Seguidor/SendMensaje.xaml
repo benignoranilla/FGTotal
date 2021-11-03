@@ -70,7 +70,7 @@
                         VerticalOptions="End">
                         <Entry
                             ClassId="Mensaje"
-                            x:Name="Mensaje"
+                            x:Name="TextoMensaje"
                             Placeholder="Escriba un mensaje..."
                             FontSize="Small"
                             BackgroundColor="Transparent"
