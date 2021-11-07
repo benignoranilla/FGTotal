@@ -16,40 +16,34 @@ namespace FGTotal.Views.Jugador
         {
             InitializeComponent();
         }
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new HomePage());
+            Navigation.PushAsync(new HomePage());
         }
 
-        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new FGPlay());
+            Navigation.PushAsync(new FGPlay());
         }
 
-        private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Search());
+            Navigation.PushAsync(new Search());
         }
 
-        private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Perfil());
+            Navigation.PushAsync(new Perfil());
         }
 
-        private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Mensajes());
+            Navigation.PushAsync(new Mensajes());
         }
 
-        private async void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Mensajes());
-        }
-
-
-        protected override bool OnBackButtonPressed()
-        {
-            return false;
+            Navigation.PushAsync(new Mensajes());
         }
     }
 }

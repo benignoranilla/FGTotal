@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FGTotal.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,41 +17,39 @@ namespace FGTotal.Views.Seguidor
         {
             InitializeComponent();
         }
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new HomePage());
+            Navigation.PushAsync(new HomePage());
         }
 
-        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new FGPlay());
+            Navigation.PushAsync(new FGPlay());
         }
 
-        private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Search());
+            Navigation.PushAsync(new Search());
         }
 
-        private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Account());
+            Navigation.PushAsync(new Account());
         }
-        private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Verificacion());
+            Navigation.PushAsync(new Verificacion());
         }
-        private async void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Mensajes());
+            Navigation.PushAsync(new Mensajes());
         }
-
-        protected override bool OnBackButtonPressed()
+        private void Guardar_clicked(object sender, EventArgs e)
         {
-            return false;
-        }
-
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
+            WsModel log = new WsModel
+            {
+                usuario = DNI.Text
+            }
 
         }
     }

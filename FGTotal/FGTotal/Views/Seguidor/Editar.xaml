@@ -10,10 +10,10 @@
              xmlns:PanCake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:CustomRendererDemo"
              mc:Ignorable="d">
-    
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped_5"></ToolbarItem>
-        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_4"></ToolbarItem>
+        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped"></ToolbarItem>
+        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_1"></ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <NavigationPage.TitleView>
@@ -77,7 +77,8 @@
                                 </Label>
 
                                 <local:RoundedEntry
-                                ClassId="DNI"
+                                x:Name="Alias"
+                                ClassId="Alias"
                                 Grid.Row="1"
                                 Placeholder="@DAZA_08"
                                 FontSize="Small"
@@ -100,7 +101,8 @@
                                 </Label>
 
                                 <local:RoundedEntry
-                                ClassId="DNI"
+                                x:Name="Nombre"
+                                ClassId="Nombre"
                                 Grid.Row="1"
                                 Placeholder="Carlos Daza"
                                 FontSize="Small"
@@ -122,6 +124,7 @@
                                 </Label>
 
                                 <local:RoundedEntry
+                                x:Name="DNI"
                                 ClassId="DNI"
                                 Grid.Row="1"
                                 Placeholder="0/1000"
@@ -149,6 +152,18 @@
                                 Grid.Row="0"
                                 Margin="-10,-10,0,0"
                                 Text="Privacidad y Seguridad"
+                                BackgroundColor="Transparent"
+                                TextColor="Lime"
+                                HorizontalOptions="Start"
+                                HeightRequest="50">
+                                </Button>
+
+                                <Button 
+                                x:Name="Guardar"
+                                Clicked="Guardar_clicked"
+                                Grid.Row="0"
+                                Margin="-10,-10,0,0"
+                                Text="Guardar"
                                 BackgroundColor="Transparent"
                                 TextColor="Lime"
                                 HorizontalOptions="Start"
@@ -271,15 +286,10 @@
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
                                 </Frame.GestureRecognizers>
                             </Frame>
-
                         </StackLayout>
-
                     </StackLayout>
                 </Frame>
-
             </StackLayout>
-
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
