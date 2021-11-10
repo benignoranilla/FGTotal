@@ -15,7 +15,7 @@ namespace FGTotal.Services
         public async Task<T> executeRequestPost<T>(object objectParams)
         {
             string tipoJugador = Preferences.Get("tipoUsuario", string.Empty);
-            string requestUri = "DM/ObtenerDetalleMensaje/"+tipoJugador;
+            string requestUri = "DM/ObtenerDetalleMensaje/" + tipoJugador;
 
             var client = new HttpClient();
             client.BaseAddress = urlBase;
@@ -38,26 +38,26 @@ namespace FGTotal.Services
         }
         public async Task<T> ObtenerBandejaMensajeJugadorGet<T>()
         {
-            
-                string id = Preferences.Get("idUsuarioLogin", string.Empty);
-                string requestUri = "DM/ObtenerBandejaMensaje/"+id;
 
-                var client = new HttpClient();
+            string id = Preferences.Get("idJugador", string.Empty);
+            string requestUri = "DM/ObtenerBandejaMensaje/" + id;
 
-                client.BaseAddress = urlBase;
+            var client = new HttpClient();
 
-                HttpResponseMessage response = await client.GetAsync(requestUri).ConfigureAwait(false);
+            client.BaseAddress = urlBase;
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var json = await response.Content.ReadAsStringAsync();
-                    var _json = JsonConvert.DeserializeObject<T>(json);
-                    return _json;
-                }
-                else
-                {
-                    return default(T);
-                }
+            HttpResponseMessage response = await client.GetAsync(requestUri).ConfigureAwait(false);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var _json = JsonConvert.DeserializeObject<T>(json);
+                return _json;
+            }
+            else
+            {
+                return default(T);
+            }
         }
         public async Task<T> ObtenerPerfilUsuarioGet<T>()
         {
@@ -83,6 +83,30 @@ namespace FGTotal.Services
             }
         }
 
+        public async Task<T> ObtenerPerfilSeguidorGet<T>()
+        {
 
+            string id = Preferences.Get("idSeguidor", string.Empty);
+            string requestUri = "usuarios/" + id;
+
+            var client = new HttpClient();
+
+            client.BaseAddress = urlBase;
+
+            HttpResponseMessage response = await client.GetAsync(requestUri).ConfigureAwait(false);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var _json = JsonConvert.DeserializeObject<T>(json);
+                return _json;
+            }
+            else
+            {
+                return default(T);
+            }
+
+
+        }
     }
 }

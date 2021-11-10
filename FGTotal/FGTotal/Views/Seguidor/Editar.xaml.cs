@@ -46,10 +46,10 @@ namespace FGTotal.Views.Seguidor
         }
         private void Guardar_clicked(object sender, EventArgs e)
         {
-            WsModel log = new WsModel
-            {
-                usuario = DNI.Text
-            }
+            //WsModel log = new WsModel
+            //{
+            //    usuario = DNI.Text
+           // }
 
         }
     }

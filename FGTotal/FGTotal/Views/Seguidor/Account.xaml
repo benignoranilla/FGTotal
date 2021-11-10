@@ -5,8 +5,7 @@
              xmlns:ViewModel="clr-namespace:FGTotal.ViewModel"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              NavigationPage.HasNavigationBar="True"
-             BackgroundColor="#001B4C"
-             mc:Ignorable="d">
+             BackgroundColor="#001B4C">
     <ContentPage.BindingContext>
         <ViewModel:ProfileViewModel/>
     </ContentPage.BindingContext>
@@ -76,7 +75,9 @@
                         ImageSource="Asset6"
                         BackgroundColor="Transparent"
                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=270, ElementName=ImageUser}"
-                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=185, ElementName=ImagePortada}"/>
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=185, ElementName=ImagePortada}"
+                        Clicked="btn_Config">
+                    </Button>
                     <Button
                         x:Name="Share"
                         ImageSource="Asset5"
@@ -127,15 +128,6 @@
                        HeightRequest="150"
                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='60', Android='30'}}"
                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=Top11}"/>
-                    <Label
-                       x:Name="Lbl11"
-                       Text="Servicio en validación"
-                       TextColor="White"
-                       FontSize="Large"
-                       Margin="20,0,0,0"
-                       BackgroundColor="Transparent"
-                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant={OnPlatform iOS='60', Android='30'}}"
-                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=Top11}"/>
                     <BoxView
                         x:Name="BoxV2"
                         BackgroundColor="#F7F7F7"
@@ -150,16 +142,7 @@
                         Opacity="0.4"
                         BackgroundColor="Black"
                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=2, ElementName=BoxV2}"/>
-                    <Label
-                       x:Name="Lbl12"
-                       Text="Servicio en validación"
-                       TextColor="White"
-                       FontSize="Large"
-                       Margin="20,0,0,0"
-                       BackgroundColor="Transparent"
-                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant={OnPlatform iOS='60', Android='30'}}"
-                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=BoxV2}"/>
-                    <BoxView
+                   <BoxView
                         x:Name="BoxV3"
                         BackgroundColor="#F7F7F7"
                         HeightRequest="1"

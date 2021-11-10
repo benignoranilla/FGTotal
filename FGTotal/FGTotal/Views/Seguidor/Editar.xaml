@@ -8,8 +8,13 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:PanCake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:CustomRendererDemo"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:CustomRendererDemo" xmlns:viewModel="clr-namespace:FGTotal.ViewModel"
              mc:Ignorable="d">
+
+    <ContentPage.BindingContext>
+        <viewModel:EditarViewModel></viewModel:EditarViewModel>
+    </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped"></ToolbarItem>
@@ -66,110 +71,119 @@
 
                         <StackLayout Grid.Row="2" Orientation="Horizontal">
                             <StackLayout Grid.Row="3" Margin="10" VerticalOptions="Start">
+                                <ListView Margin="20" ItemsSource="{Binding Perfil}" HorizontalOptions="FillAndExpand">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout>
+                                                    <Grid RowSpacing="0" Margin="0,0,0,0">
+                                                        <Label
+                                                            Margin="0,10,0,5"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            Text="NOMBRE DE USUARIO"
+                                                            FontAttributes="Bold"
+                                                            TextColor="WhiteSmoke"
+                                                            VerticalTextAlignment="Center">
+                                                        </Label>
+
+                                                        <local:RoundedEntry
+                                                            x:Name="Alias"
+                                                            ClassId="Alias"
+                                                            Grid.Row="1"
+                                                            Placeholder="{Binding usuarioAlternativo}"
+                                                            FontSize="Small"
+                                                            BackgroundColor="Transparent"
+                                                            HorizontalOptions="StartAndExpand"
+                                                            WidthRequest="330"
+                                                            HeightRequest="50"
+                                                            HorizontalTextAlignment="Center"
+                                                            PlaceholderColor="Lime">
+                                                        </local:RoundedEntry>
+
+                                                        <Label
+                                                            Margin="0,10,0,5"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            Text="NOMBRE PARA MOSTRAR"
+                                                            FontAttributes="Bold"
+                                                            TextColor="WhiteSmoke"
+                                                            VerticalTextAlignment="Center">
+                                                        </Label>
+
+                                                        <local:RoundedEntry
+                                                            x:Name="Nombre"
+                                                            ClassId="Nombre"
+                                                            Grid.Row="1"
+                                                            Placeholder="{Binding nombres}"
+                                                            FontSize="Small"
+                                                            HorizontalOptions="StartAndExpand"
+                                                            WidthRequest="330"
+                                                            HeightRequest="50"
+                                                            HorizontalTextAlignment="Center"
+                                                            PlaceholderColor="Lime">
+                                                        </local:RoundedEntry>
+
+                                                        <Label
+                                                            Margin="0,10,0,5"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            Text="DESCRIPCIÓN"
+                                                            FontAttributes="Bold"
+                                                            TextColor="WhiteSmoke"
+                                                            VerticalTextAlignment="Center">
+                                                        </Label>
+
+                                                        <local:RoundedEntry
+                                                            x:Name="DNI"
+                                                            ClassId="DNI"
+                                                            Grid.Row="1"
+                                                            Placeholder="{Binding descripcionPerfil}"
+                                                            FontSize="Small"
+                                                            HorizontalOptions="StartAndExpand"
+                                                            WidthRequest="330"
+                                                            HeightRequest="100"
+                                                            HorizontalTextAlignment="Center"
+                                                            PlaceholderColor="Lime">
+                                                        </local:RoundedEntry>
+                                                    </Grid>
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
                                 <Label
-                                Margin="0,10,0,5"
-                                FontSize="14"
-                                HorizontalOptions="Start"
-                                Text="NOMBRE DE USUARIO"
-                                FontAttributes="Bold"
-                                TextColor="WhiteSmoke"
-                                VerticalTextAlignment="Center">
-                                </Label>
-
-                                <local:RoundedEntry
-                                x:Name="Alias"
-                                ClassId="Alias"
-                                Grid.Row="1"
-                                Placeholder="@DAZA_08"
-                                FontSize="Small"
-                                BackgroundColor="Transparent"
-                                HorizontalOptions="StartAndExpand"
-                                WidthRequest="330"
-                                HeightRequest="50"
-                                HorizontalTextAlignment="Center"
-                                PlaceholderColor="Lime">
-                                </local:RoundedEntry>
-
-                                <Label
-                                Margin="0,10,0,5"
-                                FontSize="14"
-                                HorizontalOptions="Start"
-                                Text="NOMBRE PARA MOSTRAR"
-                                FontAttributes="Bold"
-                                TextColor="WhiteSmoke"
-                                VerticalTextAlignment="Center">
-                                </Label>
-
-                                <local:RoundedEntry
-                                x:Name="Nombre"
-                                ClassId="Nombre"
-                                Grid.Row="1"
-                                Placeholder="Carlos Daza"
-                                FontSize="Small"
-                                HorizontalOptions="StartAndExpand"
-                                WidthRequest="330"
-                                HeightRequest="50"
-                                HorizontalTextAlignment="Center"
-                                PlaceholderColor="Lime">
-                                </local:RoundedEntry>
-
-                                <Label
-                                Margin="0,10,0,5"
-                                FontSize="14"
-                                HorizontalOptions="Start"
-                                Text="DESCRIPCIÓN"
-                                FontAttributes="Bold"
-                                TextColor="WhiteSmoke"
-                                VerticalTextAlignment="Center">
-                                </Label>
-
-                                <local:RoundedEntry
-                                x:Name="DNI"
-                                ClassId="DNI"
-                                Grid.Row="1"
-                                Placeholder="0/1000"
-                                FontSize="Small"
-                                HorizontalOptions="StartAndExpand"
-                                WidthRequest="330"
-                                HeightRequest="100"
-                                HorizontalTextAlignment="Center"
-                                PlaceholderColor="Lime">
-                                </local:RoundedEntry>
-
-
-
-                                <Label
-                                Margin="0,20,0,5"
-                                FontSize="14"
-                                HorizontalOptions="Start"
-                                Text="CONFIGURACIÓN RELACIONADA"
-                                FontAttributes="Bold"
-                                TextColor="WhiteSmoke"
-                                VerticalTextAlignment="Center">
+                                       Margin="0,20,0,5"
+                                       FontSize="14"
+                                       HorizontalOptions="Start"
+                                       Text="CONFIGURACIÓN RELACIONADA"
+                                       FontAttributes="Bold"
+                                       TextColor="WhiteSmoke"
+                                       VerticalTextAlignment="Center">
                                 </Label>
 
                                 <Button 
-                                Grid.Row="0"
-                                Margin="-10,-10,0,0"
-                                Text="Privacidad y Seguridad"
-                                BackgroundColor="Transparent"
-                                TextColor="Lime"
-                                HorizontalOptions="Start"
-                                HeightRequest="50">
+                                      Grid.Row="0"
+                                      Margin="-10,-10,0,0"
+                                      Text="Privacidad y Seguridad"
+                                      BackgroundColor="Transparent"
+                                      TextColor="Lime"
+                                      HorizontalOptions="Start"
+                                      HeightRequest="50">
                                 </Button>
 
                                 <Button 
-                                x:Name="Guardar"
-                                Clicked="Guardar_clicked"
-                                Grid.Row="0"
-                                Margin="-10,-10,0,0"
-                                Text="Guardar"
-                                BackgroundColor="Transparent"
-                                TextColor="Lime"
-                                HorizontalOptions="Start"
-                                HeightRequest="50">
+                                       x:Name="Guardar"
+                                       Clicked="Guardar_clicked"
+                                       Grid.Row="0"
+                                       Margin="-10,-10,0,0"
+                                       Text="Guardar"
+                                       BackgroundColor="Transparent"
+                                       TextColor="Lime"
+                                       HorizontalOptions="Start"
+                                        HeightRequest="50">
                                 </Button>
-
+                                
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>
