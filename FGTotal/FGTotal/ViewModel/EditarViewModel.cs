@@ -15,7 +15,7 @@ namespace FGTotal.ViewModel
             ObtenerPerfilSeguidor();
         }
 
-        WebApiClientService webapi = new WebApiClientService();
+        WebApiClientService webApi = new WebApiClientService();
 
         private ObservableCollection<EditarModel> perfil;
 
@@ -27,7 +27,7 @@ namespace FGTotal.ViewModel
 
         public async Task ObtenerPerfilSeguidor()
         {
-            Perfil = await webapi.ObtenerPerfilSeguidorGet<ObservableCollection<EditarModel>>();
+            Perfil = await webApi.ObtenerPerfilUsuarioGet<ObservableCollection<EditarModel>>();
 
             var _list = Perfil;
         }

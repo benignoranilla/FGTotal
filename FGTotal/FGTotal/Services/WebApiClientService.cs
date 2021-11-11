@@ -39,7 +39,7 @@ namespace FGTotal.Services
         public async Task<T> ObtenerBandejaMensajeJugadorGet<T>()
         {
 
-            string id = Preferences.Get("idJugador", string.Empty);
+            string id = Preferences.Get("idSeguidor", string.Empty);
             string requestUri = "DM/ObtenerBandejaMensaje/" + id;
 
             var client = new HttpClient();
@@ -62,7 +62,7 @@ namespace FGTotal.Services
         public async Task<T> ObtenerPerfilUsuarioGet<T>()
         {
 
-            string id = Preferences.Get("idUsuarioLogin", string.Empty);
+            string id = Preferences.Get("idSeguidor", string.Empty);
             string requestUri = "Usuarios/ObtenerSeguidorPerfil/" + id;
 
             var client = new HttpClient();

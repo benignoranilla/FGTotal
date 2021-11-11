@@ -44,13 +44,13 @@ namespace FGTotal.Views.Seguidor
         {
             Navigation.PushAsync(new Mensajes());
         }
-        private void Guardar_clicked(object sender, EventArgs e)
-        {
-            //WsModel log = new WsModel
-            //{
-            //    usuario = DNI.Text
-           // }
-
-        }
+        //private void Guardar_clicked(object sender, EventArgs e)
+        //{
+        //    WsModel log = new WsModel
+        //    {
+        //        usuario = DNI.Text
+        //    }
+        //
+        //}
     }
 }
