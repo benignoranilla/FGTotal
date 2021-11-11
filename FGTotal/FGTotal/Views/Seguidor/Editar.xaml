@@ -58,9 +58,9 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <!--Header Image-->
-                    <PanCake:PancakeView Grid.Row="0"  CornerRadius="0,0,0,0" IsClippedToBounds="true" HorizontalOptions="FillAndExpand" HeightRequest="{OnPlatform iOS='220', Android='200'}" Margin="0,0,0,0">
-                        <Image Source="portada_perfiljugador.png" Aspect="AspectFill"/>
-                    </PanCake:PancakeView>
+                    <!--<PanCake:PancakeView Grid.Row="0"  CornerRadius="0,0,0,0" IsClippedToBounds="true" HorizontalOptions="FillAndExpand" HeightRequest="{OnPlatform iOS='220', Android='200'}" Margin="0,0,0,0">-->
+                    <Image Grid.Row="0" Source="portada_perfiljugador.png" HorizontalOptions="StartAndExpand"/>
+                    <!--</PanCake:PancakeView>-->
 
                     <ff:CachedImage Grid.Row="0"  Source="foto_perfiljugador.png"  HeightRequest="190" WidthRequest="190" TranslationY="90" BackgroundColor="Transparent" Margin="0,0,0,0" HorizontalOptions="Start">
                         <ff:CachedImage.Transformations>
@@ -70,49 +70,59 @@
 
                     <StackLayout Grid.Row="1" Margin="10,60,0,15">
 
-                        <StackLayout Grid.Row="2" Orientation="Horizontal">
-                            <StackLayout Grid.Row="3" Margin="10" VerticalOptions="Start">
-                                <ListView Margin="10" ItemsSource="{Binding Perfil}" HorizontalOptions="FillAndExpand">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <ViewCell>
-                                                <StackLayout>
-                                                    <Grid RowSpacing="0" Margin="0,0,0,0" Grid.Row="4">
-                                                        <Label
-                                                            Margin="0,10,0,5"
+
+                            <ListView Margin="10" ItemsSource="{Binding Perfil}" HorizontalOptions="FillAndExpand">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <RelativeLayout>
+                                                <!--<Grid RowSpacing="0">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto" />
+                                                                <RowDefinition Height="Auto" />
+                                                                <RowDefinition Height="Auto" />
+                                                                <RowDefinition Height="Auto" />
+                                                                <RowDefinition Height="Auto" />
+                                                                <RowDefinition Height="Auto" />
+                                                                <RowDefinition Height="Auto" />
+                                                            </Grid.RowDefinitions>-->
+                                                <Label
+                                                            x:Name="lblNombre"
                                                             FontSize="14"
                                                             HorizontalOptions="Start"
-                                                            Text="NOMBRE DE USUARIO"
+                                                            Text="NOMBRE DE Shupa"
                                                             FontAttributes="Bold"
                                                             TextColor="WhiteSmoke"
                                                             VerticalTextAlignment="Center">
-                                                        </Label>
+                                                </Label>
 
-                                                        <local:RoundedEntry
-                                                            Margin="0,30,0,0"
+                                                <local:RoundedEntry
                                                             x:Name="Alias"
                                                             ClassId="Alias"
-                                                            Placeholder="{Binding usuarioAlternativo}"
+                                                            Placeholder="Demo"
                                                             FontSize="Small"
                                                             BackgroundColor="Transparent"
                                                             HorizontalOptions="StartAndExpand"
                                                             WidthRequest="330"
                                                             HeightRequest="50"
                                                             HorizontalTextAlignment="Center"
-                                                            PlaceholderColor="Lime">
-                                                        </local:RoundedEntry>
+                                                            PlaceholderColor="Lime"
+                                                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=lblNombre}"/>
 
-                                                        <Label
+
+                                                <Label
+                                                            x:Name="lblNombre2"
                                                             Margin="0,10,0,5"
                                                             FontSize="14"
                                                             HorizontalOptions="Start"
                                                             Text="NOMBRE PARA MOSTRAR"
                                                             FontAttributes="Bold"
                                                             TextColor="WhiteSmoke"
-                                                            VerticalTextAlignment="Center">
-                                                        </Label>
+                                                            VerticalTextAlignment="Center"
+                                                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=Alias}"/>
 
-                                                        <local:RoundedEntry
+
+                                                <local:RoundedEntry
                                                             x:Name="Nombre"
                                                             ClassId="Nombre"
                                                             Placeholder="{Binding nombres}"
@@ -121,70 +131,71 @@
                                                             WidthRequest="330"
                                                             HeightRequest="50"
                                                             HorizontalTextAlignment="Center"
-                                                            PlaceholderColor="Lime">
-                                                        </local:RoundedEntry>
+                                                            PlaceholderColor="Lime"
+                                                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=lblNombre2}"/>
 
-                                                        <Label
-                                                            Margin="0,70,0,5"
-                                                            FontSize="14"
-                                                            HorizontalOptions="Start"
-                                                            Text="DESCRIPCIÓN"
-                                                            FontAttributes="Bold"
-                                                            TextColor="WhiteSmoke"
-                                                            VerticalTextAlignment="Center">
-                                                        </Label>
 
-                                                        <local:RoundedEntry
-                                                            Margin="0,80,0,0"
-                                                            x:Name="DNI"
-                                                            ClassId="DNI"
-                                                            Placeholder="{Binding descripcionPerfil}"
-                                                            FontSize="Small"
-                                                            HorizontalOptions="StartAndExpand"
-                                                            WidthRequest="330"
-                                                            HeightRequest="100"
-                                                            HorizontalTextAlignment="Center"
-                                                            PlaceholderColor="Lime">
-                                                        </local:RoundedEntry>
-                                                    </Grid>
-                                                </StackLayout>
-                                            </ViewCell>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-                                <Label
-                                       Margin="0,20,0,5"
-                                       FontSize="14"
-                                       HorizontalOptions="Start"
-                                       Text="CONFIGURACIÓN RELACIONADA"
-                                       FontAttributes="Bold"
-                                       TextColor="WhiteSmoke"
-                                       VerticalTextAlignment="Center">
-                                </Label>
+                                                <Label
+                                                                    Grid.Row="4"
+                                                                    Margin="0,70,0,5"
+                                                                    FontSize="14"
+                                                                    HorizontalOptions="Start"
+                                                                    Text="DESCRIPCIÓN"
+                                                                    FontAttributes="Bold"
+                                                                    TextColor="WhiteSmoke"
+                                                                    VerticalTextAlignment="Center">
+                                                </Label>
 
-                                <Button 
-                                      Grid.Row="0"
-                                      Margin="-10,-10,0,0"
-                                      Text="Privacidad y Seguridad"
-                                      BackgroundColor="Transparent"
-                                      TextColor="Lime"
-                                      HorizontalOptions="Start"
-                                      HeightRequest="50">
-                                </Button>
+                                                <local:RoundedEntry
+                                                                    Grid.Row="5"
+                                                                    Margin="0,80,0,0"
+                                                                    x:Name="DNI"
+                                                                    ClassId="DNI"
+                                                                    Placeholder="{Binding descripcionPerfil}"
+                                                                    FontSize="Small"
+                                                                    HorizontalOptions="StartAndExpand"
+                                                                    WidthRequest="330"
+                                                                    HeightRequest="100"
+                                                                    HorizontalTextAlignment="Center"
+                                                                    PlaceholderColor="Lime">
+                                                </local:RoundedEntry>
+                                                <!--</Grid>-->
+                                            </RelativeLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Label
+                                        Grid.Row="1"
+                                        Margin="0,20,0,5"
+                                        FontSize="14"
+                                        HorizontalOptions="Start"
+                                        Text="CONFIGURACIÓN RELACIONADA"
+                                        FontAttributes="Bold"
+                                        TextColor="WhiteSmoke"
+                                        VerticalTextAlignment="Center">
+                            </Label>
 
-                                <Button 
-                                       x:Name="Guardar"
-                                       Grid.Row="0"
-                                       Margin="-10,-10,0,0"
-                                       Text="Guardar"
-                                       BackgroundColor="Transparent"
-                                       TextColor="Lime"
-                                       HorizontalOptions="Start"
-                                       HeightRequest="50">
-                                </Button>
-                                
-                            </StackLayout>
-                        </StackLayout>
+                            <Button 
+                                          Grid.Row="2"
+                                          Margin="-10,-10,0,0"
+                                          Text="Privacidad y Seguridad"
+                                          BackgroundColor="Transparent"
+                                          TextColor="Lime"
+                                          HorizontalOptions="Start"
+                                          HeightRequest="50">
+                            </Button>
+
+                            <Button 
+                                           x:Name="Guardar"
+                                           Grid.Row="3"
+                                           Margin="-10,-10,0,0"
+                                           Text="Guardar"
+                                           BackgroundColor="Transparent"
+                                           TextColor="Lime"
+                                           HorizontalOptions="Start"
+                                           HeightRequest="50">
+                        </Button>
                     </StackLayout>
                 </Grid>
             </ScrollView>
