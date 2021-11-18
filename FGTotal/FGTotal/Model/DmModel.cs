@@ -20,6 +20,8 @@ namespace FGTotal.Model
         public string usuario { get; set; }
         public string mensaje { get; set; }
         public string nombreEmisor { get; set; }
+        public string idTipo_Seguidor_Act { get; set; }
+        public string idTipo_Jugador_Act { get; set; }
 
     }
 }

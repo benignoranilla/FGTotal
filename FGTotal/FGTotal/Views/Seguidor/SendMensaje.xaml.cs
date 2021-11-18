@@ -43,11 +43,13 @@ namespace FGTotal.Views.Seguidor
         {
             DmModel log = new DmModel
             {
-                mensaje = Mensaje.Text,
-                idSeguidor = int.Parse(Preferences.Get("idUsuarioLogin",string.Empty)),
-                idJugador = int.Parse (Preferences.Get("idJugador",string.Empty))
+                mensaje = TextoMensaje.Text,
+                idSeguidor = int.Parse(Preferences.Get("idSeguidor",string.Empty)),
+                idJugador = int.Parse (Preferences.Get("idJugador",string.Empty)),
+                idTipo_Seguidor_Act = "E",
+                idTipo_Jugador_Act = "R"
             };
-            Uri RequestUri = new Uri("http://projectwebapiloadbalancer-1962764078.us-east-2.elb.amazonaws.com/api/Dm/EnviarDM");
+            Uri RequestUri = new Uri("http://projectwebapi-481816807.us-east-2.elb.amazonaws.com/api/Dm/EnviarDM");
 
             var Client = new HttpClient();
             var json = JsonConvert.SerializeObject(log);

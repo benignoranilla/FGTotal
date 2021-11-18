@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGTotal.Android", "FGTotal\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGTotal.iOS", "FGTotal\FGTotal.iOS\FGTotal.iOS.csproj", "{02137F47-11B7-49E1-B60B-03E6469C0374}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGTotal", "FGTotal\FGTotal\FGTotal.csproj", "{158F1CDD-F902-4621-869C-CC922AFA5B13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGTotal", "FGTotal\FGTotal\FGTotal.csproj", "{158F1CDD-F902-4621-869C-CC922AFA5B13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

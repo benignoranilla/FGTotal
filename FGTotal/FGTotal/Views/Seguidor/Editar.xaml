@@ -136,28 +136,28 @@
 
 
                                                 <Label
-                                                                    Grid.Row="4"
-                                                                    Margin="0,70,0,5"
-                                                                    FontSize="14"
-                                                                    HorizontalOptions="Start"
-                                                                    Text="DESCRIPCIÓN"
-                                                                    FontAttributes="Bold"
-                                                                    TextColor="WhiteSmoke"
-                                                                    VerticalTextAlignment="Center">
+                                                            Grid.Row="4"
+                                                            Margin="0,70,0,5"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            Text="DESCRIPCIÓN"
+                                                            FontAttributes="Bold"
+                                                            TextColor="WhiteSmoke"
+                                                            VerticalTextAlignment="Center">
                                                 </Label>
 
                                                 <local:RoundedEntry
-                                                                    Grid.Row="5"
-                                                                    Margin="0,80,0,0"
-                                                                    x:Name="DNI"
-                                                                    ClassId="DNI"
-                                                                    Placeholder="{Binding descripcionPerfil}"
-                                                                    FontSize="Small"
-                                                                    HorizontalOptions="StartAndExpand"
-                                                                    WidthRequest="330"
-                                                                    HeightRequest="100"
-                                                                    HorizontalTextAlignment="Center"
-                                                                    PlaceholderColor="Lime">
+                                                            Grid.Row="5"
+                                                            Margin="0,80,0,0"
+                                                            x:Name="DNI"
+                                                            ClassId="DNI"
+                                                            Placeholder="{Binding descripcionPerfil}"
+                                                            FontSize="Small"
+                                                            HorizontalOptions="StartAndExpand"
+                                                            WidthRequest="330"
+                                                            HeightRequest="100"
+                                                            HorizontalTextAlignment="Center"
+                                                            PlaceholderColor="Lime">
                                                 </local:RoundedEntry>
                                                 <!--</Grid>-->
                                             </RelativeLayout>

@@ -66,11 +66,46 @@
                                     </ListView.ItemTemplate>
                                 </ListView>
                             </StackLayout>
+
                         </StackLayout>
                     </Grid>
                 </StackLayout>
             </ScrollView>
-
+            <StackLayout>
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Entry
+                         Grid.Row="0"
+                            ClassId="Mensaje"
+                            x:Name="Mensaje"
+                            Placeholder="Escriba un mensaje..."
+                            FontSize="Small"
+                            BackgroundColor="Transparent"
+                            HorizontalOptions="Start"
+                            VerticalOptions="End"
+                            WidthRequest="240"
+                            HeightRequest="50"
+                            Margin="20,0,0,0"
+                            PlaceholderColor="Gray">
+                    </Entry>
+                    <Button
+                         Grid.Row="0"
+                            HorizontalOptions="End"
+                            WidthRequest="100"
+                            Margin="0,0,0,0"
+                            CornerRadius="50"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            Text="Enviar DM">
+                        <Button.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"/>
+                        </Button.GestureRecognizers>
+                    </Button>
+                </Grid>
+            </StackLayout>
             <!--  Footer  -->
             <StackLayout
                 Margin="0,0,0,0"
@@ -82,37 +117,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <StackLayout 
-                        Grid.Row="0"
-                        VerticalOptions="End">
-                        <local:RoundedEntry
-                        ClassId="Mensaje"
-                        x:Name="Mensaje"
-                        Placeholder="Escriba un mensaje..."
-                        FontSize="Small"
-                        HorizontalOptions="Start"
-                        VerticalOptions="End"
-                        WidthRequest="300"
-                        HeightRequest="50"
-                        Margin="20,0,0,0"
-                        PlaceholderColor="Gray">
-                        </local:RoundedEntry>
-                    </StackLayout>
-                    <StackLayout
-                        Grid.Row="0">
-                        <Button
-                            HorizontalOptions="End"
-                            WidthRequest="100"
-                            Margin="0,0,0,0"
-                            CornerRadius="50"
-                            BackgroundColor="Green"
-                            TextColor="White"
-                            Text="Enviar DM">
-                            <Button.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"/>
-                            </Button.GestureRecognizers>
-                        </Button>
-                    </StackLayout>
+
                     <!--  Franja  -->
                     <BoxView
                         Margin="0"

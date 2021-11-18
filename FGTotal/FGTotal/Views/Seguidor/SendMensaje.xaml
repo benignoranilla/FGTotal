@@ -11,7 +11,7 @@
         <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped"></ToolbarItem>
         <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_1"></ToolbarItem>
     </ContentPage.ToolbarItems>-->
-    
+
     <ContentPage.BindingContext>
         <viewModel:DetalleMensajeViewModel></viewModel:DetalleMensajeViewModel>
     </ContentPage.BindingContext>
@@ -21,39 +21,105 @@
 
             <!-- Content -->
             <ScrollView  HorizontalOptions="CenterAndExpand" Margin="0,0,0,0">
-                <AbsoluteLayout Padding="10"  VerticalOptions="CenterAndExpand">
-                    <Label  
-                            Text="{Binding nombreEmisor}"
-                            TextColor="White"
-                            AbsoluteLayout.LayoutBounds="0,40,1,40" 
-                            AbsoluteLayout.LayoutFlags="XProportional,WidthProportional" 
-                            HorizontalOptions="FillAndExpand"/>
-                    <Label  
-                            Text="{Binding mensaje}"
-                            TextColor="White"
-                            AbsoluteLayout.LayoutBounds="0,85,1,40" 
-                            AbsoluteLayout.LayoutFlags="XProportional,WidthProportional" 
-                            HorizontalOptions="FillAndExpand"/>
-                    <Entry 
-                            x:Name="Mensaje"
-                            AbsoluteLayout.LayoutBounds="0,500,250,40" 
-                            Placeholder="NickName"
-                            TextColor="White"
-                            PlaceholderColor="White"
-                            HorizontalOptions="FillAndExpand"/>
+                <StackLayout>
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-                    <Button  
-                        AbsoluteLayout.LayoutBounds="1,550,90,40" 
-                        HorizontalOptions="FillAndExpand" 
-                        Text="Register" 
-                        TextColor="White" BackgroundColor="Black">
-                        <Button.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"/>
-                        </Button.GestureRecognizers>
-                    </Button>
-                </AbsoluteLayout>
+                        <StackLayout Grid.Row="0" Margin="10,30,0,5">
+
+                            <StackLayout Orientation="Horizontal">
+                                <ListView Margin="20" ItemsSource="{Binding DetalleDm}" HorizontalOptions="FillAndExpand">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout>
+                                                    <Grid RowSpacing="0" Margin="0,0,0,0">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*" />
+                                                            <RowDefinition Height="*" />
+                                                        </Grid.RowDefinitions>
+                                                        <Frame
+                                                        Grid.Row="0"
+                                                        Padding="0"
+                                                        BackgroundColor="Transparent"
+                                                        HasShadow="False"
+                                                        HeightRequest="50"
+                                                        WidthRequest="50">
+                                                            <Label Grid.Row="0" Text="{Binding nombreEmisor}" TextColor="White" FontSize="Medium"></Label>
+                                                        </Frame>
+                                                        <Frame 
+                                                        Grid.Row="1"
+                                                        Padding="0"
+                                                        BackgroundColor="Transparent"
+                                                        HasShadow="False"
+                                                        HeightRequest="50"
+                                                        WidthRequest="50">
+                                                            <Label Grid.Row="1" Text="{Binding mensaje}" TextColor="White" FontSize="Small"></Label>
+                                                        </Frame>
+                                                    </Grid>
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                        </StackLayout>
+                        <!--<Entry
+                                Grid.Row="1"
+                                ClassId="Mensaje"
+                                x:Name="Mensaje"
+                                Placeholder="Escriba un mensaje..."
+                                FontSize="Small"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="Start"
+                                VerticalOptions="End"
+                                WidthRequest="240"
+                                HeightRequest="50"
+                                Margin="20,0,0,0"
+                                PlaceholderColor="Gray">
+                        </Entry>-->
+                    </Grid>
+                </StackLayout>
             </ScrollView>
-
+            <StackLayout>
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Entry
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            x:Name="TextoMensaje"
+                            Placeholder="Escriba un mensaje..."
+                            TextColor="White"
+                            FontSize="Small"
+                            BackgroundColor="Transparent"
+                            HorizontalOptions="Start"
+                            VerticalOptions="End"
+                            WidthRequest="240"
+                            HeightRequest="50"
+                            Margin="20,0,0,0"
+                            PlaceholderColor="White">
+                    </Entry>
+                    <Button
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            HorizontalOptions="End"
+                            WidthRequest="100"
+                            Margin="0,0,0,0"
+                            CornerRadius="50"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            Text="Enviar DM"
+                            Clicked="TapGestureRecognizer_Tapped_4">
+                    </Button>
+                </Grid>
+            </StackLayout>
             <!--  Footer  -->
             <StackLayout
                 Margin="0,0,0,0"
@@ -65,26 +131,10 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <StackLayout 
-                        Grid.Row="0"
-                        VerticalOptions="End">
-                        <Entry
-                            ClassId="Mensaje"
-                            x:Name="TextoMensaje"
-                            Placeholder="Escriba un mensaje..."
-                            FontSize="Small"
-                            BackgroundColor="Transparent"
-                            HorizontalOptions="Start"
-                            VerticalOptions="End"
-                            WidthRequest="240"
-                            HeightRequest="50"
-                            Margin="20,0,0,0"
-                            PlaceholderColor="Gray">
-                        </Entry>
-                    </StackLayout>
+
                     <StackLayout
                         Grid.Row="0">
-                        <Button
+                        <!--<Button
                             HorizontalOptions="End"
                             WidthRequest="100"
                             Margin="0,0,0,0"
@@ -95,7 +145,7 @@
                             <Button.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"/>
                             </Button.GestureRecognizers>
-                        </Button>
+                        </Button>-->
                     </StackLayout>
                     <!--  Franja  -->
                     <BoxView
@@ -108,10 +158,10 @@
                     <Frame
                         Padding="0"
                         Grid.Row="2"
-                        BackgroundColor="#001B4C"
                         HasShadow="True"
                         VerticalOptions="EndAndExpand"
-                        HorizontalOptions="FillAndExpand">
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#001B4C">
                         <StackLayout
                             Margin="0,0,0,0"
                             HorizontalOptions="FillAndExpand"
