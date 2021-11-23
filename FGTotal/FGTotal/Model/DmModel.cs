@@ -12,6 +12,7 @@ namespace FGTotal.Model
         public int idJugador { get; set; }
         public string descripcionJugador { get; set; }
         public int idTipoDm { get; set; }
+        public string idMetodoPago { get; set; }
         public string descripcionTipoDm { get; set; }
         public string ultimoMensaje { get; set; }
         public string idEstadosDmSe { get; set; }

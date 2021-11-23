@@ -50,7 +50,7 @@ namespace FGTotal.Views.Seguidor
         //    {
         //        usuario = DNI.Text
         //    }
-        //
+        
         //}
     }
 }
