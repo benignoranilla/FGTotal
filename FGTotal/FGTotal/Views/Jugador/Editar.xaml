@@ -77,7 +77,7 @@
                                 </Label>
 
                                 <local:RoundedEntry
-                                ClassId="DNI"
+                                x:Name="TextoUsuario"
                                 Grid.Row="1"
                                 Placeholder="@DAZA_08"
                                 FontSize="Small"
@@ -100,7 +100,7 @@
                                 </Label>
 
                                 <local:RoundedEntry
-                                ClassId="DNI"
+                                x:Name="TextoNombre"
                                 Grid.Row="1"
                                 Placeholder="Carlos Daza"
                                 FontSize="Small"
@@ -122,9 +122,9 @@
                                 </Label>
 
                                 <local:RoundedEntry
-                                ClassId="DNI"
+                                x:Name="TextoDescripcion"
                                 Grid.Row="1"
-                                Placeholder="0/1000"
+                                Placeholder="Descripción Jugador"
                                 FontSize="Small"
                                 HorizontalOptions="StartAndExpand"
                                 WidthRequest="330"
@@ -153,6 +153,18 @@
                                 TextColor="Lime"
                                 HorizontalOptions="Start"
                                 HeightRequest="50">
+                                </Button>
+
+                                <Button 
+                                           x:Name="Guardar"
+                                           Grid.Row="3"
+                                           Margin="-10,-10,0,0"
+                                           Text="Guardar"
+                                           Clicked="Guardar_clicked"
+                                           BackgroundColor="Transparent"
+                                           TextColor="Lime"
+                                           HorizontalOptions="Start"
+                                           HeightRequest="50">
                                 </Button>
 
                             </StackLayout>

@@ -91,7 +91,31 @@
                                                             VerticalTextAlignment="Center">
                             </Label>
                             <Label
+                                                            Grid.Row="1"
+                                                            x:Name="lblUsuario"
+                                                            Margin="0,0,0,15"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            Text="NOMBRE DE USUARIO"
+                                                            FontAttributes="Bold"
+                                                            TextColor="WhiteSmoke"
+                                                            VerticalTextAlignment="Center"
+                                                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=Alias}"/>
+
+
+                            <local:RoundedEntry
                                                             Grid.Row="2"
+                                                            x:Name="TextoUsuario"
+                                                            Placeholder="@Seguidor02"
+                                                            FontSize="Small"
+                                                            HorizontalOptions="StartAndExpand"
+                                                            WidthRequest="330"
+                                                            HeightRequest="50"
+                                                            HorizontalTextAlignment="Center"
+                                                            PlaceholderColor="Lime"
+                                                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=lblNombre2}"/>
+                            <Label
+                                                            Grid.Row="3"
                                                             x:Name="lblNombre2"
                                                             Margin="0,0,0,15"
                                                             FontSize="14"
@@ -104,7 +128,7 @@
 
 
                             <local:RoundedEntry
-                                                            Grid.Row="3"
+                                                            Grid.Row="4"
                                                             x:Name="TextoNombre"
                                                             Placeholder="Seguidor02"
                                                             FontSize="Small"
@@ -115,9 +139,8 @@
                                                             PlaceholderColor="Lime"
                                                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=lblNombre2}"/>
 
-
                             <Label
-                                                            Grid.Row="4"
+                                                            Grid.Row="5"
                                                             Margin="0,20,0,0"
                                                             FontSize="14"
                                                             HorizontalOptions="Start"
@@ -128,7 +151,7 @@
                             </Label>
 
                             <local:RoundedEntry
-                                                            Grid.Row="5"
+                                                            Grid.Row="6"
                                                             Margin="0,20,0,0"
                                                             x:Name="TextoDescripcion"
                                                             Placeholder="Desccripción de Seguidor02"
