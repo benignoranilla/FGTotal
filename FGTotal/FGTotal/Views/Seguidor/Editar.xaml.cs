@@ -1,10 +1,12 @@
 ﻿using FGTotal.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -44,13 +46,31 @@ namespace FGTotal.Views.Seguidor
         {
             Navigation.PushAsync(new Mensajes());
         }
-        //private void Guardar_clicked(object sender, EventArgs e)
-        //{
-        //    WsModel log = new WsModel
-        //    {
-        //        usuario = DNI.Text
-        //    }
-        
-        //}
+        private async void Guardar_clicked(object sender, EventArgs e)
+        {
+            string idS = Preferences.Get("idSeguidor", string.Empty);
+
+            EditarModel log = new EditarModel
+            {
+                nombres = TextoNombre.Text,
+                descripcionPerfil = TextoDescripcion.Text,
+                tipoUsuario = "S",
+                id = int.Parse(idS)
+            };
+
+            
+            Uri RequestUri = new Uri(" http://projectwebapi-481816807.us-east-2.elb.amazonaws.com/api/usuarios/"+idS);
+
+            var Client = new HttpClient();
+            var json = JsonConvert.SerializeObject(log);
+            var ContentJson = new StringContent(json, Encoding.UTF8, "application/json");
+            var Response = await Client.PutAsync(RequestUri, ContentJson);
+            if (Response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                await Navigation.PushAsync(new Editar());
+
+            }
+
+        }
     }
 }
