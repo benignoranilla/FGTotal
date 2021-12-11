@@ -57,6 +57,7 @@
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=170, ElementName=ImageUser}"/>
                 <Button
                     x:Name="btnEditar"
+                    Clicked="btn_editar"
                     Text="Editar Perfil"
                     TextColor="White"
                     TextTransform="None"

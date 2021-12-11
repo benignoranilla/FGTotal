@@ -16,29 +16,24 @@ namespace FGTotal.Views.Jugador
         {
             InitializeComponent();
         }
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new HomePage());
+            Navigation.PushModalAsync(new HomePage());
         }
 
-        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new FGPlay());
+            Navigation.PushModalAsync(new FGPlay());
         }
 
-        private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Search());
+            Navigation.PushModalAsync(new Search());
         }
 
-        private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Account());
-        }
-
-        protected override bool OnBackButtonPressed()
-        {
-            return false;
+            Navigation.PushModalAsync(new Perfil());
         }
     }
 }

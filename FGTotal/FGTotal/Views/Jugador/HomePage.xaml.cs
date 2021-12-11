@@ -43,7 +43,7 @@ namespace FGTotal.Views.Jugador
 
         private void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Mensajes());
+            Navigation.PushAsync(new Novedades());
         }
     }
 }

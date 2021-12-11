@@ -7,12 +7,19 @@
              x:Name="mainView"
              BackgroundColor="#001B4C"
              mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped"></ToolbarItem>
+        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_1"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    
+    
     <ContentPage.Content>
         <StackLayout>
 
             <!--  Logo  -->
             <StackLayout>
-                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <!-- <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
 
                     <StackLayout>
                         <Image
@@ -22,7 +29,7 @@
                             Source="FG_Total"
                             WidthRequest="40" />
                     </StackLayout>
-                </StackLayout>
+                </StackLayout>-->
                 <BoxView
                     Margin="0"
                     BackgroundColor="#F7F7F7"

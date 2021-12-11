@@ -58,8 +58,8 @@ namespace FGTotal.Views.Seguidor
             var Response = await Client.PostAsync(RequestUri, ContentJson);
             if (Response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                //await DisplayAlert("Mensaje", "Mensaje enviado con éxito", "OK");
-                await Navigation.PushAsync(new SendMensaje());
+                await Navigation.PushModalAsync(new SendMensaje());
+                //await Navigation.PushModalAsync(new NavigationPage(new SendMensaje()));
             }
             else
             {

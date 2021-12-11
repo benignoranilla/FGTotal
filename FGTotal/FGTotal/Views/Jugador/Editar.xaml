@@ -149,6 +149,7 @@
                                 Grid.Row="0"
                                 Margin="-10,-10,0,0"
                                 Text="Privacidad y Seguridad"
+                                Clicked="btn_privacidad"
                                 BackgroundColor="Transparent"
                                 TextColor="Lime"
                                 HorizontalOptions="Start"
