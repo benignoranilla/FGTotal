@@ -20,6 +20,7 @@ namespace FGTotal.Droid
 
             //base.OnCreate(savedInstanceState);
             base.OnCreate(bundle);
+            Xamarin.Essentials.Platform.Init(this, bundle);
             Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, bundle);
             CachedImageRenderer.Init(true);

@@ -185,13 +185,15 @@
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=NewComent}"/>
                 <ImageButton
                     x:Name="btnFoto"
-                    Source="photo2"
+                    Source="Foto"
+                    Clicked="Camara_Clicked"
                     WidthRequest="23"
                     HeightRequest="23"
                     BackgroundColor="Transparent"
                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=85, ElementName=lblLive}"
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=NewComent}"/>
-                <Label
+                        <Image x:Name="Foto"/>
+                        <Label
                     x:Name="lblFoto"
                     Text="Foto"
                     TextColor="White"
