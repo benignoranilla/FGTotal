@@ -45,6 +45,7 @@
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=60, ElementName=ImagePortada}"/>
                 <Button
                     x:Name="btnAgregar"
+                    Clicked="Agregar_Clicked"
                     Text="Agregar a Historia"
                     TextColor="#001B4C"
                     TextTransform="None"
@@ -183,16 +184,15 @@
                     FontSize="15"
                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=btnLive}"
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=NewComent}"/>
-                <ImageButton
+                        <ImageButton
                     x:Name="btnFoto"
-                    Source="Foto"
+                    Source="photo2"
                     Clicked="Camara_Clicked"
                     WidthRequest="23"
                     HeightRequest="23"
                     BackgroundColor="Transparent"
                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=85, ElementName=lblLive}"
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=NewComent}"/>
-                        <Image x:Name="Foto"/>
                         <Label
                     x:Name="lblFoto"
                     Text="Foto"
@@ -223,49 +223,69 @@
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="StartAndExpand"
                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=40, ElementName=lblVideo}"/>
-                
                 <!--Estados-->
-                <ImageButton 
+                <ImageButton x:Name="Foto"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant={OnPlatform iOS='20', Android='10'}, Property=X}"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=35, ElementName=BView2}"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=370}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=205}"
+                    BackgroundColor="Transparent"/>
+                <local:RoundedEntry
+                    x:Name="Descripcion"
+                    BackgroundColor="Transparent"
+                    Placeholder="Descripción"
+                    HorizontalTextAlignment="Center"
+                    FontSize="Small"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="Center"
+                    WidthRequest="300"
+                    HeightRequest="50"
+                    Margin="0,0,0,20"
+                    PlaceholderColor="Gray"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=40, ElementName=ImgComent}"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=230, ElementName=Foto}">
+                </local:RoundedEntry>
+                
+                        <!--<ImageButton 
                     Source="Friend6.jpg"
-                    x:Name="VBOx2"
+                    x:Name="Foto"
                     Opacity="0.4"
-                    BackgroundColor="Black"
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BView2}"
                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant={OnPlatform iOS='20', Android='10'}, Property=X}"
                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=370}"
-                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=205}"/>
-                <Frame
+                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=205}"/>-->
+                <!-- <Frame
                     x:Name="Coment2"
                     Padding="0"
-                    BackgroundColor="Lime"
+                    BackgroundColor="Black"
                     HasShadow="False"
                     Margin="0,0,0,0"
                     HeightRequest="40"
-                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=165, ElementName=VBOx2}"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=165, ElementName=Foto}"
                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant={OnPlatform iOS='20', Android='10'}, Property=X}"
                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=370}">
                 </Frame>
                 <Button
                     x:Name="LikePost2"
-                    BackgroundColor="Transparent"
+                    BackgroundColor="Black"
                     ImageSource="Asset2"
                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant={OnPlatform iOS='30', Android='0'}, Property=X}"
-                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=VBOx2}"/>
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=Foto}"/>
                 <Button
                     x:Name="ComentPost2"
                     BackgroundColor="Transparent"
                     ImageSource="Asset3"
                     HeightRequest="50"
                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='60', Android='50'}, ElementName=LikePost2}"
-                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=VBOx2}"/>
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=Foto}"/>
                 <Button
                     x:Name="SendPost2"
                     BackgroundColor="Transparent"
                     ImageSource="Asset4"
                     HeightRequest="50"
                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=ComentPost2}"
-                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=VBOx2}"/>
-            </RelativeLayout>
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=Foto}"/>
+           --> </RelativeLayout>
         </ScrollView>
         </StackLayout>
         <!--  Footer  -->

@@ -184,7 +184,7 @@
                         
                         <!--Segundo Post-->
                         <ImageButton Source="Friend6"
-                                     x:Name="VBOx2"
+                                     x:Name="Foto"
                                      Opacity="0.4"
                                      BackgroundColor="Black"
                                      HeightRequest="150"
@@ -198,7 +198,7 @@
                            HasShadow="False"
                            Margin="0,0,0,0"
                            HeightRequest="40"
-                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=165, ElementName=VBOx2}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=165, ElementName=Foto}"
                            RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=370}">
                         </Frame>
                         <Image
@@ -207,13 +207,13 @@
                             WidthRequest="50"
                             HeightRequest="50"
                             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant=10, Property=X}"
-                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=10, ElementName=VBOx2}"/>
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=10, ElementName=Foto}"/>
                         <Label
                             x:Name="TextNameUser2"
                             Text="User 1"
                             TextColor="White"
                             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=20, ElementName=ImageUser2}"
-                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=10, ElementName=VBOx2}"/>
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=10, ElementName=Foto}"/>
                         <Label
                             x:Name="TextStatusUser2"
                             Text="Publicó nuevo estado"
@@ -225,21 +225,21 @@
                            BackgroundColor="Transparent"
                            ImageSource="Asset2"
                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant={OnPlatform iOS='10', Android='0'}, Property=X}"
-                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=VBOx2}"/>
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=Foto}"/>
                         <Button
                            x:Name="ComentPost2"
                            BackgroundColor="Transparent"
                            ImageSource="Asset3"
                            HeightRequest="50"
                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant={OnPlatform iOS='60', Android='50'}, ElementName=LikePost2}"
-                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=VBOx2}"/>
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=Foto}"/>
                         <Button
                            x:Name="SendPost2"
                            BackgroundColor="Transparent"
                            ImageSource="Asset4"
                            HeightRequest="50"
                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=ComentPost2}"
-                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=VBOx2}"/>
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=Foto}"/>
 
                     </RelativeLayout>
 
