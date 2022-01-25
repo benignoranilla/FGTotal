@@ -59,7 +59,7 @@ namespace FGTotal.Views.Seguidor
             };
 
             
-            Uri RequestUri = new Uri(" http://projectwebapi-481816807.us-east-2.elb.amazonaws.com/api/usuarios/"+idS);
+            Uri RequestUri = new Uri(" http://http://projectwebapi-1533273939.us-east-2.elb.amazonaws.com/api/usuarios/" + idS);
 
             var Client = new HttpClient();
             var json = JsonConvert.SerializeObject(log);

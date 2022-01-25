@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using FGTotal.Services;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace FGTotal.ViewModel
 {
@@ -34,5 +35,6 @@ namespace FGTotal.ViewModel
 
             IsBusy = false;
         }
+
     }
 }

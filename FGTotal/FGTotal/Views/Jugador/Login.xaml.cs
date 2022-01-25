@@ -23,7 +23,7 @@ namespace FGTotal.Views.Jugador
                 usuario = DNI.Text,
                 contrasena = Password.Text
             };
-            Uri RequestUri = new Uri("http://projectwebapi-481816807.us-east-2.elb.amazonaws.com/api/usuarios");
+            Uri RequestUri = new Uri("http://projectwebapi-1533273939.us-east-2.elb.amazonaws.com/api/usuarios");
 
             var Client = new HttpClient();
             var json = JsonConvert.SerializeObject(log);
@@ -31,19 +31,21 @@ namespace FGTotal.Views.Jugador
             var Response = await Client.PostAsync(RequestUri, ContentJson);
             if (Response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                await Navigation.PushAsync(new HomePage());
-
                 var jsonlogin = await Response.Content.ReadAsStringAsync();
                 var resultado = JsonConvert.DeserializeObject<WsModel>(jsonlogin);
 
                 var idLoginUsuario = $"{resultado.ID}";
-                Preferences.Set("idJugador", idLoginUsuario);
+                Preferences.Set("idLogin", idLoginUsuario);
 
                 var usuario = $"{resultado.usuario}";
                 Preferences.Set("usuario", usuario);
 
                 var tipoUsuario = $"{resultado.tipousuario}";
                 Preferences.Set("tipoUsuario", tipoUsuario);
+
+                await Navigation.PushAsync(new HomePage());
+
+
             }
             else
             {

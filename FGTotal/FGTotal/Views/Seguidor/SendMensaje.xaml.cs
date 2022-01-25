@@ -50,7 +50,7 @@ namespace FGTotal.Views.Seguidor
                 idMetodoPago = "TAR"
             };
             string id = Preferences.Get("idSeguidor", string.Empty);
-            Uri RequestUri = new Uri("http://projectwebapi-481816807.us-east-2.elb.amazonaws.com/api/Dm/EnviarDM/"+id);
+            Uri RequestUri = new Uri("http://projectwebapi-1533273939.us-east-2.elb.amazonaws.com/api/Dm/EnviarDM/"+id);
 
             var Client = new HttpClient();
             var json = JsonConvert.SerializeObject(log);

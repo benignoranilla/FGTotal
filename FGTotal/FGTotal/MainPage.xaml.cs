@@ -14,5 +14,10 @@ namespace FGTotal
         {
             InitializeComponent();
         }
+
+        public interface IFile
+        {
+            void Copy(string fromFile, string toFile);
+        }
     }
 }

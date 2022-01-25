@@ -23,7 +23,7 @@ namespace FGTotal.Views.Seguidor
                 usuario = DNI.Text,
                 contrasena = Password.Text
             };
-            Uri RequestUri = new Uri(" http://projectwebapi-481816807.us-east-2.elb.amazonaws.com/api/usuarios");
+            Uri RequestUri = new Uri(" http://projectwebapi-1533273939.us-east-2.elb.amazonaws.com/api/usuarios");
 
             var Client = new HttpClient();
             var json = JsonConvert.SerializeObject(log);

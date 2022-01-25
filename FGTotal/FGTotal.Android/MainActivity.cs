@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Android.OS;
 using FFImageLoading.Forms.Platform;
 using FFImageLoading.Svg.Forms;
+using Amazon;
 
 namespace FGTotal.Droid
 {
@@ -15,6 +16,12 @@ namespace FGTotal.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
+            var loggingConfig = AWSConfigs.LoggingConfig;
+            loggingConfig.LogMetrics = true;
+            loggingConfig.LogResponses = ResponseLoggingOption.Always;
+            loggingConfig.LogMetricsFormat = LogMetricsFormatOption.JSON;
+            loggingConfig.LogTo = LoggingOptions.SystemDiagnostics;
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 

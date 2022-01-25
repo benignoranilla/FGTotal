@@ -10,7 +10,7 @@ namespace FGTotal.Services
 {
     public class WebApiClientService
     {
-        Uri urlBase = new Uri("http://projectwebapi-481816807.us-east-2.elb.amazonaws.com/api/");
+        Uri urlBase = new Uri("http://projectwebapi-1533273939.us-east-2.elb.amazonaws.com/api/");
 
         public async Task<T> executeRequestPost<T>(object objectParams)
         {
@@ -39,7 +39,7 @@ namespace FGTotal.Services
         public async Task<T> ObtenerBandejaMensajeJugadorGet<T>()
         {
 
-            string id = Preferences.Get("idSeguidor", string.Empty);
+            string id = Preferences.Get("idLogin", string.Empty);
             string requestUri = "DM/ObtenerBandejaMensaje/" + id;
 
             var client = new HttpClient();
@@ -62,8 +62,8 @@ namespace FGTotal.Services
         public async Task<T> ObtenerPerfilUsuarioGet<T>()
         {
 
-            string id = Preferences.Get("idSeguidor", string.Empty);
-            string requestUri = "Usuarios/ObtenerSeguidorPerfil/" + id;
+            string id = Preferences.Get("idLogin", string.Empty);
+            string requestUri = "/ObtenerPerfilJugadorPayPremiumDeta/" + id;
 
             var client = new HttpClient();
 

@@ -33,7 +33,7 @@ namespace FGTotal.Views.Jugador
                     tipousuario = "S"
 
                 };
-                Uri RequestUri = new Uri("http://projectwebapiloadbalancer-1962764078.us-east-2.elb.amazonaws.com/api/Usuarios/RegistrarUsuario");
+                Uri RequestUri = new Uri("http://projectwebapi-1533273939.us-east-2.elb.amazonaws.com/api/Usuarios/RegistrarUsuario");
 
                 var Client = new HttpClient();
                 var json = JsonConvert.SerializeObject(log);

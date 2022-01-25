@@ -4,9 +4,14 @@
              x:Class="FGTotal.Views.Jugador.Perfil"
              NavigationPage.HasNavigationBar="True"
              xmlns:local="clr-namespace:CustomRendererDemo"
+             xmlns:ViewModel="clr-namespace:FGTotal.ViewModel"
              xmlns:FGTotal="clr-namespace:FGTotal.Style"
              NavigationPage.HasBackButton="False"
              BackgroundColor="#001B4C">
+
+    <ContentPage.BindingContext>
+        <ViewModel:ProfilePlayerViewModel/>
+    </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped_5"></ToolbarItem>
@@ -91,6 +96,7 @@
                         Orientation="Horizontal">
                         <ImageButton
                             Source="photo1"
+                            Clicked="Gallery_Clicked"
                             WidthRequest="25"
                             HeightRequest="25"
                             Margin="0,0,5,0"
@@ -102,6 +108,7 @@
                            VerticalOptions="StartAndExpand" />
                         <ImageButton
                             Source="play1"
+                            Clicked="Video_Clicked"
                             WidthRequest="25"
                             HeightRequest="25"
                             Margin="0,0,5,0"
@@ -230,6 +237,19 @@
                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=370}"
                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=205}"
                     BackgroundColor="Transparent"/>
+                <Image
+                    x:Name="Multimedia"
+                    Source="{Binding rImagen}"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant={OnPlatform iOS='20', Android='10'}, Property=X}"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=35, ElementName=Foto}"/>
+                <Label
+                    x:Name="DescripcionTexto"
+                    Text="{Binding descripcion}"
+                    TextColor="White"
+                    FontSize="15"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant={OnPlatform iOS='20', Android='10'}, Property=X}"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=Multimedia}"/>
+                        <!--
                 <local:RoundedEntry
                     x:Name="Descripcion"
                     BackgroundColor="Transparent"
@@ -242,9 +262,9 @@
                     HeightRequest="50"
                     Margin="0,0,0,20"
                     PlaceholderColor="Gray"
-                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=40, ElementName=ImgComent}"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=20, ElementName=ImgComent}"
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=230, ElementName=Foto}">
-                </local:RoundedEntry>
+                </local:RoundedEntry> -->
                 
                         <!--<ImageButton 
                     Source="Friend6.jpg"

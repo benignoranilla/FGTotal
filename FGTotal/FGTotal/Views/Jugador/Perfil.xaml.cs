@@ -4,17 +4,21 @@ using Amazon;
 using Amazon.CognitoIdentity;
 using Amazon.S3;
 using Amazon.S3.Transfer;
+using FGTotal.Model;
+using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static FGTotal.MainPage;
 
 namespace FGTotal.Views.Jugador
 {
@@ -63,62 +67,141 @@ namespace FGTotal.Views.Jugador
         
         private async void Camara_Clicked (object sender, EventArgs e)
         {
-            var foto = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
-                { Name = "Temp_Photo.jpg", });
+            //var photo = DateTime.Now.ToString("yyyyMMdd_HHmmss");
 
-            Preferences.Set("Photo", foto.text);
+            var photo_name = Preferences.Get("usuario", string.Empty) + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg";
+            Preferences.Set("photo_name", photo_name);
+
+            var foto = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+            { Name = photo_name, });
 
             if(foto != null)
             {
+                var url = foto.Path.ToString();
+                Preferences.Set("photo_url", url);
+
                 Foto.Source = ImageSource.FromStream(() =>
                 {
                     return foto.GetStream();
                 });
             }
         }
+        private async void Gallery_Clicked(object sender, EventArgs e)
+        {
+            var picture_name = Preferences.Get("usuario", string.Empty) + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg";
+            Preferences.Set("photo_name", picture_name);
+
+            var foto = await CrossMedia.Current.PickPhotoAsync();
+
+            DependencyService.Get<IFile>().Copy(foto.Path, "/storage/emulated/0/Android/data/com.phoenix.fgtotal/files/Pictures/temp/" + Preferences.Get("photo_name", string.Empty));
+
+            var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(foto.Path);
+
+            if (foto != null)
+            {
+                Foto.Source = ImageSource.FromStream(() =>
+                {
+                    var stream = foto.GetStream();
+
+                    foto.Dispose();
+
+                    return stream;
+                });
+            }
+        }
+
+        private async void Video_Clicked (Object sender, EventArgs e)
+        {
+            var foto = await CrossMedia.Current.PickVideoAsync();
+
+            Foto.Source = ImageSource.FromStream(() =>
+              {
+                  var stream = foto.GetStream();
+
+                  foto.Dispose();
+
+                  return stream;
+              });
+        }
 
         private async void Agregar_Clicked (object sender, EventArgs e)
         {
-            #region
-            CognitoAWSCredentials credentials = new CognitoAWSCredentials(
-            "us-east-1:263cc401-708c-4bad-8594-9c414f1d2e7d",   //"us-east-1:00000000-0000-0000-0000-000000000000", // Your identity pool ID
-            RegionEndpoint.USEast2 // Region
-            );
+                       
+            string ruta = "https://bucketfgtotal.s3.us-east-2.amazonaws.com/FGTotal_file/" + Preferences.Get("photo_name", string.Empty);
 
-            var loggingConfig = AWSConfigs.LoggingConfig;
-            loggingConfig.LogMetrics = true;
-            loggingConfig.LogResponses = ResponseLoggingOption.Always;
-            loggingConfig.LogMetricsFormat = LogMetricsFormatOption.JSON;
-            loggingConfig.LogTo = LoggingOptions.SystemDiagnostics;
+            PostModel log = new PostModel
+            {
+                titulo = "Prueba",
+                idUsuario = Convert.ToInt32(Preferences.Get("idLogin", string.Empty)),
+                descripcion = NewComent.Text,
+                idTipoPublicacion = "N"
+            };
 
-            AWSConfigs.AWSRegion = "us-east-2";
-            IAmazonS3 s3Client = new AmazonS3Client(credentials, RegionEndpoint.USEast2);
+            Uri urlBase = new Uri("http://projectwebapi-1533273939.us-east-2.elb.amazonaws.com/api/Publicacion/CrearPublicacion/");
 
-            AWSConfigsS3.UseSignatureVersion4 = true;
+            string idJugador = Preferences.Get("idLogin", string.Empty);
+            string RequestUri = urlBase + idJugador;
 
-            //var s3Client = new AmazonS3Client(credentials, region);
-            var transferUtility = new TransferUtility(s3Client);
+            var Client = new HttpClient();
+            var json = JsonConvert.SerializeObject(log);
+            var ContentJson = new StringContent(json, Encoding.UTF8, "application/json");
+            var Response = await Client.PostAsync(urlBase, ContentJson);
+            if (Response.StatusCode == System.Net.HttpStatusCode.OK && Foto != null)
+            {
+                #region
+                AWSConfigs.AWSRegion = "us-east-2";
+                AWSConfigsS3.UseSignatureVersion4 = true;
+                AWSConfigs.CorrectForClockSkew = true;
 
-            string path = "/storage/emulated/0/Android/data/com.phoenix.fgtotal/files/Pictures/";
-                //Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                CognitoAWSCredentials credentials = new CognitoAWSCredentials(AWSEnvironment.IdentityPoolId, RegionEndpoint.USEast2);
 
-            // Para SUBIR un archivo nuevo
-            transferUtility.Upload(
-              Path.Combine(path, "Temp_Photo_5.jpg"),
-              "bucketfgtotal"
-            );
+                IAmazonS3 s3Client = new AmazonS3Client(credentials, RegionEndpoint.USEast2);
+
+                var transferUtility = new TransferUtility(s3Client);
+
+                await transferUtility.UploadAsync(Preferences.Get("photo_url", string.Empty), "bucketfgtotal/FGTotal_file"
+               );
+
+                Foto = null;
+                #endregion
+
+                var jsonpost = await Response.Content.ReadAsStringAsync();
+
+                var resultado = JsonConvert.DeserializeObject<PostModel>(jsonpost);
+
+                var idPublicacion = $"{resultado.idPublicacion}";
+
+                // Publicación de la ruta multimedia
+
+                PostMultimediaModel log2 = new PostMultimediaModel
+                {
+                    idPublicacion = Convert.ToInt32(idPublicacion),
+                    rutaArchivo = ruta,
+                    idItem = 1,
+                    idTipoMultimedia = "I",
+                    
+                };
+
+                Uri urlBase2 = new Uri("http://projectwebapi-1533273939.us-east-2.elb.amazonaws.com/api/Publicacion/GuardarRutaMultimedia/");
+
+                var Client2 = new HttpClient();
+                var json2 = JsonConvert.SerializeObject(log2);
+                var ContentJson2 = new StringContent(json2, Encoding.UTF8, "application/json");
+                var Response2 = await Client2.PostAsync(urlBase2, ContentJson2);
 
 
-            // Para DESCARGAR un archivo nuevo
-            transferUtility.Download(
-              Path.Combine(path, "imagen_prueba_001"),
-              "bucketfgtotal",
-              "FGTotal_file/Screenshot_1.jpg"
-            );
-            #endregion
+                // await Navigation.PushAsync(new Perfil());
+            }
+            if (Response.StatusCode == System.Net.HttpStatusCode.OK && Foto == null)
+            {
+                await DisplayAlert("Mensaje", "Publicación realizada", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Mensaje", "No se ha podido realizar la publicación", "OK");
+            }
 
-            // 
-            Navigation.PushAsync(new Perfil());
+            await Navigation.PushAsync(new Perfil());
         }
     }
 }
