@@ -1,31 +1,260 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewModel="clr-namespace:FGTotal.ViewModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FGTotal.Views.Jugador.Prueba"
-             BackgroundImageSource="fondo_config">
+             NavigationPage.HasNavigationBar="True"
+             xmlns:local="clr-namespace:CustomRendererDemo"
+             xmlns:ViewModel="clr-namespace:FGTotal.ViewModel"
+             xmlns:FGTotal="clr-namespace:FGTotal.Style"
+             NavigationPage.HasBackButton="False"
+             BackgroundColor="#001B4C">
 
     <ContentPage.BindingContext>
-        <viewModel:DmViewModel></viewModel:DmViewModel>
+        <ViewModel:ProfilePlayerViewModel/>
     </ContentPage.BindingContext>
 
-    <ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="notify.png" Priority="0" Order="Primary" Clicked="TapGestureRecognizer_Tapped_51"></ToolbarItem>
+        <ToolbarItem IconImageSource="mensajes"  Priority="1" Order="Primary" Clicked="TapGestureRecognizer_Tapped_41"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+        <NavigationPage.TitleView>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+                <Image Source="FG_Total.png">
+                </Image>
+            </StackLayout>
+        </NavigationPage.TitleView>
+        
+        <ContentPage.Content>
         <StackLayout>
-            <!-- <Button BackgroundColor="CornflowerBlue" TextColor="White" Command="{Binding ConsultaListaDmPostCommand}" Text="Post Request" FontAttributes="Bold"></Button> -->
-            <ListView Margin="10" ItemsSource="{Binding ListaDm}" HorizontalOptions="FillAndExpand">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding descripcionSeguidor}" TextColor="White" FontSize="Medium"></Label>
-                                <Label Text="{Binding descripcionJugador}" TextColor="White" FontSize="Small"></Label>
-                                <Label Text="{Binding mensaje}" TextColor="White" FontSize="Small"></Label>
-                                <Label Text="{Binding descripcionTipoDm}" TextColor="white" FontSize="Small"></Label>
+            <StackLayout>
+                <ScrollView
+                        VerticalScrollBarVisibility="Never"
+                        BackgroundColor="#001B4C">
+                    <RelativeLayout>
+                        <BoxView
+                                BackgroundColor="#F7F7F7"
+                                HeightRequest="1"
+                                WidthRequest="1920"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="StartAndExpand" />
+                        <Image 
+                                 x:Name="ImagePortada1"
+                                 Margin="0"
+                                 Source="portada_perfiljugador.png"/>
+                        <Image
+                                 x:Name="ImageUser1"
+                                 Source="user1"
+                                 RelativeLayout.WidthConstraint="150"
+                                 RelativeLayout.HeightConstraint="150"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=60, ElementName=ImagePortada}"/>
+                        <Button
+                                 x:Name="btnAgregar1"
+                                 Clicked="Agregar_Clicked1"
+                                 Text="Agregar a Historia"
+                                 TextColor="#001B4C"
+                                 TextTransform="None"
+                                 FontFamily="GOTHIC"
+                                 CornerRadius="{OnPlatform iOS='20', Android='40'}"
+                                 BackgroundColor="Lime"
+                                 RelativeLayout.WidthConstraint="250"
+                                 RelativeLayout.HeightConstraint="40"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.2}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=170, ElementName=ImageUser}"/>
+                        <Button
+                                 x:Name="btnEditar1"
+                                 Clicked="btn_editar1"
+                                 Text="Editar Perfil"
+                                 TextColor="White"
+                                 TextTransform="None"
+                                 FontFamily="GOTHIC"
+                                 BorderColor="Gray"
+                                 CornerRadius="40"
+                                 BackgroundColor="Transparent"
+                                 RelativeLayout.WidthConstraint="250"
+                                 RelativeLayout.HeightConstraint="40"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.2}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=btnAgregar}"/>
+                        <ImageButton
+                                 x:Name="btnShare1"
+                                 Source="share"
+                                 BackgroundColor="Transparent"
+                                 RelativeLayout.WidthConstraint="25"
+                                 RelativeLayout.HeightConstraint="25"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=50, ElementName=btnEditar}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=55, ElementName=btnAgregar}"/>
+                        <Frame
+                                 x:Name="SeccionFrame1"
+                                 BackgroundColor="Transparent"
+                                 BorderColor="White"
+                                 CornerRadius="10"
+                                 Margin="20,0,0,0"
+                                 WidthRequest="100"
+                                 HeightRequest="20"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=45, ElementName=btnShare}">
+                            <StackLayout
+                                    Orientation="Horizontal">
+                                <ImageButton
+                                        Source="photo1"
+                                        Clicked="Gallery_Clicked1"
+                                        WidthRequest="25"
+                                        HeightRequest="25"
+                                        Margin="0,0,5,0"
+                                        BackgroundColor="Transparent"/>
+                                <BoxView
+                                        BackgroundColor="#F7F7F7"
+                                        WidthRequest="1"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="StartAndExpand" />
+                                <ImageButton
+                                        Source="play1"
+                                        Clicked="Video_Clicked1"
+                                        WidthRequest="25"
+                                        HeightRequest="25"
+                                        Margin="0,0,5,0"
+                                        BackgroundColor="Transparent"/>
+                                <BoxView
+                                        BackgroundColor="#F7F7F7"
+                                        WidthRequest="1"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="StartAndExpand" />
+                                <ImageButton
+                                        Source="pen"
+                                        WidthRequest="25"
+                                        HeightRequest="25"
+                                        Margin="0,0,5,0"
+                                        BackgroundColor="Transparent"/>
                             </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        </Frame>
+                        <ImageButton
+                                 x:Name="btnWish1"
+                                 Source="WISH.png"
+                                 WidthRequest="60"
+                                 HeightRequest="60"
+                                 BackgroundColor="Transparent"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=Width, Constant=110, ElementName=SeccionFrame}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=100, ElementName=btnAgregar}"/>
+                        <ImageButton
+                                 Source="DM"
+                                 WidthRequest="60"
+                                 HeightRequest="60"
+                                 BackgroundColor="Transparent"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=70, ElementName=btnWish}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=100, ElementName=btnAgregar}"/>
+                        <BoxView
+                                 BackgroundColor="#F7F7F7"
+                                 HeightRequest="1"
+                                 WidthRequest="1920"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="StartAndExpand" />
+                        <BoxView
+                                 x:Name="BView1"
+                                 BackgroundColor="#F7F7F7"
+                                 HeightRequest="1"
+                                 WidthRequest="1920"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="StartAndExpand"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=70, ElementName=SeccionFrame}"/>
+                        <Image
+                                 x:Name="ImgComent1"
+                                 Source="user1"
+                                 WidthRequest="45"
+                                 HeightRequest="45"
+                                 Margin="20,0,0,0"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=20, ElementName=BView}"/>
+                        <local:RoundedEntry
+                                 x:Name="NewComent1"
+                                 Grid.Row="1"
+                                 BackgroundColor="Transparent"
+                                 Placeholder="¿Qué estás pensando?"
+                                 FontSize="Small"
+                                 HorizontalOptions="Center"
+                                 WidthRequest="300"
+                                 HeightRequest="40"
+                                 Margin="0,0,0,-30"
+                                 PlaceholderColor="Gray"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=60, ElementName=ImgComent}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=25, ElementName=BView}">
+                        </local:RoundedEntry>
+                        <ImageButton
+                                 x:Name="btnLive1"
+                                 Source="live"
+                                 WidthRequest="25"
+                                 HeightRequest="25"
+                                 BackgroundColor="Transparent"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=10, ElementName=NewComent}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=NewComent}"/>
+                        <Label
+                                 x:Name="lblLive1"
+                                 Text="En Vivo"
+                                 TextColor="White"
+                                 FontSize="15"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=btnLive}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=NewComent}"/>
+                        <ImageButton
+                                 x:Name="btnFoto1"
+                                 Source="photo2"
+                                 Clicked="Camara_Clicked1"
+                                 WidthRequest="23"
+                                 HeightRequest="23"
+                                 BackgroundColor="Transparent"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=85, ElementName=lblLive}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=NewComent}"/>
+                        <Label
+                                 x:Name="lblFoto1"
+                                 Text="Foto"
+                                 TextColor="White"
+                                 FontSize="15"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=btnFoto}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=NewComent}"/>
+                        <ImageButton
+                                 x:Name="btnVideo1"
+                                 Source="play2"
+                                 WidthRequest="23"
+                                 HeightRequest="23"
+                                 BackgroundColor="Transparent"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=90, ElementName=btnFoto}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=NewComent}"/>
+                        <Label
+                                 x:Name="lblVideo1"
+                                 Text="Video"
+                                 TextColor="White"
+                                 FontSize="15"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=btnVideo}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50, ElementName=NewComent}"/>
+                        <BoxView
+                                 x:Name="BView22"
+                                 BackgroundColor="#F7F7F7"
+                                 HeightRequest="1"
+                                 WidthRequest="1920"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="StartAndExpand"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=40, ElementName=lblVideo}"/>
+                        <!--Estados-->
+                        <ImageButton x:Name="Foto1"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Constant={OnPlatform iOS='20', Android='10'}, Property=X}"
+                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=35, ElementName=BView2}"
+                                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=370}"
+                                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=205}"
+                                 BackgroundColor="Transparent"/>
+                    </RelativeLayout>
+                </ScrollView>
+                <StackLayout>
+                    <ListView Margin="10" ItemsSource="{Binding PerfilUsuario}" HorizontalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Image Source="{Binding rImagen}" Aspect="AspectFit"></Image>
+                                        <Label Text="{Binding descripcion}" TextColor="White" FontSize="Small"></Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

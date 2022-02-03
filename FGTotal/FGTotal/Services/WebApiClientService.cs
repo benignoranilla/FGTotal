@@ -63,7 +63,7 @@ namespace FGTotal.Services
         {
 
             string id = Preferences.Get("idLogin", string.Empty);
-            string requestUri = "/ObtenerPerfilJugadorPayPremiumDeta/" + id;
+            string requestUri = "Usuarios/ObtenerPerfilJugadorPayPremiumDeta/" + id;
 
             var client = new HttpClient();
 
