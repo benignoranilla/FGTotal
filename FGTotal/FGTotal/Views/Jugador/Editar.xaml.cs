@@ -50,8 +50,8 @@ namespace FGTotal.Views.Jugador
 
             EditarModel log = new EditarModel
             {
-                nombres = TextoNombre.Text,
-                descripcionPerfil = TextoDescripcion.Text,
+                //nombres = TextoNombre.Text,
+                //descripcionPerfil = TextoDescripcion.Text,
                 tipoUsuario = "J",
                 id = int.Parse(idJ)
             };
