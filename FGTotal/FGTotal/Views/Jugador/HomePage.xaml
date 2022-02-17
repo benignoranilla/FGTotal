@@ -5,13 +5,13 @@
              xmlns:viewmodels="clr-namespace:FGTotal.ViewModel"
              xmlns:FGTotal="clr-namespace:FGTotal.Style"
              x:Class="FGTotal.Views.Jugador.HomePage"
-             x:Name="mainView"
+             x:Name="Home"
              NavigationPage.HasNavigationBar="True"
              NavigationPage.HasBackButton="False"
              BackgroundColor="#001B4C">  
 
     <ContentPage.BindingContext>
-        <viewmodels:ItemPreviewViewModel />
+        <viewmodels:HomePageViewModel/>
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
@@ -54,51 +54,51 @@
                         VerticalOptions="StartAndExpand" />
             </StackLayout>
             <StackLayout Margin="15,0,5,0">
-                <!--  Categories  -->
-                <StackLayout>
-                    <StackLayout Margin="0,0,0,0">
-                        <StackLayout
-                                    Margin="0,20,0,0"
-                                    HeightRequest="90"
-                                    Orientation="Horizontal">
+                <!--  categories  -->
+                <!--<stacklayout>
+                    <stacklayout margin="0,0,0,0">
+                        <stacklayout
+                                    margin="0,20,0,0"
+                                    heightrequest="90"
+                                    orientation="horizontal">
 
-                            <CollectionView ItemsSource="{Binding categories}">
+                            <collectionview itemssource="{binding categories}">
 
-                                <CollectionView.ItemsLayout>
-                                    <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal" />
-                                </CollectionView.ItemsLayout>
+                                <collectionview.itemslayout>
+                                    <linearitemslayout itemspacing="10" orientation="horizontal" />
+                                </collectionview.itemslayout>
 
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackLayout>
+                                <collectionview.itemtemplate>
+                                    <datatemplate>
+                                        <stacklayout>
 
-                                            <Frame
-                                                Margin="0,0,0,0"
-                                                Padding="0"
-                                                CornerRadius="30"
-                                                BackgroundColor="LimeGreen"
-                                                HeightRequest="60"
-                                                WidthRequest="60">
-                                                <Image
-                                                    Margin="-8"
-                                                    Aspect="AspectFit"
-                                                    HorizontalOptions="CenterAndExpand"
-                                                    Source="{Binding image}"
-                                                    VerticalOptions="CenterAndExpand" />
-                                            </Frame>
+                                            <frame
+                                                margin="0,0,0,0"
+                                                padding="0"
+                                                cornerradius="30"
+                                                backgroundcolor="limegreen"
+                                                heightrequest="60"
+                                                widthrequest="60">
+                                                <image
+                                                    margin="-8"
+                                                    aspect="aspectfit"
+                                                    horizontaloptions="centerandexpand"
+                                                    source="{binding image}"
+                                                    verticaloptions="centerandexpand" />
+                                            </frame>
 
-                                            <StackLayout.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding Source={x:Reference mainView}, Path=BindingContext.CatTapCommand}" CommandParameter="{Binding .}" />
-                                            </StackLayout.GestureRecognizers>
-                                        </StackLayout>
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
+                                            <stacklayout.gesturerecognizers>
+                                                <tapgesturerecognizer command="{binding source={x:reference mainview}, path=bindingcontext.cattapcommand}" commandparameter="{binding .}" />
+                                            </stacklayout.gesturerecognizers>
+                                        </stacklayout>
+                                    </datatemplate>
+                                </collectionview.itemtemplate>
+                            </collectionview>
 
-                        </StackLayout>
-                    </StackLayout>
+                        </stacklayout>
+                    </stacklayout>
 
-                </StackLayout>
+                </stacklayout>-->
 
                 <ScrollView VerticalScrollBarVisibility="Never">
                     <RelativeLayout>
@@ -124,8 +124,40 @@
                             </StackLayout>
                         </Frame>
 
+                        <StackLayout>
+                            <ListView Margin="20,60,0,20" ItemsSource="{Binding TimeLine}" RowHeight="100">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Grid RowSpacing="2">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="40"/>
+                                                        <ColumnDefinition Width="100"/>
+                                                        <ColumnDefinition Width="100"/>
+                                                        <ColumnDefinition Width="100"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Image Source="user1.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Start"/>
+                                                    <Label Text="{Binding nombresUsuario}" x:Name="Nusuario" TextColor="White" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
+                                                    <Label Text="Publicó un nuevo estado" TextColor="Lime" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                                                    <Label Text="{Binding descripcion}" TextColor="White" FontSize="17" FontAttributes="Bold" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"></Label>
+                                                    <Label Text="{Binding fechaCreacion}" TextColor="White" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"></Label>
+                                                </Grid>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+
                         <!--Primer Post-->
-                        <ImageButton Source="Friend6.jpg"
+                        <!--<ImageButton Source="Friend6.jpg"
                                  x:Name="VBOx"
                                  Opacity="0.4"
                                  HeightRequest="150"
@@ -183,7 +215,7 @@
                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=ComentPost}"
                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=165, ElementName=VBOx}"/>
 
-                        <!--Segundo Post-->
+                        --><!--Segundo Post--><!--
                         <ImageButton Source="Friend6.jpg"
                                      x:Name="Foto"
                                      Opacity="0.4"
@@ -240,7 +272,7 @@
                            ImageSource="Asset4"
                            HeightRequest="50"
                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=30, ElementName=ComentPost2}"
-                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=Foto}"/>
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=160, ElementName=Foto}"/>-->
 
                         <ffSvg:SvgCachedImage
                             WidthRequest=".75"
@@ -248,8 +280,6 @@
                             Aspect="AspectFill"
                             Source="resource://FGTotal.SVG.entrevistas_foto.svg" />
                     </RelativeLayout>
-
-
 
                 </ScrollView>
             </StackLayout>

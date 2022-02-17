@@ -105,6 +105,30 @@ namespace FGTotal.Services
             {
                 return default(T);
             }
+        }
+
+        public async Task<T> ObtenerUltimasPublicaciones<T>()
+        {
+
+            string id = Preferences.Get("idSeguidor", string.Empty);
+            string requestUri = "Publicacion/ObtenerUltimasPublicaciones/" + id;
+
+            var client = new HttpClient();
+
+            client.BaseAddress = urlBase;
+
+            HttpResponseMessage response = await client.GetAsync(requestUri).ConfigureAwait(false);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var _json = JsonConvert.DeserializeObject<T>(json);
+                return _json;
+            }
+            else
+            {
+                return default(T);
+            }
 
 
         }
